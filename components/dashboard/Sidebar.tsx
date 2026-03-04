@@ -19,7 +19,7 @@ export default function Sidebar() {
     return (
         <aside className="fixed inset-y-0 left-0 z-10 hidden w-64 flex-col border-r bg-white dark:bg-zinc-950 sm:flex">
             <div className="flex h-16 shrink-0 items-center px-6 border-b">
-                <span className="font-bold text-xl tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-500">CreatorOS</span>
+                <span className="font-bold text-xl tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-500">Infloura</span>
             </div>
             <nav className="flex flex-col gap-2 p-4">
                 {links.map((link) => {

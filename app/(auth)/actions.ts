@@ -31,20 +31,27 @@ export async function register(formData: FormData) {
     const { data, error } = await supabase.auth.signUp({
         email,
         password,
+        options: {
+            data: {
+                full_name: fullName,
+            }
+        }
     })
 
     if (error) {
         return { error: error.message }
     }
 
+    // Since the database trigger creates the profile, we don't need to manually string-match columns here.
+    // However, if the trigger fails or wasn't there, we can attempt a safe upsert
     if (data.user) {
-        const trialEndsAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString()
-        await supabase.from('profiles').insert({
+        const { error: profileError } = await supabase.from('profiles').upsert({
             id: data.user.id,
             email: data.user.email,
             full_name: fullName,
-            trial_ends_at: trialEndsAt
-        })
+            plan_type: 'free',
+            trial_ends_at: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString()
+        }, { onConflict: 'id' }).select()
     }
 
     redirect('/dashboard')

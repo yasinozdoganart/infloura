@@ -8,9 +8,33 @@ export async function POST(request: Request) {
         const body = await request.json();
         const inputData: SimulationInput = body;
 
-        const conservative = runSimulation(inputData, 'conservative');
-        const realistic = runSimulation(inputData, 'realistic');
-        const aggressive = runSimulation(inputData, 'aggressive');
+        const supabase = await createClient();
+        const { data: { user } } = await supabase.auth.getUser();
+
+        let planType = 'free';
+
+        if (user) {
+            let { data: profile } = await supabase.from('profiles').select('plan_type').eq('id', user.id).single();
+            if (!profile) {
+                const { data: newProfile, error: profileErr } = await supabase.from('profiles').insert({
+                    id: user.id,
+                    email: user.email,
+                    full_name: user.user_metadata?.full_name || 'Creator',
+                    plan_type: 'free',
+                    trial_ends_at: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),
+                }).select().single();
+
+                if (profileErr) console.error("Profile creation error:", profileErr);
+                profile = newProfile || { plan_type: 'free' };
+            }
+            planType = profile?.plan_type || 'free';
+        }
+
+        const limit = (planType === 'free' || planType === 'free_trial') ? 3 : 12;
+
+        const conservative = runSimulation(inputData, 'conservative', limit);
+        const realistic = runSimulation(inputData, 'realistic', limit);
+        const aggressive = runSimulation(inputData, 'aggressive', limit);
 
         const result = {
             platform: inputData.platform,
@@ -21,14 +45,7 @@ export async function POST(request: Request) {
             }
         };
 
-        const supabase = await createClient();
-        const { data: { user } } = await supabase.auth.getUser();
-
         if (user) {
-            // Check for free plan limitation (max 1 simulation ideally, but just saving here)
-            const { data: profile } = await supabase.from('profiles').select('plan_type').eq('id', user.id).single();
-            const planType = profile?.plan_type || 'free';
-
             const { data: sim } = await supabase.from('simulations').insert({
                 user_id: user.id,
                 platform_name: inputData.platform,

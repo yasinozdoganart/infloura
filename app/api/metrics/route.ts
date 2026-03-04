@@ -11,6 +11,19 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
         }
 
+        // SELF-HEAL: If profile doesn't exist (because user signed up before SQL was run), create it
+        const { data: profile } = await supabase.from('profiles').select('id').eq('id', user.id).single();
+        if (!profile) {
+            const { error: profileErr } = await supabase.from('profiles').insert({
+                id: user.id,
+                email: user.email,
+                full_name: user.user_metadata?.full_name || 'Creator',
+                plan_type: 'free',
+                trial_ends_at: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),
+            });
+            if (profileErr) console.error("Profile creation error in metrics:", profileErr);
+        }
+
         let { data: platform } = await supabase.from('platforms')
             .select('id').eq('user_id', user.id).eq('platform_name', body.platform_name).single();
 

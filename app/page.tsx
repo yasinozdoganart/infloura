@@ -1,54 +1,56 @@
-import { HeroSection } from "@/components/blocks/hero-section-dark"
+import { HeroGeometric } from "@/components/ui/shape-landing-hero"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import Link from 'next/link'
-import { LineChart, BrainCircuit, Activity, CheckCircle2 } from "lucide-react"
+import { LiquidButton } from "@/components/ui/liquid-glass-button"
+import { LineChart, BrainCircuit, Activity } from "lucide-react"
+import { AvatarGroup } from "@/components/landing/AvatarGroup"
+import { WallOfLove } from "@/components/landing/WallOfLove"
+import { PricingSection } from "@/components/landing/PricingSection"
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-black text-white selection:bg-purple-500/30">
+    <div className="min-h-screen bg-[#030303] text-white selection:bg-purple-500/30">
 
       {/* Header */}
-      <header className="fixed top-0 w-full z-50 bg-black/50 backdrop-blur-xl border-b border-white/5">
+      <header className="fixed top-0 w-full z-50 bg-[#030303]/50 backdrop-blur-xl border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="font-bold text-xl tracking-tighter text-white">CreatorOS</div>
+          <div className="flex items-center gap-3">
+            <div className="font-bold text-2xl tracking-tighter text-white leading-none">Infloura</div>
+            <div className="hidden sm:flex items-center px-2.5 py-0.5 mt-0.5 rounded-full bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30">
+              <span className="text-xs font-semibold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent transform translate-y-[0.5px]">
+                Infloura 1.0 is live!
+              </span>
+            </div>
+          </div>
           <div className="flex gap-4">
-            <Button variant="ghost" className="text-zinc-300 hover:text-white" asChild>
+            <Button variant="ghost" className="text-zinc-300 hover:text-black hover:bg-white transition-colors" asChild>
               <Link href="/login">Login</Link>
             </Button>
-            <Button className="bg-white text-black hover:bg-zinc-200" asChild>
+            <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-medium border-0 transition-all duration-300 shadow-[0_0_15px_rgba(168,85,247,0.3)] hover:shadow-[0_0_25px_rgba(168,85,247,0.5)]" asChild>
               <Link href="/register">Start Free Trial</Link>
             </Button>
           </div>
         </div>
       </header>
 
-      {/* Hero Section from User Request */}
-      <HeroSection
-        title="CreatorOS 1.0 is here"
-        subtitle={{
-          regular: "Your Creator Business, ",
-          gradient: "Finally Structured.",
-        }}
-        description="Revenue simulation, AI strategy, and growth tracking — built for serious creators."
-        ctaText="Start Free Trial"
-        ctaHref="/register"
-        bottomImage={{
-          light: "https://farmui.vercel.app/dashboard-light.png",
-          dark: "https://farmui.vercel.app/dashboard.png"
-        }}
-        gridOptions={{
-          angle: 65,
-          cellSize: 50,
-          opacity: 0.4,
-          darkLineColor: "#4c1d95"
-        }}
-        className="pt-16"
-      />
+      {/* Hero Section */}
+      <div className="relative">
+        <HeroGeometric
+          badge=""
+          title1="Your Creator Business,"
+          title2="Finally Structured."
+        />
+        <div className="absolute bottom-16 md:bottom-24 left-0 right-0 z-20 flex flex-col items-center gap-6">
+          <LiquidButton href="#features" className="text-white hover:text-white h-12 px-8 text-lg w-auto">
+            Discover More
+          </LiquidButton>
+        </div>
+      </div>
 
       {/* Features Section */}
-      <section className="py-24 bg-black relative z-10">
+      <section id="features" className="py-24 bg-black relative z-10 scroll-mt-16">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">Everything you need to scale</h2>
@@ -99,12 +101,12 @@ export default function LandingPage() {
           <div className="grid md:grid-cols-3 gap-12 relative">
             <div className="hidden md:block absolute top-1/2 left-1/6 right-1/6 h-[1px] bg-gradient-to-r from-transparent via-purple-500/50 to-transparent -translate-y-1/2 z-0"></div>
             {[
-              { step: "01", title: "Enter your platform data", desc: "No API connections required initially. Just drop your current reach and engagement." },
-              { step: "02", title: "Run revenue simulation", desc: "Our deterministic math engine creates 12-month projections tailored to your niche." },
-              { step: "03", title: "Follow AI roadmap", desc: "Execute the exact month-by-month steps the AI prescribes to hit your numbers." }
+              { step: "01", title: "Enter your platform data", desc: "No API connections required initially. Just drop your current reach and engagement.", colorClasses: "text-purple-400 shadow-[0_0_30px_rgba(168,85,247,0.15)]" },
+              { step: "02", title: "Run revenue simulation", desc: "Our deterministic math engine creates 12-month projections tailored to your niche.", colorClasses: "text-blue-400 shadow-[0_0_30px_rgba(59,130,246,0.15)]" },
+              { step: "03", title: "Follow AI roadmap", desc: "Execute the exact month-by-month steps the AI prescribes to hit your numbers.", colorClasses: "text-indigo-400 shadow-[0_0_30px_rgba(99,102,241,0.15)]" }
             ].map((item, i) => (
               <div key={i} className="relative z-10 flex flex-col items-center bg-zinc-950/80 p-6 rounded-2xl backdrop-blur-xl">
-                <div className="w-16 h-16 rounded-full bg-zinc-900 border border-white/10 flex items-center justify-center text-xl font-bold font-mono text-purple-400 mb-6 shadow-[0_0_30px_rgba(168,85,247,0.15)]">
+                <div className={`w-16 h-16 rounded-full bg-zinc-900 border border-white/10 flex items-center justify-center text-xl font-bold font-mono mb-6 ${item.colorClasses}`}>
                   {item.step}
                 </div>
                 <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
@@ -115,87 +117,11 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Pricing */}
-      <section className="py-24 bg-black relative z-10">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">Simple, transparent pricing</h2>
-            <p className="text-zinc-400 text-lg">Invest in your creator business today.</p>
-          </div>
+      {/* Wall of Love (Testimonials) */}
+      <WallOfLove />
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {/* Free */}
-            <Card className="bg-zinc-950 border-white/10 text-white">
-              <CardHeader>
-                <CardTitle className="text-xl">Free</CardTitle>
-                <div className="mt-4 flex items-baseline text-4xl font-extrabold">
-                  $0
-                  <span className="ml-1 text-xl font-medium text-zinc-500">/mo</span>
-                </div>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <ul className="space-y-3">
-                  <li className="flex gap-2"><CheckCircle2 className="w-5 h-5 text-zinc-500" /> <span className="text-zinc-400">1 Simulation per month</span></li>
-                  <li className="flex gap-2"><CheckCircle2 className="w-5 h-5 text-zinc-500" /> <span className="text-zinc-400">6 Month Projections</span></li>
-                  <li className="flex gap-2"><CheckCircle2 className="w-5 h-5 text-zinc-500" /> <span className="text-zinc-400">Basic Tracking</span></li>
-                </ul>
-                <Button className="w-full bg-zinc-800 hover:bg-zinc-700 text-white" asChild>
-                  <Link href="/register">Get Started</Link>
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Pro Monthly */}
-            <Card className="bg-zinc-900 border-purple-500/50 text-white relative shadow-[0_0_40px_rgba(168,85,247,0.1)] scale-105 z-10">
-              <div className="absolute top-0 inset-x-0 transform -translate-y-1/2 flex justify-center">
-                <Badge className="bg-purple-500 text-white border-0 hover:bg-purple-500">Most Popular</Badge>
-              </div>
-              <CardHeader>
-                <CardTitle className="text-xl">Pro Monthly</CardTitle>
-                <div className="mt-4 flex items-baseline text-4xl font-extrabold">
-                  $9.90
-                  <span className="ml-1 text-xl font-medium text-zinc-400">/mo</span>
-                </div>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <ul className="space-y-3">
-                  <li className="flex gap-2"><CheckCircle2 className="w-5 h-5 text-purple-400" /> <span>Unlimited Simulations</span></li>
-                  <li className="flex gap-2"><CheckCircle2 className="w-5 h-5 text-purple-400" /> <span>12 Month Projections</span></li>
-                  <li className="flex gap-2"><CheckCircle2 className="w-5 h-5 text-purple-400" /> <span>AI Strategy Roadmap</span></li>
-                  <li className="flex gap-2"><CheckCircle2 className="w-5 h-5 text-purple-400" /> <span>Advanced Tracking</span></li>
-                </ul>
-                <Button className="w-full bg-white text-black hover:bg-zinc-200" asChild>
-                  <Link href="/register">Start 7-Day Free Trial</Link>
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Pro Annual */}
-            <Card className="bg-zinc-950 border-white/10 text-white">
-              <CardHeader>
-                <CardTitle className="text-xl flex justify-between items-center">
-                  Pro Annual
-                  <Badge variant="outline" className="border-green-500/50 text-green-400">Save 17%</Badge>
-                </CardTitle>
-                <div className="mt-4 flex items-baseline text-4xl font-extrabold">
-                  $99
-                  <span className="ml-1 text-xl font-medium text-zinc-500">/yr</span>
-                </div>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <ul className="space-y-3">
-                  <li className="flex gap-2"><CheckCircle2 className="w-5 h-5 text-purple-500" /> <span>Everything in Pro</span></li>
-                  <li className="flex gap-2"><CheckCircle2 className="w-5 h-5 text-purple-500" /> <span>PDF Exports (Soon)</span></li>
-                  <li className="flex gap-2"><CheckCircle2 className="w-5 h-5 text-purple-500" /> <span>Priority Support</span></li>
-                </ul>
-                <Button className="w-full bg-zinc-800 hover:bg-zinc-700 text-white" asChild>
-                  <Link href="/register">Go Annual</Link>
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
+      {/* Pricing Module */}
+      <PricingSection />
 
       {/* FAQ */}
       <section className="py-24 bg-zinc-950 relative z-10 border-t border-white/5">
@@ -204,7 +130,7 @@ export default function LandingPage() {
           <div className="space-y-6">
             <div>
               <h3 className="text-lg font-semibold mb-2">Is this a get-rich-quick tool?</h3>
-              <p className="text-zinc-400">No. CreatorOS is a business simulation tool that relies on standard industry conversion metrics to show you what is mathematically possible. It requires enormous effort on your end.</p>
+              <p className="text-zinc-400">No. Infloura is a business simulation tool that relies on standard industry conversion metrics to show you what is mathematically possible. It requires enormous effort on your end.</p>
             </div>
             <div>
               <h3 className="text-lg font-semibold mb-2">What platforms are supported?</h3>
@@ -224,9 +150,9 @@ export default function LandingPage() {
 
       {/* Footer */}
       <footer className="py-12 bg-black border-t border-white/10 text-center text-zinc-500 relative z-10">
-        <div className="font-bold text-xl tracking-tighter text-white mb-4 opacity-50">CreatorOS</div>
+        <div className="font-bold text-xl tracking-tighter text-white mb-4 opacity-50">Infloura</div>
         <p>Made for creators, by creators.</p>
-        <p className="text-sm mt-4 text-zinc-700">© {new Date().getFullYear()} CreatorOS. All rights reserved.</p>
+        <p className="text-sm mt-4 text-zinc-700">© {new Date().getFullYear()} Infloura. All rights reserved.</p>
       </footer>
     </div>
   )

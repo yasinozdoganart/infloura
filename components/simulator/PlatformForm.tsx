@@ -40,7 +40,7 @@ export default function PlatformForm({ onSimulate, isPending }: { onSimulate: (d
                 <form onSubmit={handleSubmit} className="grid gap-4">
                     <div className="grid gap-2">
                         <Label>Select Platform</Label>
-                        <div className="flex gap-2">
+                        <div className="flex flex-wrap gap-2">
                             {(['youtube', 'tiktok', 'instagram', 'x'] as const).map(p => (
                                 <Button
                                     key={p}

@@ -2,7 +2,7 @@ import { calculateYoutubeRevenue, calculateTiktokRevenue, calculateInstagramReve
 import { scenarios } from "./scenarioModels";
 import { SimulationInput, SimulationResult, MonthlyProjection } from "@/types/simulation";
 
-export function runSimulation(input: SimulationInput, scenarioType: 'conservative' | 'realistic' | 'aggressive'): SimulationResult {
+export function runSimulation(input: SimulationInput, scenarioType: 'conservative' | 'realistic' | 'aggressive', monthsLimit: number = 12): SimulationResult {
     const scenario = scenarios[scenarioType];
     const projections: MonthlyProjection[] = [];
 
@@ -10,7 +10,7 @@ export function runSimulation(input: SimulationInput, scenarioType: 'conservativ
     let currentReach = input.monthlyReach;
     const costs = input.monthlyCosts ?? 50;
 
-    for (let month = 1; month <= 12; month++) {
+    for (let month = 1; month <= monthsLimit; month++) {
         currentAudience = Math.round(currentAudience * (1 + scenario.growthRate));
         currentReach = Math.round(currentReach * (1 + scenario.growthRate));
 

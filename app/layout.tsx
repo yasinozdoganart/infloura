@@ -14,13 +14,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CreatorOS | Structured Business for Creators",
+  title: "Infloura | Structured Business for Creators",
   description: "Revenue simulation, AI strategy, and growth tracking — built for serious creators.",
   openGraph: {
-    title: "CreatorOS",
+    title: "Infloura",
     description: "Revenue simulation, AI strategy, and growth tracking.",
-    url: "https://creatoros.io",
-    siteName: "CreatorOS",
+    url: "https://infloura.com",
+    siteName: "Infloura",
     locale: "en_US",
     type: "website",
   }

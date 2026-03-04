@@ -26,10 +26,10 @@ export default function SimulatorPage() {
             if (!res.ok) throw new Error(json.error)
 
             setResult(json)
-            // Enforce 6 month limit for free users in display
+            // Enforce 3 month limit for free users in display
             if (json.planType === 'free') {
-                setLimit(6)
-                toast('Free Plan Limit', { description: 'Showing 6 months. Upgrade to Pro for 12 months projections.' })
+                setLimit(3)
+                toast('Free Plan Limit', { description: 'Showing 3 months. Upgrade to Pro for 12 months projections.' })
             } else {
                 setLimit(12)
                 toast.success("Simulation complete!")
@@ -58,7 +58,7 @@ export default function SimulatorPage() {
                         <div className="space-y-4">
                             <div className="flex items-center justify-between">
                                 <h3 className="text-xl font-semibold">Projections</h3>
-                                {limit === 6 && <Badge variant="destructive">Limited to 6 Months</Badge>}
+                                {limit === 3 && <Badge variant="destructive">Limited to 3 Months</Badge>}
                             </div>
                             <ResultsChart scenarios={result.scenarios} limit={limit} />
                             <ScenarioCards scenarios={result.scenarios} />
