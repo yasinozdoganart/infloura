@@ -25,7 +25,7 @@ const testimonials = [
         name: "Elena Rodriguez",
         handle: "@elena.lifestyle",
         platform: "Instagram",
-        content: "CreatorOS is like having a CFO and Strategy Lead in your pocket. The Growth Tracking feature instantly tells me if my Reels strategy is actually working.",
+        content: "Infloura is like having a CFO and Strategy Lead in your pocket. The Growth Tracking feature instantly tells me if my Reels strategy is actually working.",
         avatar: "https://i.pravatar.cc/100?img=34"
     },
     {

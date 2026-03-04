@@ -1,27 +1,28 @@
-# CreatorOS
+# Infloura
 
-CreatorOS is a SaaS application for digital creators to map out and simulate their revenue models, manage growth goals, and receive AI-guided roadmaps for monetization.
+Infloura is a SaaS application for digital creators to map out and simulate their revenue models, manage growth goals, and receive AI-guided roadmaps for monetization.
 
 ## Tech Stack
-- Next.js 14 / App Router
-- Tailwind CSS & Shadcn/ui
-- Supabase (Auth, DB Serverless capabilities)
-- Stripe (Billing)
-- Google Gemini API (AI Roadmaps)
-- Recharts (Data Visualization)
+- **Framework:** Next.js 14 (App Router)
+- **Database:** Supabase (PostgreSQL + Auth)
+- **AI:** Google Gemini API
+- **Payments:** Stripe
+- **Styling:** Tailwind CSS + Shadcn/ui
+- **Charts:** Recharts
 
-## Prerequisites
-- Node.js >= 18.x
+## Getting Started
+
+### Prerequisites
+- Node.js 18+
 - Supabase Account
 - Stripe Account
-- Google Gemini API Key
+- Google AI (Gemini) API Key
 
-## Setup Instructions
-
-1. **Clone & Install**
+### Installation
+1. Clone the repository:
    ```bash
-   git clone <repo-url> creatoros
-   cd creatoros
+   git clone <repo-url> infloura
+   cd infloura
    npm install
    ```
 
