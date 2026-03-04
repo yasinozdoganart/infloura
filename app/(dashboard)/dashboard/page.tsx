@@ -196,8 +196,17 @@ export default async function DashboardPage() {
                                                 <p className="text-sm text-zinc-500">{new Date(sim.created_at).toLocaleDateString()}</p>
                                             </div>
                                             <div className="text-right">
-                                                <p className="font-semibold text-purple-600 dark:text-purple-400">${Math.round(sim.realistic_projection[11]?.totalRevenue || 0).toLocaleString()}/mo</p>
-                                                <p className="text-xs text-zinc-500">Month 12 Est.</p>
+                                                {(() => {
+                                                    const isLimited = sim.realistic_projection.length <= 3
+                                                    const lastIndex = sim.realistic_projection.length - 1
+                                                    const revenue = Math.round(sim.realistic_projection[lastIndex]?.totalRevenue || 0)
+                                                    return (
+                                                        <>
+                                                            <p className="font-semibold text-purple-600 dark:text-purple-400">${revenue.toLocaleString()}/mo</p>
+                                                            <p className="text-xs text-zinc-500">Month {lastIndex + 1} Est.</p>
+                                                        </>
+                                                    )
+                                                })()}
                                             </div>
                                         </div>
                                     ))
