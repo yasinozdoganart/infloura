@@ -11,22 +11,37 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Badge } from "@/components/ui/badge"
-import { createBrowserClient } from "@supabase/ssr"
+import { createClient } from "@/lib/supabase/client"
 import { useRouter } from "next/navigation"
+import { useEffect, useState } from "react"
 
-export default function Header({ user }: { user?: any }) {
+export default function Header() {
     const router = useRouter()
-    const supabase = createBrowserClient(
-        process.env.NEXT_PUBLIC_SUPABASE_URL!,
-        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-    )
+    const supabase = createClient()
+    const [userEmail, setUserEmail] = useState<string>('')
+    const [planType, setPlanType] = useState<string>('free')
+
+    useEffect(() => {
+        const loadUser = async () => {
+            const { data: { user } } = await supabase.auth.getUser()
+            if (user) {
+                setUserEmail(user.email || '')
+                const { data: profile } = await supabase.from('profiles').select('plan_type').eq('id', user.id).single()
+                if (profile) {
+                    setPlanType(profile.plan_type)
+                }
+            }
+        }
+        loadUser()
+    }, [])
 
     const handleSignOut = async () => {
         await supabase.auth.signOut()
         router.push('/login')
     }
 
-    const initials = user?.email?.substring(0, 2).toUpperCase() || 'US'
+    const initials = userEmail ? userEmail.substring(0, 2).toUpperCase() : 'US'
+    const badgeText = planType === 'free' ? 'Free Trial' : planType === 'pro_monthly' ? 'Pro Monthly' : planType === 'pro_annual' ? 'Pro Annual' : 'Free'
 
     return (
         <header className="flex h-16 items-center border-b px-4 md:px-6 justify-between bg-white dark:bg-zinc-950 sticky top-0 z-50">
@@ -34,8 +49,8 @@ export default function Header({ user }: { user?: any }) {
                 <h2 className="text-lg font-semibold tracking-tight">Dashboard</h2>
             </div>
             <div className="flex items-center gap-4">
-                <Badge variant="outline" className="bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 border-purple-200 dark:border-purple-800">
-                    Free Trial
+                <Badge variant="outline" className={planType !== 'free' ? "bg-purple-500 text-white border-purple-600" : "bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 border-purple-200 dark:border-purple-800"}>
+                    {badgeText}
                 </Badge>
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>

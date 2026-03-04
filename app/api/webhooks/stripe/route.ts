@@ -4,15 +4,21 @@ import { stripe } from "@/lib/stripe"
 import Stripe from "stripe"
 import { createClient } from "@supabase/supabase-js"
 
-// Note: Stripe webhooks require access to the raw body
-// However, next.js app router doesn't allow easy parsing of raw bodies. 
-// A workaround is to read it as text
+export const dynamic = 'force-dynamic'
+
 export async function POST(req: Request) {
-    const defaultExport = "Webhooks Running"
     try {
+        if (!process.env.STRIPE_WEBHOOK_SECRET) {
+            return new NextResponse("Webhook secret not configured", { status: 500 })
+        }
+
         const body = await req.text()
         const headersList = await headers()
         const signature = headersList.get("Stripe-Signature") as string
+
+        if (!signature) {
+            return new NextResponse("No signature found", { status: 400 })
+        }
 
         let event: Stripe.Event
 
@@ -20,7 +26,7 @@ export async function POST(req: Request) {
             event = stripe.webhooks.constructEvent(
                 body,
                 signature,
-                process.env.STRIPE_WEBHOOK_SECRET!
+                process.env.STRIPE_WEBHOOK_SECRET
             )
         } catch (error: any) {
             return new NextResponse(`Webhook Error: ${error.message}`, { status: 400 })
@@ -28,10 +34,13 @@ export async function POST(req: Request) {
 
         const session = event.data.object as Stripe.Checkout.Session
 
-        // We use the service role key to bypass RLS in webhooks
+        if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
+            return new NextResponse("Database configuration missing", { status: 500 })
+        }
+
         const supabase = createClient(
-            process.env.NEXT_PUBLIC_SUPABASE_URL!,
-            process.env.SUPABASE_SERVICE_ROLE_KEY!
+            process.env.NEXT_PUBLIC_SUPABASE_URL,
+            process.env.SUPABASE_SERVICE_ROLE_KEY
         )
 
         if (event.type === "checkout.session.completed") {

@@ -12,6 +12,9 @@ function getModel() {
 }
 
 export async function generateMonetizationRoadmap(simulationData: SimulationResult, userInputs: SimulationInput) {
+  if (!process.env.GEMINI_API_KEY) {
+    throw new Error('GEMINI_API_KEY is not configured');
+  }
   const model = getModel();
 
   const prompt = `
