@@ -35,11 +35,11 @@ export async function POST(req: Request) {
         )
 
         if (event.type === "checkout.session.completed") {
-            const subscription = (await stripe.subscriptions.retrieve(
+            const anySub: any = await stripe.subscriptions.retrieve(
                 session.subscription as string
-            )) as any;
+            );
 
-            if (subscription.deleted) {
+            if (anySub.deleted) {
                 return new NextResponse("Subscription is deleted", { status: 400 })
             }
 
@@ -54,31 +54,31 @@ export async function POST(req: Request) {
             await supabase
                 .from('profiles')
                 .update({
-                    stripe_customer_id: subscription.customer as string,
-                    stripe_subscription_id: subscription.id,
-                    stripe_price_id: subscription.items.data[0].price.id,
-                    stripe_current_period_end: new Date(subscription.current_period_end * 1000).toISOString(),
+                    stripe_customer_id: anySub.customer as string,
+                    stripe_subscription_id: anySub.id,
+                    stripe_price_id: anySub.items.data[0].price.id,
+                    stripe_current_period_end: new Date((anySub['current_period_end'] as number) * 1000).toISOString(),
                     plan_type: plan_type
                 })
                 .eq('id', session.metadata.userId)
         }
 
         if (event.type === "invoice.payment_succeeded") {
-            const subscription = (await stripe.subscriptions.retrieve(
+            const anySub: any = await stripe.subscriptions.retrieve(
                 session.subscription as string
-            )) as any;
+            );
 
-            if (subscription.deleted) {
+            if (anySub.deleted) {
                 return new NextResponse("Subscription is deleted", { status: 400 })
             }
 
             await supabase
                 .from('profiles')
                 .update({
-                    stripe_price_id: subscription.items.data[0].price.id,
-                    stripe_current_period_end: new Date(subscription.current_period_end * 1000).toISOString(),
+                    stripe_price_id: anySub.items.data[0].price.id,
+                    stripe_current_period_end: new Date((anySub['current_period_end'] as number) * 1000).toISOString(),
                 })
-                .eq('stripe_subscription_id', subscription.id)
+                .eq('stripe_subscription_id', anySub.id)
         }
 
         return new NextResponse(null, { status: 200 })
