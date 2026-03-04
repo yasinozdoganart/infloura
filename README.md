@@ -50,3 +50,5 @@ Infloura is a SaaS application for digital creators to map out and simulate thei
 
 ## Deployment
 This project is configured for Vercel out of the box. Use the included `vercel.json` file. Set up all environment variables over at your Vercel project dashboard.
+
+<-na Global Build Sync: Wed Mar  4 21:05:32 +03 2026 -->
