@@ -1,6 +1,7 @@
 'use client'
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Lock } from "lucide-react"
 
 export default function ScenarioCards({ scenarios }: { scenarios: any }) {
     if (!scenarios) return null
@@ -26,13 +27,25 @@ export default function ScenarioCards({ scenarios }: { scenarios: any }) {
                         </CardHeader>
                         <CardContent>
                             <div className="grid gap-1">
-                                <div className="flex justify-between">
+                                <div className="flex justify-between items-center group/item">
                                     <span className="text-zinc-500 text-sm">Month 6 Revenue:</span>
-                                    <span className="font-medium">${Math.round(month6).toLocaleString()}</span>
+                                    {proj.length >= 6 ? (
+                                        <span className="font-medium">${Math.round(month6).toLocaleString()}</span>
+                                    ) : (
+                                        <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-[10px] font-bold">
+                                            <Lock className="w-2.5 h-2.5" /> PRO
+                                        </div>
+                                    )}
                                 </div>
-                                <div className="flex justify-between">
+                                <div className="flex justify-between items-center group/item">
                                     <span className="text-zinc-500 text-sm">Month 12 Revenue:</span>
-                                    <span className="font-bold text-lg">${Math.round(month12).toLocaleString()}</span>
+                                    {proj.length >= 12 ? (
+                                        <span className="font-bold text-lg">${Math.round(month12).toLocaleString()}</span>
+                                    ) : (
+                                        <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-[10px] font-bold">
+                                            <Lock className="w-2.5 h-2.5" /> PRO
+                                        </div>
+                                    )}
                                 </div>
                                 <div className="flex justify-between mt-2 pt-2 border-t">
                                     <span className="text-zinc-500 text-sm">Time to $1K/mo:</span>
