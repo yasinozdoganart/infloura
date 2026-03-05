@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { TrendingUp, Activity, DollarSign, BrainCircuit, ArrowRight, LineChart } from "lucide-react"
 import { createClient } from '@/lib/supabase/server'
 import RoutineChecklist from "@/components/dashboard/RoutineChecklist"
+import SignupTracker from "@/components/analytics/SignupTracker"
 
 export const dynamic = 'force-dynamic'
 
@@ -48,6 +49,7 @@ export default async function DashboardPage() {
 
     return (
         <div className="p-4 md:p-8 max-w-6xl mx-auto space-y-6 pb-24 sm:pb-8">
+            <SignupTracker />
             <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-2">
                 <div className="flex flex-col gap-2">
                     <h1 className="text-3xl font-bold tracking-tight">Welcome, {firstName}!</h1>

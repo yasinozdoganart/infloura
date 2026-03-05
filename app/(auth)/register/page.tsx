@@ -28,8 +28,10 @@ export default function RegisterPage() {
         const result = await register(formData)
         if (result?.error) {
             toast.error(result.error)
+            setLoading(false)
         }
-        setLoading(false)
+        // Note: If register succeeds, it redirects server-side and never reaches here.
+        // The signup_completed event is handled below.
     }
 
     return (
