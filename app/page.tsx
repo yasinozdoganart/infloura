@@ -39,12 +39,12 @@ export default function LandingPage() {
       <div className="relative">
         <HeroGeometric
           badge=""
-          title1="Your Creator Business,"
-          title2="Finally Structured."
+          title1="Predict your creator income"
+          title2="Simulate how much creators can earn"
         />
         <div className="absolute bottom-16 md:bottom-24 left-0 right-0 z-20 flex flex-col items-center gap-6">
-          <LiquidButton href="#features" className="text-white hover:text-white h-12 px-8 text-lg w-auto">
-            Discover More
+          <LiquidButton href="/register" className="text-white hover:text-white h-12 px-8 text-lg w-auto">
+            Run Simulation
           </LiquidButton>
         </div>
       </div>
