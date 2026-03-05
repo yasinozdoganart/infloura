@@ -10,6 +10,11 @@ const calculatorLinks = [
     { href: '/youtube-money-calculator', label: 'YouTube Calculator' },
     { href: '/tiktok-money-calculator', label: 'TikTok Calculator' },
     { href: '/influencer-income-calculator', label: 'Influencer Calculator' },
+    { href: '/instagram-money-calculator', label: 'Instagram Calculator' },
+    { href: '/youtube-rpm-calculator', label: 'YouTube RPM Calculator' },
+    { href: '/tiktok-earnings-calculator', label: 'TikTok Earnings Calculator' },
+    { href: '/influencer-sponsorship-calculator', label: 'Sponsorship Calculator' },
+    { href: '/creator-income-calculator', label: 'Creator Income Calculator' },
 ]
 
 export default function CalculatorLayout({ children, currentPage }: CalculatorLayoutProps) {
