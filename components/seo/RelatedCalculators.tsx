@@ -10,6 +10,12 @@ const allCalculators = [
     { href: '/tiktok-earnings-calculator', label: 'TikTok Earnings Calculator', emoji: '🩵' },
     { href: '/influencer-sponsorship-calculator', label: 'Sponsorship Rate Calculator', emoji: '🟡' },
     { href: '/creator-income-calculator', label: 'Creator Income Calculator', emoji: '🟢' },
+    { href: '/youtube-income-per-view', label: 'YouTube Income Per View', emoji: '📊' },
+    { href: '/tiktok-income-per-view', label: 'TikTok Income Per View', emoji: '📈' },
+    { href: '/instagram-income-per-post', label: 'Instagram Income Per Post', emoji: '📸' },
+    { href: '/how-much-do-youtubers-make', label: 'How Much Do YouTubers Make', emoji: '🎬' },
+    { href: '/how-much-do-tiktokers-make', label: 'How Much Do TikTokers Make', emoji: '🎵' },
+    { href: '/how-much-do-influencers-make', label: 'How Much Do Influencers Make', emoji: '⭐' },
 ]
 
 interface RelatedCalculatorsProps {

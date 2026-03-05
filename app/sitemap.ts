@@ -12,6 +12,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
         'tiktok-earnings-calculator',
         'influencer-sponsorship-calculator',
         'creator-income-calculator',
+        'youtube-income-per-view',
+        'tiktok-income-per-view',
+        'instagram-income-per-post',
+        'how-much-do-youtubers-make',
+        'how-much-do-tiktokers-make',
+        'how-much-do-influencers-make',
     ]
 
     return [

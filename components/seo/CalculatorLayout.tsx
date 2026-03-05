@@ -15,6 +15,12 @@ const calculatorLinks = [
     { href: '/tiktok-earnings-calculator', label: 'TikTok Earnings Calculator' },
     { href: '/influencer-sponsorship-calculator', label: 'Sponsorship Calculator' },
     { href: '/creator-income-calculator', label: 'Creator Income Calculator' },
+    { href: '/youtube-income-per-view', label: 'YouTube Income Per View' },
+    { href: '/tiktok-income-per-view', label: 'TikTok Income Per View' },
+    { href: '/instagram-income-per-post', label: 'Instagram Income Per Post' },
+    { href: '/how-much-do-youtubers-make', label: 'How Much YouTubers Make' },
+    { href: '/how-much-do-tiktokers-make', label: 'How Much TikTokers Make' },
+    { href: '/how-much-do-influencers-make', label: 'How Much Influencers Make' },
 ]
 
 export default function CalculatorLayout({ children, currentPage }: CalculatorLayoutProps) {
