@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import CalculatorLayout from '@/components/seo/CalculatorLayout'
 import CalculatorWidget from '@/components/seo/CalculatorWidget'
 import JsonLd from '@/components/seo/JsonLd'
+import RelatedCalculators from '@/components/seo/RelatedCalculators'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -150,6 +151,8 @@ export default function InstagramMoneyCalculatorPage() {
                     ))}
                 </div>
             </section>
+
+            <RelatedCalculators currentPage="/instagram-money-calculator" />
 
             <section className="mt-16 text-center py-12 rounded-2xl bg-gradient-to-br from-pink-500/10 to-purple-500/10 border border-pink-500/20">
                 <h2 className="text-2xl font-bold mb-3">Ready for a Complete Revenue Analysis?</h2>
