@@ -18,6 +18,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
         'how-much-do-youtubers-make',
         'how-much-do-tiktokers-make',
         'how-much-do-influencers-make',
+        'youtube-income-per-1000-views',
+        'youtube-income-per-subscriber',
+        'tiktok-income-per-1000-views',
+        '10k-youtuber-income',
+        '50k-youtuber-income',
+        '100k-youtuber-income',
+        '1m-youtuber-income',
     ]
 
     return [

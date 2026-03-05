@@ -21,6 +21,13 @@ const calculatorLinks = [
     { href: '/how-much-do-youtubers-make', label: 'How Much YouTubers Make' },
     { href: '/how-much-do-tiktokers-make', label: 'How Much TikTokers Make' },
     { href: '/how-much-do-influencers-make', label: 'How Much Influencers Make' },
+    { href: '/youtube-income-per-1000-views', label: 'YouTube CPM Tool' },
+    { href: '/youtube-income-per-subscriber', label: 'Subscriber Value' },
+    { href: '/tiktok-income-per-1000-views', label: 'TikTok CPM Tool' },
+    { href: '/10k-youtuber-income', label: '10K YouTuber Income' },
+    { href: '/50k-youtuber-income', label: '50K YouTuber Income' },
+    { href: '/100k-youtuber-income', label: '100K YouTuber Income' },
+    { href: '/1m-youtuber-income', label: '1M YouTuber Income' },
 ]
 
 export default function CalculatorLayout({ children, currentPage }: CalculatorLayoutProps) {

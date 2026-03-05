@@ -16,6 +16,13 @@ const allCalculators = [
     { href: '/how-much-do-youtubers-make', label: 'How Much Do YouTubers Make', emoji: '🎬' },
     { href: '/how-much-do-tiktokers-make', label: 'How Much Do TikTokers Make', emoji: '🎵' },
     { href: '/how-much-do-influencers-make', label: 'How Much Do Influencers Make', emoji: '⭐' },
+    { href: '/youtube-income-per-1000-views', label: 'YouTube CPM Tool', emoji: '💵' },
+    { href: '/youtube-income-per-subscriber', label: 'Subscriber Value', emoji: '👥' },
+    { href: '/tiktok-income-per-1000-views', label: 'TikTok CPM Tool', emoji: '📱' },
+    { href: '/10k-youtuber-income', label: '10K YouTuber Income', emoji: '🥉' },
+    { href: '/50k-youtuber-income', label: '50K YouTuber Income', emoji: '🥈' },
+    { href: '/100k-youtuber-income', label: '100K YouTuber Income', emoji: '💿' },
+    { href: '/1m-youtuber-income', label: '1M YouTuber Income', emoji: '🥇' },
 ]
 
 interface RelatedCalculatorsProps {
