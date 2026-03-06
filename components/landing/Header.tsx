@@ -35,10 +35,10 @@ export function Header() {
                             <Image
                                 src="/logo-white.svg"
                                 alt="Infloura Logo"
-                                width={240}
-                                height={32}
+                                width={160}
+                                height={24}
                                 priority
-                                className="h-7 md:h-8 w-auto"
+                                className="h-5 md:h-[22px] w-auto"
                             />
                         </Link>
 

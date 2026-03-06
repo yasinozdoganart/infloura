@@ -36,9 +36,9 @@ export function Footer() {
                             <Image
                                 src="/logo-white.svg"
                                 alt="Infloura Logo"
-                                width={240}
-                                height={32}
-                                className="h-7 md:h-8 w-auto opacity-90"
+                                width={160}
+                                height={24}
+                                className="h-5 md:h-[22px] w-auto opacity-90"
                             />
                         </Link>
                         <div className="text-zinc-400 text-sm space-y-2">
