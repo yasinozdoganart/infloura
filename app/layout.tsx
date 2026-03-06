@@ -17,16 +17,31 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Infloura | Structured Business for Creators",
-  description: "Revenue simulation, AI strategy, and growth tracking — built for serious creators.",
+  metadataBase: new URL("https://infloura.com"),
+  title: "Infloura — Creator Revenue Simulator",
+  description: "Predict how much creators can earn across YouTube, TikTok and Instagram.",
   openGraph: {
-    title: "Infloura",
-    description: "Revenue simulation, AI strategy, and growth tracking.",
+    title: "Infloura — Creator Revenue Simulator",
+    description: "Predict how much creators can earn across YouTube, TikTok and Instagram.",
     url: "https://infloura.com",
     siteName: "Infloura",
     locale: "en_US",
     type: "website",
-  }
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Infloura — Creator Revenue Simulator",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Infloura — Creator Revenue Simulator",
+    description: "Predict how much creators can earn across YouTube, TikTok and Instagram.",
+    images: ["/og-image.png"],
+  },
 };
 
 export default function RootLayout({
