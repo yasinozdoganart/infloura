@@ -25,10 +25,13 @@ export default function LandingPage() {
           title1="Predict your creator income"
           title2="Simulate how much creators can earn"
         />
-        <div className="absolute bottom-16 md:bottom-24 left-0 right-0 z-20 flex flex-col items-center gap-6">
-          <LiquidButton href="/register" className="text-white hover:text-white h-12 px-8 text-lg w-auto">
+        <div className="absolute bottom-16 md:bottom-24 left-0 right-0 z-20 flex flex-col sm:flex-row justify-center items-center gap-4 px-6">
+          <LiquidButton href="/register" className="text-white hover:text-white h-12 px-8 text-lg w-auto z-10">
             Run Simulation
           </LiquidButton>
+          <Button className="bg-white/5 hover:bg-white/10 text-white border border-white/10 h-12 px-8 text-lg rounded-2xl transition-all z-10" asChild>
+            <Link href="/creator-income-calculator">Estimate Your Creator Income &rarr;</Link>
+          </Button>
         </div>
       </div>
 
