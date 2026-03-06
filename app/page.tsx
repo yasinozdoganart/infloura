@@ -9,6 +9,7 @@ import { AvatarGroup } from "@/components/landing/AvatarGroup"
 import { WallOfLove } from "@/components/landing/WallOfLove"
 import { PricingSection } from "@/components/landing/PricingSection"
 import { Header } from "@/components/landing/Header"
+import { Footer } from "@/components/landing/Footer"
 
 export default function LandingPage() {
   return (
@@ -131,11 +132,7 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 bg-black border-t border-white/10 text-center text-zinc-500 relative z-10">
-        <div className="font-bold text-xl tracking-tighter text-white mb-4 opacity-50">Infloura</div>
-        <p>Made for creators, by creators.</p>
-        <p className="text-sm mt-4 text-zinc-700">© {new Date().getFullYear()} Infloura. All rights reserved.</p>
-      </footer>
+      <Footer />
     </div>
   )
 }

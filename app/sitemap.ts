@@ -26,6 +26,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '100k-youtuber-income',
         '1m-youtuber-income',
         'tools',
+        'about',
+        'privacy',
+        'terms',
     ]
 
     return [
