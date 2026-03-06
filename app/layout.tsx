@@ -27,20 +27,11 @@ export const metadata: Metadata = {
     siteName: "Infloura",
     locale: "en_US",
     type: "website",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Infloura — Creator Revenue Simulator",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Infloura — Creator Revenue Simulator",
     description: "Predict how much creators can earn across YouTube, TikTok and Instagram.",
-    images: ["/og-image.png"],
   },
 };
 
