@@ -14,7 +14,7 @@ export function PricingSection() {
     const annualPrice = 99.90
 
     return (
-        <section className="py-24 bg-black relative z-10 w-full">
+        <section id="pricing" className="py-24 bg-black relative z-10 w-full scroll-mt-16">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="text-center max-w-2xl mx-auto mb-12">
                     <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-white">Simple, transparent pricing</h2>

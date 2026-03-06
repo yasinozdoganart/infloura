@@ -8,32 +8,14 @@ import { LineChart, BrainCircuit, Activity } from "lucide-react"
 import { AvatarGroup } from "@/components/landing/AvatarGroup"
 import { WallOfLove } from "@/components/landing/WallOfLove"
 import { PricingSection } from "@/components/landing/PricingSection"
+import { Header } from "@/components/landing/Header"
 
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-[#030303] text-white selection:bg-purple-500/30">
 
       {/* Header */}
-      <header className="fixed top-0 w-full z-50 bg-[#030303]/50 backdrop-blur-xl border-b border-white/5">
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="font-bold text-2xl tracking-tighter text-white leading-none">Infloura</div>
-            <div className="hidden sm:flex items-center px-2.5 py-0.5 mt-0.5 rounded-full bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30">
-              <span className="text-xs font-semibold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent transform translate-y-[0.5px]">
-                Infloura 1.0 is live!
-              </span>
-            </div>
-          </div>
-          <div className="flex gap-4">
-            <Button variant="ghost" className="text-zinc-300 hover:text-black hover:bg-white transition-colors" asChild>
-              <Link href="/login">Login</Link>
-            </Button>
-            <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-medium border-0 transition-all duration-300 shadow-[0_0_15px_rgba(168,85,247,0.3)] hover:shadow-[0_0_25px_rgba(168,85,247,0.5)]" asChild>
-              <Link href="/register">Start Free Trial</Link>
-            </Button>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       {/* Hero Section */}
       <div className="relative">
