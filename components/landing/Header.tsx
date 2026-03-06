@@ -55,6 +55,10 @@ export function Header() {
                         <Link href="/#pricing" className="text-sm font-medium text-zinc-300 hover:text-white transition-colors">
                             Pricing
                         </Link>
+
+                        <Link href="/about" className="text-sm font-medium text-zinc-300 hover:text-white transition-colors">
+                            About
+                        </Link>
                     </nav>
                 </div>
 
@@ -71,6 +75,9 @@ export function Header() {
                                 </Link>
                                 <Link href="/#pricing" className="px-3 py-2.5 text-sm font-medium text-white hover:bg-white/5 rounded-lg transition-colors">
                                     Pricing
+                                </Link>
+                                <Link href="/about" className="px-3 py-2.5 text-sm font-medium text-white hover:bg-white/5 rounded-lg transition-colors">
+                                    About
                                 </Link>
                                 <div className="h-px bg-white/5 my-1" />
                                 <Link href="/login" className="px-3 py-2.5 text-sm font-medium text-white hover:bg-white/5 rounded-lg transition-colors">
