@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 const productLinks = [
     { name: 'Tools', href: '/tools' },
@@ -31,8 +32,14 @@ export function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                     {/* Brand Column */}
                     <div className="flex flex-col gap-4">
-                        <Link href="/" className="font-bold text-2xl tracking-tighter text-white hover:opacity-80 transition-opacity">
-                            Infloura
+                        <Link href="/" className="hover:opacity-80 transition-opacity flex items-center mb-2">
+                            <Image
+                                src="/logo-white.svg"
+                                alt="Infloura Logo"
+                                width={140}
+                                height={32}
+                                className="h-8 w-auto opacity-90"
+                            />
                         </Link>
                         <div className="text-zinc-400 text-sm space-y-2">
                             <p className="text-white font-medium">Made for creators, by creators.</p>

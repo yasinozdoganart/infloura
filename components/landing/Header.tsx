@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { ChevronDown } from 'lucide-react'
 
@@ -30,8 +31,15 @@ export function Header() {
             <header className="w-full bg-[#030303]/80 backdrop-blur-xl border-b border-white/5">
                 <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
                     <div className="flex items-center gap-6 md:gap-8">
-                        <Link href="/" className="font-bold text-2xl tracking-tighter text-white leading-none hover:opacity-80 transition-opacity">
-                            Infloura
+                        <Link href="/" className="hover:opacity-80 transition-opacity flex items-center">
+                            <Image
+                                src="/logo-white.svg"
+                                alt="Infloura Logo"
+                                width={140}
+                                height={32}
+                                priority
+                                className="h-8 w-auto"
+                            />
                         </Link>
 
                         {/* Desktop Navigation */}
