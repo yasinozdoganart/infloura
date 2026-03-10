@@ -72,6 +72,10 @@ export function Header() {
                                 Guides
                             </Link>
 
+                            <Link href="/creators" className="text-sm font-medium text-zinc-300 hover:text-white transition-colors">
+                                Creators
+                            </Link>
+
                             <Link href="/about" className="text-sm font-medium text-zinc-300 hover:text-white transition-colors">
                                 About
                             </Link>

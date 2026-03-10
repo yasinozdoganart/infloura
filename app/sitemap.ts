@@ -33,6 +33,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
         'guides/how-to-get-your-first-youtube-sponsor',
         'guides/instagram-engagement-rate-guide',
         'guides/tiktok-media-kit-template',
+        'creators',
+        'creators/mrbeast',
+        'creators/marques-brownlee',
+        'creators/emma-chamberlain',
     ]
 
     return [
