@@ -9,7 +9,10 @@ import SignupTracker from "@/components/analytics/SignupTracker"
 
 export const dynamic = 'force-dynamic'
 
-export default async function DashboardPage() {
+export default async function DashboardPage({ params }: { params: Promise<{ locale: string }> }) {
+    const { locale } = await params
+    const isTR = locale === 'tr'
+
     const supabase = await createClient()
     const { data: { user } } = await supabase.auth.getUser()
 
@@ -45,27 +48,31 @@ export default async function DashboardPage() {
 
     const efficiencyScore = metrics.length > 0 ? ((currentMonthRevenue / metrics[metrics.length - 1].monthly_views) * 1000).toFixed(2) : 0
 
-    const firstName = profile?.full_name ? profile.full_name.split(' ')[0] : 'Creator'
+    const firstName = profile?.full_name ? profile.full_name.split(' ')[0] : (isTR ? 'İçerik Üretici' : 'Creator')
 
     return (
         <div className="p-4 md:p-8 max-w-6xl mx-auto space-y-6 pb-24 sm:pb-8">
             <SignupTracker />
             <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-2">
                 <div className="flex flex-col gap-2">
-                    <h1 className="text-3xl font-bold tracking-tight">Welcome, {firstName}!</h1>
-                    <p className="text-zinc-500">Here's what's happening with your creator business today.</p>
+                    <h1 className="text-3xl font-bold tracking-tight">
+                        {isTR ? `Hoş Geldin, ${firstName}!` : `Welcome, ${firstName}!`}
+                    </h1>
+                    <p className="text-zinc-500">
+                        {isTR ? 'İçerik üretici işinizde bugün neler oluyor.' : "Here's what's happening with your creator business today."}
+                    </p>
                 </div>
                 <div className="flex gap-2">
                     <Button variant="outline" className="border-purple-200 hover:bg-purple-50 dark:hover:bg-purple-900/20 text-purple-700 dark:text-purple-400" size="sm" asChild>
                         <Link href="/simulator">
                             <LineChart className="w-4 h-4 mr-2" />
-                            New Simulation
+                            {isTR ? 'Yeni Simülasyon' : 'New Simulation'}
                         </Link>
                     </Button>
                     <Button variant="outline" className="border-green-200 hover:bg-green-50 dark:hover:bg-green-900/20 text-green-700 dark:text-green-400" size="sm" asChild>
                         <Link href="/tracking">
                             <Activity className="w-4 h-4 mr-2" />
-                            Update Metrics
+                            {isTR ? 'Metrikleri Güncelle' : 'Update Metrics'}
                         </Link>
                     </Button>
                 </div>
@@ -74,49 +81,53 @@ export default async function DashboardPage() {
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
                 <Card className="shadow-sm border-purple-100 dark:border-purple-900/50 bg-gradient-to-br from-white to-purple-50/50 dark:from-zinc-950 dark:to-purple-950/20">
                     <CardHeader className="flex flex-row items-center justify-between pb-2">
-                        <CardTitle className="text-sm font-medium">Monthly Revenue</CardTitle>
+                        <CardTitle className="text-sm font-medium">{isTR ? 'Aylık Gelir' : 'Monthly Revenue'}</CardTitle>
                         <DollarSign className="h-4 w-4 text-purple-600" />
                     </CardHeader>
                     <CardContent>
                         <div className="text-3xl font-bold tracking-tight">${currentMonthRevenue.toLocaleString()}</div>
                         <p className="text-xs text-zinc-500 mt-1">
-                            {revenueGrowth !== 0 ? `${revenueGrowth > 0 ? '+' : ''}${revenueGrowth.toFixed(1)}% from last month` : 'Logged this month'}
+                            {revenueGrowth !== 0
+                                ? `${revenueGrowth > 0 ? '+' : ''}${revenueGrowth.toFixed(1)}% ${isTR ? 'geçen aya göre' : 'from last month'}`
+                                : (isTR ? 'Bu ay kaydedildi' : 'Logged this month')}
                         </p>
                     </CardContent>
                 </Card>
 
                 <Card className="shadow-sm">
                     <CardHeader className="flex flex-row items-center justify-between pb-2">
-                        <CardTitle className="text-sm font-medium text-zinc-500">Total Followers</CardTitle>
+                        <CardTitle className="text-sm font-medium text-zinc-500">{isTR ? 'Toplam Takipçi' : 'Total Followers'}</CardTitle>
                         <TrendingUp className="h-4 w-4 text-zinc-500" />
                     </CardHeader>
                     <CardContent>
                         <div className="text-3xl font-bold tracking-tight">{currentFollowers.toLocaleString()}</div>
                         <p className="text-xs text-zinc-500 mt-1">
-                            {followerGrowth !== 0 ? `${followerGrowth > 0 ? '+' : ''}${followerGrowth.toFixed(1)}% from last month` : 'Total audience'}
+                            {followerGrowth !== 0
+                                ? `${followerGrowth > 0 ? '+' : ''}${followerGrowth.toFixed(1)}% ${isTR ? 'geçen aya göre' : 'from last month'}`
+                                : (isTR ? 'Toplam kitle' : 'Total audience')}
                         </p>
                     </CardContent>
                 </Card>
 
                 <Card className="shadow-sm">
                     <CardHeader className="flex flex-row items-center justify-between pb-2">
-                        <CardTitle className="text-sm font-medium text-zinc-500">Data Points</CardTitle>
+                        <CardTitle className="text-sm font-medium text-zinc-500">{isTR ? 'Veri Noktaları' : 'Data Points'}</CardTitle>
                         <Activity className="h-4 w-4 text-zinc-500" />
                     </CardHeader>
                     <CardContent>
                         <div className="text-3xl font-bold tracking-tight">{metrics.length}</div>
-                        <p className="text-xs text-zinc-500 mt-1">Months tracked</p>
+                        <p className="text-xs text-zinc-500 mt-1">{isTR ? 'Takip edilen ay' : 'Months tracked'}</p>
                     </CardContent>
                 </Card>
 
                 <Card className="shadow-sm">
                     <CardHeader className="flex flex-row items-center justify-between pb-2">
-                        <CardTitle className="text-sm font-medium text-zinc-500">Efficiency Score</CardTitle>
+                        <CardTitle className="text-sm font-medium text-zinc-500">{isTR ? 'Verimlilik Skoru' : 'Efficiency Score'}</CardTitle>
                         <BrainCircuit className="h-4 w-4 text-zinc-500" />
                     </CardHeader>
                     <CardContent>
                         <div className="text-3xl font-bold tracking-tight text-green-600">{efficiencyScore}</div>
-                        <p className="text-xs text-zinc-500 mt-1">RPM calculated actuals</p>
+                        <p className="text-xs text-zinc-500 mt-1">{isTR ? 'Gerçek verilere dayalı RPM' : 'RPM calculated actuals'}</p>
                     </CardContent>
                 </Card>
             </div>
@@ -126,14 +137,16 @@ export default async function DashboardPage() {
                     <Card className="bg-zinc-950 text-white border-0 shadow-lg overflow-hidden relative">
                         <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-transparent"></div>
                         <CardHeader className="relative z-10">
-                            <Badge className="w-fit bg-purple-500 text-white hover:bg-purple-600 border-0 mb-2">New</Badge>
-                            <CardTitle className="text-2xl">Ready for your AI strategy?</CardTitle>
-                            <CardDescription className="text-zinc-400">Generate a complete step-by-step roadmap to hit your revenue goals.</CardDescription>
+                            <Badge className="w-fit bg-purple-500 text-white hover:bg-purple-600 border-0 mb-2">{isTR ? 'Yeni' : 'New'}</Badge>
+                            <CardTitle className="text-2xl">{isTR ? 'Yapay zeka stratejinize hazır mısınız?' : 'Ready for your AI strategy?'}</CardTitle>
+                            <CardDescription className="text-zinc-400">
+                                {isTR ? 'Gelir hedeflerinize ulaşmak için adım adım eksiksiz bir yol haritası oluşturun.' : 'Generate a complete step-by-step roadmap to hit your revenue goals.'}
+                            </CardDescription>
                         </CardHeader>
                         <CardContent className="relative z-10">
                             <Button className="bg-white text-zinc-950 hover:bg-zinc-200 mt-2 font-medium shadow-sm transition-colors" asChild>
                                 <Link href="/roadmap" className="flex items-center gap-2">
-                                    View Roadmap <ArrowRight className="w-4 h-4 text-purple-600" />
+                                    {isTR ? 'Yol Haritasını Gör' : 'View Roadmap'} <ArrowRight className="w-4 h-4 text-purple-600" />
                                 </Link>
                             </Button>
                         </CardContent>
@@ -141,14 +154,14 @@ export default async function DashboardPage() {
 
                     <Card className="shadow-sm">
                         <CardHeader>
-                            <CardTitle>Onboarding Checklist</CardTitle>
-                            <CardDescription>Get started with Infloura in 4 simple steps.</CardDescription>
+                            <CardTitle>{isTR ? 'Başlangıç Kontrol Listesi' : 'Onboarding Checklist'}</CardTitle>
+                            <CardDescription>{isTR ? '4 basit adımda Infloura\'ya başlayın.' : 'Get started with Infloura in 4 simple steps.'}</CardDescription>
                         </CardHeader>
                         <CardContent>
                             <ul className="space-y-4">
                                 <li className="flex items-center gap-3 opacity-50">
                                     <div className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center text-white text-xs">✓</div>
-                                    <span className="line-through text-zinc-500">Create an account</span>
+                                    <span className="line-through text-zinc-500">{isTR ? 'Hesap oluştur' : 'Create an account'}</span>
                                 </li>
                                 <li className={`flex items-center gap-3 ${metrics.length > 0 ? 'opacity-50' : ''}`}>
                                     {metrics.length > 0 ? (
@@ -156,7 +169,9 @@ export default async function DashboardPage() {
                                     ) : (
                                         <div className="w-5 h-5 rounded-full border-2 border-zinc-300 dark:border-zinc-700"></div>
                                     )}
-                                    <span className={metrics.length > 0 ? "line-through text-zinc-500" : ""}>Add your first platform data</span>
+                                    <span className={metrics.length > 0 ? "line-through text-zinc-500" : ""}>
+                                        {isTR ? 'İlk platform verini ekle' : 'Add your first platform data'}
+                                    </span>
                                 </li>
                                 <li className={`flex items-center gap-3 ${simulations.length > 0 ? 'opacity-50' : ''}`}>
                                     {simulations.length > 0 ? (
@@ -164,7 +179,9 @@ export default async function DashboardPage() {
                                     ) : (
                                         <div className="w-5 h-5 rounded-full border-2 border-zinc-300 dark:border-zinc-700"></div>
                                     )}
-                                    <span className={simulations.length > 0 ? "line-through text-zinc-500" : ""}>Run a simulation</span>
+                                    <span className={simulations.length > 0 ? "line-through text-zinc-500" : ""}>
+                                        {isTR ? 'Simülasyon çalıştır' : 'Run a simulation'}
+                                    </span>
                                 </li>
                                 <li className={`flex items-center gap-3 ${aiReports.length > 0 ? 'opacity-50' : ''}`}>
                                     {aiReports.length > 0 ? (
@@ -172,7 +189,9 @@ export default async function DashboardPage() {
                                     ) : (
                                         <div className="w-5 h-5 rounded-full border-2 border-zinc-300 dark:border-zinc-700"></div>
                                     )}
-                                    <span className={aiReports.length > 0 ? "line-through text-zinc-500" : ""}>Generate AI Roadmap</span>
+                                    <span className={aiReports.length > 0 ? "line-through text-zinc-500" : ""}>
+                                        {isTR ? 'Yapay Zeka Yol Haritası Oluştur' : 'Generate AI Roadmap'}
+                                    </span>
                                 </li>
                             </ul>
                         </CardContent>
@@ -184,28 +203,29 @@ export default async function DashboardPage() {
 
                     <Card className="shadow-sm">
                         <CardHeader>
-                            <CardTitle>Recent Simulations</CardTitle>
+                            <CardTitle>{isTR ? 'Son Simülasyonlar' : 'Recent Simulations'}</CardTitle>
                         </CardHeader>
                         <CardContent>
                             <div className="space-y-4">
                                 {simulations.length === 0 ? (
-                                    <div className="text-center text-zinc-500 py-4">No simulations run yet</div>
+                                    <div className="text-center text-zinc-500 py-4">
+                                        {isTR ? 'Henüz simülasyon çalıştırılmadı' : 'No simulations run yet'}
+                                    </div>
                                 ) : (
                                     simulations.map((sim, i) => (
                                         <div key={sim.id} className={`flex items-center justify-between pb-4 ${i !== simulations.length - 1 ? 'border-b dark:border-zinc-800' : ''}`}>
                                             <div>
                                                 <p className="font-medium capitalize">{sim.platform_name}</p>
-                                                <p className="text-sm text-zinc-500">{new Date(sim.created_at).toLocaleDateString()}</p>
+                                                <p className="text-sm text-zinc-500">{new Date(sim.created_at).toLocaleDateString(isTR ? 'tr-TR' : 'en-US')}</p>
                                             </div>
                                             <div className="text-right">
                                                 {(() => {
-                                                    const isLimited = sim.realistic_projection.length <= 3
                                                     const lastIndex = sim.realistic_projection.length - 1
                                                     const revenue = Math.round(sim.realistic_projection[lastIndex]?.totalRevenue || 0)
                                                     return (
                                                         <>
                                                             <p className="font-semibold text-purple-600 dark:text-purple-400">${revenue.toLocaleString()}/mo</p>
-                                                            <p className="text-xs text-zinc-500">Month {lastIndex + 1} Est.</p>
+                                                            <p className="text-xs text-zinc-500">{isTR ? `${lastIndex + 1}. Ay Tahmini` : `Month ${lastIndex + 1} Est.`}</p>
                                                         </>
                                                     )
                                                 })()}
@@ -214,7 +234,7 @@ export default async function DashboardPage() {
                                     ))
                                 )}
                                 <Button variant="outline" className="w-full mt-2" asChild>
-                                    <Link href="/simulator">Run New Simulation</Link>
+                                    <Link href="/simulator">{isTR ? 'Yeni Simülasyon Çalıştır' : 'Run New Simulation'}</Link>
                                 </Button>
                             </div>
                         </CardContent>

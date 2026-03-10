@@ -7,8 +7,11 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { toast } from "sonner"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { useLocale } from 'next-intl'
 
 export default function MetricsForm({ onSuccess }: { onSuccess: () => void }) {
+    const locale = useLocale()
+    const isTR = locale === 'tr'
     const [loading, setLoading] = useState(false)
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -31,10 +34,10 @@ export default function MetricsForm({ onSuccess }: { onSuccess: () => void }) {
             })
             const json = await res.json()
             if (!res.ok) throw new Error(json.error)
-            toast.success("Metrics saved successfully")
+            toast.success(isTR ? 'Metrikler başarıyla kaydedildi' : 'Metrics saved successfully')
             onSuccess()
         } catch (err: any) {
-            toast.error(err.message || "Failed to save metrics")
+            toast.error(err.message || (isTR ? 'Metrikler kaydedilemedi' : 'Failed to save metrics'))
         } finally {
             setLoading(false)
         }
@@ -43,15 +46,15 @@ export default function MetricsForm({ onSuccess }: { onSuccess: () => void }) {
     return (
         <Card>
             <CardHeader>
-                <CardTitle>Log This Month</CardTitle>
+                <CardTitle>{isTR ? 'Bu Ayı Kaydet' : 'Log This Month'}</CardTitle>
             </CardHeader>
             <CardContent>
                 <form onSubmit={handleSubmit} className="grid gap-4">
                     <div className="grid gap-2">
-                        <Label>Platform</Label>
+                        <Label>{isTR ? 'Platform' : 'Platform'}</Label>
                         <Select name="platform" defaultValue="youtube">
                             <SelectTrigger>
-                                <SelectValue placeholder="Select platform" />
+                                <SelectValue placeholder={isTR ? 'Platform seç' : 'Select platform'} />
                             </SelectTrigger>
                             <SelectContent>
                                 <SelectItem value="youtube">YouTube</SelectItem>
@@ -62,31 +65,31 @@ export default function MetricsForm({ onSuccess }: { onSuccess: () => void }) {
                         </Select>
                     </div>
                     <div className="grid gap-2">
-                        <Label>Month</Label>
+                        <Label>{isTR ? 'Ay' : 'Month'}</Label>
                         <Input type="month" name="month" required defaultValue={new Date().toISOString().slice(0, 7)} className="bg-white dark:bg-zinc-900" />
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                         <div className="grid gap-2">
-                            <Label>Followers / Subs</Label>
+                            <Label>{isTR ? 'Takipçi / Abone' : 'Followers / Subs'}</Label>
                             <Input type="number" name="followers" required className="bg-white dark:bg-zinc-900" />
                         </div>
                         <div className="grid gap-2">
-                            <Label>Views</Label>
+                            <Label>{isTR ? 'İzlenme' : 'Views'}</Label>
                             <Input type="number" name="views" required className="bg-white dark:bg-zinc-900" />
                         </div>
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                         <div className="grid gap-2">
-                            <Label>Actual Revenue ($)</Label>
+                            <Label>{isTR ? 'Gerçek Gelir ($)' : 'Actual Revenue ($)'}</Label>
                             <Input type="number" step="0.01" name="revenue" required className="bg-white dark:bg-zinc-900" />
                         </div>
                         <div className="grid gap-2">
-                            <Label>Engagement Rate</Label>
+                            <Label>{isTR ? 'Etkileşim Oranı' : 'Engagement Rate'}</Label>
                             <Input type="number" step="0.01" name="engagement" defaultValue="0.05" className="bg-white dark:bg-zinc-900" />
                         </div>
                     </div>
                     <Button type="submit" disabled={loading} className="w-full bg-purple-600 hover:bg-purple-700 text-white mt-2">
-                        {loading ? 'Saving...' : 'Save Metrics'}
+                        {loading ? (isTR ? 'Kaydediliyor...' : 'Saving...') : (isTR ? 'Metrikleri Kaydet' : 'Save Metrics')}
                     </Button>
                 </form>
             </CardContent>

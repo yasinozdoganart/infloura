@@ -3,14 +3,24 @@
 import { useState } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Check } from 'lucide-react'
+import { useLocale } from 'next-intl'
 
-const defaultRoutines = [
-    { id: 1, text: 'Check and reply to the first 10 comments on your last video.' },
-    { id: 2, text: 'Post at least 2 casual story updates today to keep engagement warm.' },
-    { id: 3, text: 'Review your bio/links. Are they pointing to your best product?' }
-]
+export default function RoutineChecklist({ title }: { title?: string }) {
+    const locale = useLocale()
+    const isTR = locale === 'tr'
 
-export default function RoutineChecklist({ title = "☕ Daily Creator Routine" }: { title?: string }) {
+    const defaultRoutines = isTR ? [
+        { id: 1, text: 'Son videonuzun ilk 10 yorumunu kontrol edin ve yanıtlayın.' },
+        { id: 2, text: 'Etkileşimi canlı tutmak için bugün en az 2 gündelik hikaye paylaşın.' },
+        { id: 3, text: 'Biyografinizi/linklerinizi gözden geçirin. En iyi ürününüze yönlendiriyor mu?' }
+    ] : [
+        { id: 1, text: 'Check and reply to the first 10 comments on your last video.' },
+        { id: 2, text: 'Post at least 2 casual story updates today to keep engagement warm.' },
+        { id: 3, text: 'Review your bio/links. Are they pointing to your best product?' }
+    ]
+
+    const defaultTitle = isTR ? "☕ Günlük İçerik Üretici Rutini" : "☕ Daily Creator Routine"
+
     const [checkedItems, setCheckedItems] = useState<number[]>([])
 
     const toggleCheck = (id: number) => {
@@ -25,9 +35,9 @@ export default function RoutineChecklist({ title = "☕ Daily Creator Routine" }
         <Card className="shadow-sm border-dashed border-2 bg-zinc-50/50 dark:bg-zinc-900/50">
             <CardHeader className="pb-3">
                 <CardTitle className="text-lg flex items-center gap-2">
-                    {title}
+                    {title ?? defaultTitle}
                 </CardTitle>
-                <CardDescription>Chill suggestions to keep growing</CardDescription>
+                <CardDescription>{isTR ? 'Büyümeye devam etmek için hafif öneriler' : 'Chill suggestions to keep growing'}</CardDescription>
             </CardHeader>
             <CardContent>
                 <ul className="space-y-3 text-sm">
