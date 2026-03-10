@@ -11,8 +11,10 @@ import { createClient } from '@/lib/supabase/client'
 import { History, Plus, Trash2, Lock, Sparkles, Zap, ArrowRight, TrendingUp, BrainCircuit } from 'lucide-react'
 import Link from 'next/link'
 import { CpuArchitecture } from '@/components/ui/cpu-architecture'
+import { useLocale } from 'next-intl'
 
 export default function RoadmapPage() {
+    const locale = useLocale()
     const supabase = createClient()
     const [loading, setLoading] = useState(false)
     const [data, setData] = useState<any>(null)
@@ -99,7 +101,8 @@ export default function RoadmapPage() {
                 body: JSON.stringify({
                     reportType: 'roadmap',
                     inputData: { ...simPayload.inputData, platform: latestPlatform },
-                    simulationResult: simPayload.simulationResult
+                    simulationResult: simPayload.simulationResult,
+                    locale
                 })
             })
             const json = await res.json()

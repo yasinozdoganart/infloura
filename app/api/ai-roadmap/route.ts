@@ -4,7 +4,7 @@ import { createClient } from '@/lib/supabase/server';
 
 export async function POST(request: Request) {
     try {
-        const { simulationId, inputData, simulationResult, reportType, trackingData } = await request.json();
+        const { simulationId, inputData, simulationResult, reportType, trackingData, locale = 'en' } = await request.json();
 
         const supabase = await createClient();
         const { data: { user } } = await supabase.auth.getUser();
@@ -33,11 +33,11 @@ export async function POST(request: Request) {
         let reportContent;
 
         if (reportType === 'roadmap') {
-            reportContent = await generateMonetizationRoadmap(simulationResult, inputData);
+            reportContent = await generateMonetizationRoadmap(simulationResult, inputData, locale);
         } else if (reportType === 'risk_analysis') {
-            reportContent = await generateRiskAnalysis(simulationResult, inputData);
+            reportContent = await generateRiskAnalysis(simulationResult, inputData, locale);
         } else if (reportType === 'optimization') {
-            reportContent = await generateOptimizationAdvice(simulationResult, inputData, trackingData);
+            reportContent = await generateOptimizationAdvice(simulationResult, inputData, trackingData, locale);
         } else {
             return NextResponse.json({ error: 'Invalid report type' }, { status: 400 });
         }

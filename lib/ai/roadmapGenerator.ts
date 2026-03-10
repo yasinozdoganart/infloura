@@ -11,7 +11,7 @@ function getModel() {
   });
 }
 
-export async function generateMonetizationRoadmap(simulationData: SimulationResult, userInputs: SimulationInput) {
+export async function generateMonetizationRoadmap(simulationData: SimulationResult, userInputs: SimulationInput, locale: string = 'en') {
   if (!process.env.GEMINI_API_KEY) {
     throw new Error('GEMINI_API_KEY is not configured');
   }
@@ -28,6 +28,9 @@ Return ONLY valid JSON with this structure:
   ]
 }
 
+LANGUAGE INSTRUCTION: The user's locale is '${locale}'. If '${locale}' is 'tr', all string values in the JSON ("focus", "actions") MUST be written in perfect, natural Turkish. 
+CRITICAL CURRENCY INSTRUCTION: Even when writing in Turkish, you MUST keep all currency symbols as '$' and monetary expectations in USD (e.g., "$1,000", "$5,000"). Do absolutely NOT use "TRY", "₺", or "TL".
+
 Simulation Data (Target 12-month Revenue): ${JSON.stringify(simulationData)}
 User Inputs: ${JSON.stringify(userInputs)}
 `;
@@ -38,7 +41,7 @@ User Inputs: ${JSON.stringify(userInputs)}
   return JSON.parse(jsonStr);
 }
 
-export async function generateRiskAnalysis(simulationData: SimulationResult, userInputs: SimulationInput) {
+export async function generateRiskAnalysis(simulationData: SimulationResult, userInputs: SimulationInput, locale: string = 'en') {
   const model = getModel();
 
   const prompt = `
@@ -50,6 +53,9 @@ Return ONLY valid JSON with this structure:
   ]
 }
 
+LANGUAGE INSTRUCTION: The user's locale is '${locale}'. If '${locale}' is 'tr', the "description" and "mitigation" strings MUST be in perfect Turkish. DO NOT translate the "type" or "level" enum keys, keep them exact as requested! 
+CRITICAL CURRENCY INSTRUCTION: You MUST keep all currency symbols as '$' and monetary references in USD. Do absolutely NOT use "TL" or "₺".
+
 Simulation Data: ${JSON.stringify(simulationData)}
 User Inputs: ${JSON.stringify(userInputs)}
 `;
@@ -60,7 +66,7 @@ User Inputs: ${JSON.stringify(userInputs)}
   return JSON.parse(jsonStr);
 }
 
-export async function generateOptimizationAdvice(simulationData: SimulationResult, userInputs: SimulationInput, trackingData: any) {
+export async function generateOptimizationAdvice(simulationData: SimulationResult, userInputs: SimulationInput, trackingData: any, locale: string = 'en') {
   const model = getModel();
 
   const prompt = `
@@ -71,6 +77,9 @@ Return ONLY valid JSON with this structure:
     { "area": "Content Strategy" | "Monetization Efficiency" | "Correction", "suggestion": "string" }
   ]
 }
+
+LANGUAGE INSTRUCTION: The user's locale is '${locale}'. If '${locale}' is 'tr', the "suggestion" strings MUST be in perfect Turkish. DO NOT translate the "area" enum keys, keep them exact as requested!
+CRITICAL CURRENCY INSTRUCTION: You MUST keep all currency symbols as '$' and monetary references in USD. Do absolutely NOT use "TL" or "₺".
 
 Simulation Data: ${JSON.stringify(simulationData)}
 User Inputs: ${JSON.stringify(userInputs)}
