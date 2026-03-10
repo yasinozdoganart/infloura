@@ -127,16 +127,16 @@ export default function SettingsPage() {
                     </CardHeader>
                     <CardContent className="space-y-4">
                         <div className="space-y-2">
-                            <Label htmlFor="email">Email</Label>
+                            <Label htmlFor="email">{isTR ? 'E-posta' : 'Email'}</Label>
                             <Input id="email" value={profile?.email || userAuth?.email || ''} readOnly className="bg-zinc-50 dark:bg-zinc-900" />
                         </div>
                         <div className="space-y-2">
-                            <Label htmlFor="name">Full Name</Label>
+                            <Label htmlFor="name">{isTR ? 'Ad Soyad' : 'Full Name'}</Label>
                             <Input
                                 id="name"
                                 value={fullName}
                                 onChange={(e) => setFullName(e.target.value)}
-                                placeholder="Your name"
+                                placeholder={isTR ? 'Adınız' : 'Your name'}
                             />
                         </div>
                     </CardContent>
