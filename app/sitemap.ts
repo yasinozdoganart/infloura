@@ -29,6 +29,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
         'about',
         'privacy',
         'terms',
+        'guides',
+        'guides/how-to-get-your-first-youtube-sponsor',
+        'guides/instagram-engagement-rate-guide',
+        'guides/tiktok-media-kit-template',
     ]
 
     return [
