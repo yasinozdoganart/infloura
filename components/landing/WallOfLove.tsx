@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import React from 'react'
+import { useTranslations } from 'next-intl'
 
 const testimonials = [
     {
@@ -125,14 +126,15 @@ const TestimonialsColumn = (props: {
 };
 
 export function WallOfLove() {
+    const t = useTranslations('Landing')
     return (
         <section className="py-24 bg-[#030303] relative border-t border-white/5 overflow-hidden">
             <div className="max-w-7xl mx-auto px-6 z-10 relative">
                 <div className="text-center max-w-2xl mx-auto mb-16">
-                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-white">Join the community</h2>
-                    <p className="text-zinc-400 text-lg mb-8">See what ambitious creators are saying about their Infloura experience.</p>
+                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-white">{t('wallTitle')}</h2>
+                    <p className="text-zinc-400 text-lg mb-8">{t('wallSub')}</p>
                     <div className="inline-flex items-center justify-center border border-white/10 py-1.5 px-5 rounded-full text-xs font-semibold tracking-wide uppercase text-zinc-400 bg-zinc-900">
-                        Testimonials
+                        {t('wallBadge')}
                     </div>
                 </div>
 

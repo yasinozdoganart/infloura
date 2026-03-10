@@ -29,6 +29,7 @@ export default function LandingPage() {
           badge=""
           title1={t('heroTitle1')}
           title2={t('heroTitle2')}
+          description={t('heroDesc')}
         />
         <div className="absolute bottom-16 md:bottom-24 left-0 right-0 z-20 flex flex-col sm:flex-row justify-center items-center gap-4 px-6">
           <LiquidButton href="/register" className="text-white hover:text-white h-12 px-8 text-lg w-auto z-10">

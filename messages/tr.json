@@ -48,6 +48,10 @@
         "faq2A": "Şu anda YouTube, TikTok, Instagram ve X (Twitter) için ayrıntılı simülasyonları destekliyoruz.",
         "faq3Q": "Tahminler ne kadar doğru?",
         "faq3A": "Dönüşüm oranları, standart RPM'ler ve ortalama sponsorluk anlaşmaları için endüstri standartlarına dayanırlar. Ancak bireysel performans her zaman eforunuza bağlı değişecektir.",
+        "heroDesc": "Yenilikçi tasarım ve ileri teknoloji ile olağanüstü dijital deneyimler yaratıyoruz.",
+        "wallTitle": "Topluluğa katıl",
+        "wallSub": "Hırslı içerik üreticilerinin Infloura deneyimleri hakkında neler söylediğine bakın.",
+        "wallBadge": "Yorumlar",
         "faq4Q": "İstediğim zaman iptal edebilir miyim?",
         "faq4A": "Evet, kontrol panelinizden anında. Hiçbir soru sorulmaz."
     },
@@ -98,5 +102,26 @@
         "timeTo1k": "1000$/Ay Hedefine Kalan Süre:",
         "months": "ay",
         "monthsPlus": "12+ ay"
+    },
+    "Pricing": {
+        "title": "Basit, şeffaf fiyatlandırma",
+        "sub": "Bugün içerik üretici işinize yatırım yapın.",
+        "monthly": "Aylık",
+        "annual": "Yıllık",
+        "freeTitle": "Ücretsüz",
+        "freeSub": "Yeni başlayan içerik üreticileri için.",
+        "freeFeat1": "Ayda 1 Simülasyon",
+        "freeFeat2": "3 Aylık Projeksiyon",
+        "freeFeat3": "Temel Takip",
+        "freeCta": "Başla",
+        "proSub": "Kitlesini bir iş gibi yöneten hırslı içerik üreticileri için.",
+        "proFeat1": "Sınırsız Simülasyon",
+        "proFeat2": "12 Aylık Projeksiyon",
+        "proFeat3": "Yapay Zeka Strateji Yol Haritası",
+        "proFeat4": "Gelişmiş Büyüme Takibi",
+        "proFeat5": "Öncelikli Destek",
+        "proCta": "7 Günlük Ücretsüz Deneme Başlat",
+        "perMonth": "/ay",
+        "perYear": "/yıl"
     }
 }

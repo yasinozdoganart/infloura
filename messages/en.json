@@ -48,6 +48,10 @@
         "faq2A": "Currently, we support detailed simulations for YouTube, TikTok, Instagram, and X (Twitter).",
         "faq3Q": "How accurate are the projections?",
         "faq3A": "They are based on industry benchmarks for conversion rates, standard RPMs, and average sponsorship deals. While accurate structurally, individual performance will always vary.",
+        "heroDesc": "Crafting exceptional digital experiences through innovative design and cutting-edge technology.",
+        "wallTitle": "Join the community",
+        "wallSub": "See what ambitious creators are saying about their Infloura experience.",
+        "wallBadge": "Testimonials",
         "faq4Q": "Can I cancel anytime?",
         "faq4A": "Yes, instantly from your dashboard settings. No questions asked."
     },
@@ -98,5 +102,26 @@
         "timeTo1k": "Time to $1K/mo:",
         "months": "months",
         "monthsPlus": "12+ months"
+    },
+    "Pricing": {
+        "title": "Simple, transparent pricing",
+        "sub": "Invest in your creator business today.",
+        "monthly": "Monthly",
+        "annual": "Annual",
+        "freeTitle": "Free",
+        "freeSub": "For creators just getting started.",
+        "freeFeat1": "1 Simulation per month",
+        "freeFeat2": "3 Month Projections",
+        "freeFeat3": "Basic Tracking",
+        "freeCta": "Get Started",
+        "proSub": "For ambitious creators who treat their audience like a business.",
+        "proFeat1": "Unlimited Simulations",
+        "proFeat2": "12 Month Projections",
+        "proFeat3": "AI Strategy Roadmap",
+        "proFeat4": "Advanced Growth Tracking",
+        "proFeat5": "Priority Support",
+        "proCta": "Start 7-Day Free Trial",
+        "perMonth": "/mo",
+        "perYear": "/yr"
     }
 }
