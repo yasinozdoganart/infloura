@@ -22,7 +22,7 @@ export default function TikTokMediaKitGuide() {
         <ArticleLayout
             title="The Perfect TikTok Media Kit Template for Creators"
             description="A step-by-step guide to building a one-page media kit that actually converts inbound brand inquiries into high-paying, long-term sponsorships."
-            date="October 26, 2024"
+            date="March 10, 2026"
             readTime="7 min read"
             breadcrumbs={[
                 { label: 'Guides', href: '/guides' },

@@ -15,7 +15,7 @@ const guides = [
         iconColor: 'text-red-400'
     },
     {
-        title: 'Instagram Engagement Rate: What is a "Good" Score in 2024?',
+        title: 'Instagram Engagement Rate: What is a "Good" Score in 2026?',
         description: 'Likes are down across the board. Decode the new Instagram algorithm, calculate your true engagement rate, and learn how to position it to sponsors.',
         href: '/guides/instagram-engagement-rate-guide',
         category: 'Analytics',

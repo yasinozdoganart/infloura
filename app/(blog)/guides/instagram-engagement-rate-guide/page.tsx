@@ -3,11 +3,11 @@ import ArticleLayout from '@/components/seo/ArticleLayout'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-    title: 'Instagram Engagement Rate: What is a "Good" Score in 2024?',
+    title: 'Instagram Engagement Rate: What is a "Good" Score in 2026?',
     description: 'Likes are down across the board. Decode the new Instagram algorithm, calculate your true engagement rate, and learn how to position it to sponsors.',
     openGraph: {
         title: 'Instagram Engagement Rate: What is a "Good" Score?',
-        description: 'Learn how to calculate your true Instagram engagement rate and what brands actually look for in 2024.',
+        description: 'Learn how to calculate your true Instagram engagement rate and what brands actually look for in 2026.',
         url: 'https://infloura.com/guides/instagram-engagement-rate-guide',
         type: 'article',
         publishedTime: new Date().toISOString(),
@@ -20,9 +20,9 @@ export const metadata: Metadata = {
 export default function InstagramEngagementGuide() {
     return (
         <ArticleLayout
-            title='Instagram Engagement Rate: What is a "Good" Score in 2024?'
+            title='Instagram Engagement Rate: What is a "Good" Score in 2026?'
             description="Likes are down across the board. Decode the new Instagram algorithm, calculate your true engagement rate, and learn how to position it to sponsors."
-            date="October 25, 2024"
+            date="March 10, 2026"
             readTime="5 min read"
             breadcrumbs={[
                 { label: 'Guides', href: '/guides' },
@@ -45,7 +45,7 @@ export default function InstagramEngagementGuide() {
                 This formula is dead. Why? Because the Instagram Feed is largely algorithmic now. Your content is being shown to non-followers on the Explore page and in the Reels tab. Measuring engagement strictly against your follower count artificially deflates your score, especially if you have an older, inactive follower base.
             </p>
 
-            <h3>The 2024 Industry Standard Formula (ERR)</h3>
+            <h3>The 2026 Industry Standard Formula (ERR)</h3>
             <p>
                 To get a true representation of how people interact with your content when they see it, you must use the <strong>Engagement Rate by Reach (ERR)</strong> formula:
             </p>

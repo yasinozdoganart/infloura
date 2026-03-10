@@ -22,7 +22,7 @@ export default function YouTubeSponsorGuide() {
         <ArticleLayout
             title="How to Get Your First YouTube Sponsor (Under 10k Subs)"
             description="Stop waiting for brands to come to you. Learn the exact cold-email templates and engagement metrics you need to secure your first paid brand deal."
-            date="October 24, 2024"
+            date="March 10, 2026"
             readTime="6 min read"
             breadcrumbs={[
                 { label: 'Guides', href: '/guides' },
