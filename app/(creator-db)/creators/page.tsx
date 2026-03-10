@@ -10,7 +10,7 @@ const CREATORS_LIST = [
         handle: 'MrBeast',
         platform: 'YouTube',
         niche: 'Entertainment',
-        estMonthlyEarnings: '25.5M',
+        estMonthlyEarnings: '32.4M',
         slug: 'mrbeast',
         gradient: 'from-cyan-500/20 to-blue-500/20',
         imageUrl: '/avatars/mrbeast.jpg' // Placeholders until scraped
@@ -20,7 +20,7 @@ const CREATORS_LIST = [
         handle: 'MKBHD',
         platform: 'YouTube',
         niche: 'Tech',
-        estMonthlyEarnings: '1.2M',
+        estMonthlyEarnings: '1.5M',
         slug: 'marques-brownlee',
         gradient: 'from-red-500/20 to-orange-500/20',
         imageUrl: '/avatars/mkbhd.jpg'
@@ -30,7 +30,7 @@ const CREATORS_LIST = [
         handle: 'emmachamberlain',
         platform: 'YouTube',
         niche: 'Lifestyle',
-        estMonthlyEarnings: '850K',
+        estMonthlyEarnings: '1.1M',
         slug: 'emma-chamberlain',
         gradient: 'from-pink-500/20 to-rose-500/20',
         imageUrl: '/avatars/emma.jpg'
