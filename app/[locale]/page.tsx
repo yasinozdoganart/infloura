@@ -1,3 +1,5 @@
+'use client'
+
 import { HeroGeometric } from "@/components/ui/shape-landing-hero"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
