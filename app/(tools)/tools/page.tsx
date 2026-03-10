@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import CalculatorLayout from '@/components/seo/CalculatorLayout'
 import Link from 'next/link'
-import { ArrowRight, Youtube, Music2, Instagram, LineChart, Target, Coins } from 'lucide-react'
+import { ArrowRight, Youtube, Music2, Instagram, LineChart, Target, Coins, Image as ImageIcon, Sparkles, Activity } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 export const metadata: Metadata = {
@@ -58,6 +58,27 @@ const tools = [
     }
 ]
 
+const freeTools = [
+    {
+        title: 'YouTube Thumbnail Downloader',
+        description: 'Download any YouTube highest-res cover image instantly, watermark free.',
+        href: '/youtube-thumbnail-downloader',
+        icon: <ImageIcon className="w-6 h-6 text-red-400" />
+    },
+    {
+        title: 'YouTube Title Generator',
+        description: 'Generate viral, psychological hook titles trained by AI.',
+        href: '/youtube-title-generator',
+        icon: <Sparkles className="w-6 h-6 text-yellow-400" />
+    },
+    {
+        title: 'TikTok Engagement Calculator',
+        description: 'Calculate your true Engagement Rate by Reach (ERR) factor.',
+        href: '/tiktok-engagement-calculator',
+        icon: <Activity className="w-6 h-6 text-cyan-400" />
+    }
+]
+
 export default function ToolsHubPage() {
     return (
         <CalculatorLayout currentPage="/tools">
@@ -67,11 +88,17 @@ export default function ToolsHubPage() {
                     <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Calculators</span>
                 </h1>
                 <p className="text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed">
-                    Infloura provides free tools to help creators estimate potential income from YouTube, TikTok, Instagram, and deep brand sponsorships.
+                    A suite of free tools combining predictive financial models and technical utilities to accelerate your creator career.
                 </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16 max-w-6xl mx-auto">
+            {/* Financial Calculators Section */}
+            <div className="mb-8 max-w-6xl mx-auto px-4 md:px-0">
+                <h2 className="text-2xl font-bold text-white mb-2">Financial Tools & Calculators</h2>
+                <p className="text-zinc-500">Calculate ad revenue, predict growth scopes, and price sponsorships.</p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-20 px-4 md:px-0">
                 {tools.map((tool) => (
                     <div
                         key={tool.href}
@@ -91,6 +118,38 @@ export default function ToolsHubPage() {
                         >
                             <Link href={tool.href}>
                                 Open Calculator <ArrowRight className="w-4 h-4 ml-2" />
+                            </Link>
+                        </Button>
+                    </div>
+                ))}
+            </div>
+
+            {/* Technical Utilities Section */}
+            <div className="mb-8 max-w-6xl mx-auto px-4 md:px-0 mt-32">
+                <h2 className="text-2xl font-bold text-white mb-2">Free Technical Utilities</h2>
+                <p className="text-zinc-500">Fast, free, and vital micro-tools to automate everyday creator tasks.</p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto px-4 md:px-0">
+                {freeTools.map((tool) => (
+                    <div
+                        key={tool.href}
+                        className="flex flex-col h-full bg-zinc-900/50 border border-white/10 rounded-2xl p-6 hover:bg-zinc-800/50 hover:border-white/20 transition-all duration-300 relative group"
+                    >
+                        <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-6">
+                            {tool.icon}
+                        </div>
+                        <h3 className="text-xl font-bold mb-3">{tool.title}</h3>
+                        <p className="text-zinc-400 leading-relaxed mb-8 flex-1">
+                            {tool.description}
+                        </p>
+                        <Button
+                            variant="secondary"
+                            className="w-full bg-white/5 hover:bg-white/10 text-white border border-white/5 transition-all group-hover:bg-white group-hover:text-black mt-auto"
+                            asChild
+                        >
+                            <Link href={tool.href}>
+                                Launch Tool <ArrowRight className="w-4 h-4 ml-2" />
                             </Link>
                         </Button>
                     </div>

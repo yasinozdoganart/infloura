@@ -37,6 +37,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
         'creators/mrbeast',
         'creators/marques-brownlee',
         'creators/emma-chamberlain',
+        'youtube-thumbnail-downloader',
+        'youtube-title-generator',
+        'tiktok-engagement-calculator',
     ]
 
     return [
