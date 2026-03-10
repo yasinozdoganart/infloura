@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import Link from 'next/link'
-import { ArrowRight, DollarSign, TrendingUp, Users, Sparkles } from 'lucide-react'
+import { ArrowRight, DollarSign, TrendingUp, Users, Sparkles, Twitter, Link2, Check } from 'lucide-react'
 
 type Platform = 'youtube' | 'tiktok' | 'instagram' | 'multi'
 
@@ -109,6 +109,7 @@ export default function CalculatorWidget({ platform: defaultPlatform }: Calculat
     const [country, setCountry] = useState('US')
     const [result, setResult] = useState<ReturnType<typeof calculateEstimate> | null>(null)
     const [showResult, setShowResult] = useState(false)
+    const [copied, setCopied] = useState(false)
 
     const handleCalculate = () => {
         const monthlyViews = parseInt(views.replace(/,/g, '')) || 0
@@ -131,6 +132,20 @@ export default function CalculatorWidget({ platform: defaultPlatform }: Calculat
     const formatNumber = (n: number) => {
         if (n >= 1000) return `$${(n / 1000).toFixed(1)}k`
         return `$${Math.round(n).toLocaleString()}`
+    }
+
+    const handleShareTwitter = () => {
+        if (!result) return
+        const formattedTotal = formatNumber(result.total)
+        const text = `According to @Infloura, my ${platformLabels[platform]} channel could earn ${formattedTotal}/month! 🚀\n\nCheck your true value here: https://infloura.com/tools`
+        const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`
+        window.open(url, '_blank')
+    }
+
+    const handleCopyLink = () => {
+        navigator.clipboard.writeText('https://infloura.com/tools')
+        setCopied(true)
+        setTimeout(() => setCopied(false), 2000)
     }
 
     return (
@@ -242,12 +257,14 @@ export default function CalculatorWidget({ platform: defaultPlatform }: Calculat
 
                     {/* CTA */}
                     <Card className="bg-white/[0.03] border-white/10 border-dashed">
-                        <CardContent className="p-6 text-center space-y-3">
-                            <p className="text-zinc-400 text-sm">
-                                Want a <span className="text-white font-medium">detailed 12-month projection</span> with AI-powered growth strategies?
-                            </p>
+                        <CardContent className="p-6 text-center flex flex-col items-center justify-center space-y-4">
+                            <div className="space-y-2">
+                                <p className="text-zinc-400 text-sm">
+                                    Want a <span className="text-white font-medium">detailed 12-month projection</span> with AI-powered growth strategies?
+                                </p>
+                            </div>
                             <Button
-                                className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 shadow-lg shadow-purple-500/25 px-8 py-5 text-base"
+                                className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 shadow-lg shadow-purple-500/25 px-8 py-5 text-base w-full sm:w-auto"
                                 asChild
                             >
                                 <Link href="/register">
@@ -257,6 +274,26 @@ export default function CalculatorWidget({ platform: defaultPlatform }: Calculat
                             </Button>
                         </CardContent>
                     </Card>
+
+                    {/* Viral Share Actions */}
+                    <div className="grid grid-cols-2 gap-3 pt-2">
+                        <Button 
+                            onClick={handleShareTwitter}
+                            variant="outline" 
+                            className="bg-[#1DA1F2]/10 text-[#1DA1F2] border-[#1DA1F2]/20 hover:bg-[#1DA1F2]/20 hover:text-[#1DA1F2] transition-colors py-6 rounded-xl"
+                        >
+                            <Twitter className="w-4 h-4 mr-2" />
+                            Share on 𝕏
+                        </Button>
+                        <Button 
+                            onClick={handleCopyLink}
+                            variant="outline" 
+                            className="bg-zinc-800/50 text-zinc-300 border-white/10 hover:bg-zinc-800 hover:text-white transition-colors py-6 rounded-xl"
+                        >
+                            {copied ? <Check className="w-4 h-4 mr-2 text-green-400" /> : <Link2 className="w-4 h-4 mr-2" />}
+                            {copied ? 'Link Copied!' : 'Copy Link'}
+                        </Button>
+                    </div>
                 </div>
             )}
         </div>
