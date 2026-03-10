@@ -41,13 +41,28 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
+import { notFound } from 'next/navigation';
+import { routing } from '@/i18n/routing';
+
+export default async function RootLayout({
   children,
-}: Readonly<{
+  params,
+}: {
   children: React.ReactNode;
-}>) {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+
+  if (!routing.locales.includes(locale as any)) {
+    notFound();
+  }
+
+  const messages = await getMessages();
+
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang={locale} className="scroll-smooth">
       <head>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-NQVGSLRGJ9"
@@ -65,10 +80,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${syncopate.variable} antialiased`}
       >
-        {children}
-        <Analytics />
-        <SpeedInsights />
-        <Toaster />
+        <NextIntlClientProvider messages={messages}>
+          {children}
+          <Analytics />
+          <SpeedInsights />
+          <Toaster />
+        </NextIntlClientProvider>
       </body>
     </html>
   );
