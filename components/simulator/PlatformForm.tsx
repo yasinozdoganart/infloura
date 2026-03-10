@@ -7,9 +7,11 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
 import { SimulationInput } from "@/types/simulation"
+import { useTranslations } from "next-intl"
 
 export default function PlatformForm({ onSimulate, isPending }: { onSimulate: (data: SimulationInput) => void, isPending: boolean }) {
     const [platform, setPlatform] = useState<'youtube' | 'tiktok' | 'instagram' | 'x'>('youtube')
+    const t = useTranslations('Simulator')
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
@@ -34,12 +36,12 @@ export default function PlatformForm({ onSimulate, isPending }: { onSimulate: (d
     return (
         <Card className="w-full">
             <CardHeader>
-                <CardTitle>Platform Data</CardTitle>
+                <CardTitle>{t('cardTitle')}</CardTitle>
             </CardHeader>
             <CardContent>
                 <form onSubmit={handleSubmit} className="grid gap-4">
                     <div className="grid gap-2">
-                        <Label>Select Platform</Label>
+                        <Label>{t('selectPlatform')}</Label>
                         <div className="flex flex-wrap gap-2">
                             {(['youtube', 'tiktok', 'instagram', 'x'] as const).map(p => (
                                 <Button
@@ -57,30 +59,30 @@ export default function PlatformForm({ onSimulate, isPending }: { onSimulate: (d
 
                     <div className="grid grid-cols-2 gap-4">
                         <div className="grid gap-2">
-                            <Label>Audience Size (Followers/Subs)</Label>
+                            <Label>{t('audienceSize')}</Label>
                             <Input name="audienceSize" type="number" min="0" required defaultValue="10000" />
                         </div>
                         <div className="grid gap-2">
-                            <Label>Monthly Reach (Views)</Label>
+                            <Label>{t('monthlyReach')}</Label>
                             <Input name="monthlyReach" type="number" min="0" required defaultValue="100000" />
                         </div>
                     </div>
 
                     <div className="grid grid-cols-2 gap-4">
                         <div className="grid gap-2">
-                            <Label>Engagement Rate (e.g., 0.05 for 5%)</Label>
+                            <Label>{t('engagementRate')}</Label>
                             <Input name="engagementRate" type="number" step="0.01" min="0" max="1" defaultValue="0.05" />
                         </div>
                         {platform === 'youtube' && (
                             <div className="grid gap-2">
-                                <Label>RPM ($)</Label>
+                                <Label>{t('rpm')}</Label>
                                 <Input name="rpm" type="number" step="0.1" min="0" defaultValue="4.0" />
                             </div>
                         )}
                     </div>
 
                     <Button type="submit" disabled={isPending} className="w-full mt-4 bg-purple-600 hover:bg-purple-700 text-white">
-                        {isPending ? 'Calculating...' : 'Run Simulation'}
+                        {isPending ? t('btnCalculate') : t('btnSimulate')}
                     </Button>
                 </form>
             </CardContent>

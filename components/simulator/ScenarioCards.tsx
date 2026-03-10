@@ -2,14 +2,16 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Lock } from "lucide-react"
+import { useTranslations } from "next-intl"
 
 export default function ScenarioCards({ scenarios }: { scenarios: any }) {
+    const t = useTranslations('Simulator')
     if (!scenarios) return null
 
     const items = [
-        { title: "Conservative", data: scenarios.conservative, color: "border-l-indigo-500" },
-        { title: "Realistic", data: scenarios.realistic, color: "border-l-green-500 bg-green-50/50 dark:bg-green-950/20" },
-        { title: "Aggressive", data: scenarios.aggressive, color: "border-l-yellow-500" },
+        { title: t('conservative'), data: scenarios.conservative, color: "border-l-indigo-500" },
+        { title: t('realistic'), data: scenarios.realistic, color: "border-l-green-500 bg-green-50/50 dark:bg-green-950/20" },
+        { title: t('aggressive'), data: scenarios.aggressive, color: "border-l-yellow-500" },
     ]
 
     return (
@@ -28,7 +30,7 @@ export default function ScenarioCards({ scenarios }: { scenarios: any }) {
                         <CardContent>
                             <div className="grid gap-1">
                                 <div className="flex justify-between items-center group/item">
-                                    <span className="text-zinc-500 text-sm">Month 6 Revenue:</span>
+                                    <span className="text-zinc-500 text-sm">{t('month6')}</span>
                                     {proj.length >= 6 ? (
                                         <span className="font-medium">${Math.round(month6).toLocaleString()}</span>
                                     ) : (
@@ -38,7 +40,7 @@ export default function ScenarioCards({ scenarios }: { scenarios: any }) {
                                     )}
                                 </div>
                                 <div className="flex justify-between items-center group/item">
-                                    <span className="text-zinc-500 text-sm">Month 12 Revenue:</span>
+                                    <span className="text-zinc-500 text-sm">{t('month12')}</span>
                                     {proj.length >= 12 ? (
                                         <span className="font-bold text-lg">${Math.round(month12).toLocaleString()}</span>
                                     ) : (
@@ -48,8 +50,8 @@ export default function ScenarioCards({ scenarios }: { scenarios: any }) {
                                     )}
                                 </div>
                                 <div className="flex justify-between mt-2 pt-2 border-t">
-                                    <span className="text-zinc-500 text-sm">Time to $1K/mo:</span>
-                                    <span className="font-medium text-sm text-purple-600">{timeTo1k ? `${timeTo1k} months` : '12+ months'}</span>
+                                    <span className="text-zinc-500 text-sm">{t('timeTo1k')}</span>
+                                    <span className="font-medium text-sm text-purple-600">{timeTo1k ? `${timeTo1k} ${t('months')}` : t('monthsPlus')}</span>
                                 </div>
                             </div>
                         </CardContent>

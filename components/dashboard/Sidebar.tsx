@@ -1,19 +1,20 @@
 'use client'
 
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { Link, usePathname } from '@/i18n/routing'
 import { LayoutDashboard, LineChart, BrainCircuit, Activity, Settings } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
+import { useTranslations } from 'next-intl'
 
 export default function Sidebar() {
     const pathname = usePathname()
+    const t = useTranslations('Dashboard')
 
     const links = [
-        { name: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
-        { name: 'Simulator', href: '/simulator', icon: LineChart },
-        { name: 'AI Roadmap', href: '/roadmap', icon: BrainCircuit },
-        { name: 'Tracking', href: '/tracking', icon: Activity },
-        { name: 'Settings', href: '/settings', icon: Settings },
+        { name: t('dashboard'), href: '/dashboard', icon: LayoutDashboard },
+        { name: t('simulator'), href: '/simulator', icon: LineChart },
+        { name: t('aiRoadmap'), href: '/roadmap', icon: BrainCircuit },
+        { name: t('tracking'), href: '/tracking', icon: Activity },
+        { name: t('settings'), href: '/settings', icon: Settings },
     ]
 
     return (
@@ -41,9 +42,9 @@ export default function Sidebar() {
             <div className="mt-auto p-4">
                 <div className="rounded-xl border bg-zinc-50/50 dark:bg-zinc-900/50 p-4 shadow-sm relative overflow-hidden">
                     <div className="absolute -right-4 -top-4 w-12 h-12 bg-purple-500/20 rounded-full blur-xl"></div>
-                    <Badge variant="outline" className="mb-2 bg-white dark:bg-black">Free Plan</Badge>
-                    <p className="text-xs text-zinc-500 mb-3 relative z-10">Upgrade to Pro to unlock advanced AI insights.</p>
-                    <Link href="/settings" className="text-xs font-semibold text-purple-600 dark:text-purple-400 hover:underline relative z-10">View plans</Link>
+                    <Badge variant="outline" className="mb-2 bg-white dark:bg-black">{t('freePlan')}</Badge>
+                    <p className="text-xs text-zinc-500 mb-3 relative z-10">{t('upgradeToPro')}</p>
+                    <Link href="/settings" className="text-xs font-semibold text-purple-600 dark:text-purple-400 hover:underline relative z-10">{t('viewPlans')}</Link>
                 </div>
             </div>
         </aside>

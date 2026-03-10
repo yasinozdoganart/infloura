@@ -1,18 +1,19 @@
 'use client'
 
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { Link, usePathname } from '@/i18n/routing'
 import { LayoutDashboard, LineChart, BrainCircuit, Activity, Settings } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 export default function MobileNav() {
     const pathname = usePathname()
+    const t = useTranslations('Dashboard')
 
     const links = [
-        { name: 'Home', href: '/dashboard', icon: LayoutDashboard },
-        { name: 'Simulate', href: '/simulator', icon: LineChart },
-        { name: 'Roadmap', href: '/roadmap', icon: BrainCircuit },
-        { name: 'Track', href: '/tracking', icon: Activity },
-        { name: 'Config', href: '/settings', icon: Settings },
+        { name: t('mobileHome'), href: '/dashboard', icon: LayoutDashboard },
+        { name: t('mobileSimulate'), href: '/simulator', icon: LineChart },
+        { name: t('mobileRoadmap'), href: '/roadmap', icon: BrainCircuit },
+        { name: t('mobileTrack'), href: '/tracking', icon: Activity },
+        { name: t('mobileConfig'), href: '/settings', icon: Settings },
     ]
 
     return (
