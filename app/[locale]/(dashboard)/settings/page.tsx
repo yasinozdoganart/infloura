@@ -17,9 +17,12 @@ import {
     DialogHeader,
     DialogTitle,
 } from "@/components/ui/dialog"
+import { useLocale } from 'next-intl'
 
 export default function SettingsPage() {
     const supabase = createClient()
+    const locale = useLocale()
+    const isTR = locale === 'tr'
     const [profile, setProfile] = useState<any>(null)
     const [loading, setLoading] = useState(true)
     const [saving, setSaving] = useState(false)
@@ -54,10 +57,10 @@ export default function SettingsPage() {
             }).eq('id', userAuth.id)
 
             if (error) throw error
-            toast.success("Profile saved successfully!")
+            toast.success(isTR ? 'Profil başarıyla kaydedildi!' : 'Profile saved successfully!')
             setProfile({ ...profile, full_name: fullName })
         } catch (err: any) {
-            toast.error(err.message || "Failed to update profile")
+            toast.error(err.message || (isTR ? 'Profil güncellenemedi' : 'Failed to update profile'))
         } finally {
             setSaving(false)
         }
@@ -69,9 +72,8 @@ export default function SettingsPage() {
     }
 
     const handleDeleteAccount = async () => {
-        if (!confirm("Are you sure you want to delete your account? This action cannot be undone.")) return
-        // Ideally handled via server action for security, but we'll mock the intent
-        toast.error("Account deletion requires contacting support in this version.")
+        if (!confirm(isTR ? 'Hesabınızı silmek istediğinizden emin misiniz? Bu işlem geri alınamaz.' : 'Are you sure you want to delete your account? This action cannot be undone.')) return
+        toast.error(isTR ? 'Hesap silme bu sürümde destek ekibiyle iletişime geçmeyi gerektiriyor.' : 'Account deletion requires contacting support in this version.')
     }
 
     const handleUpgrade = async () => {
@@ -79,7 +81,7 @@ export default function SettingsPage() {
         try {
             const priceId = selectedPlan === 'annual' ? process.env.NEXT_PUBLIC_STRIPE_PRO_ANNUAL_PRICE_ID : process.env.NEXT_PUBLIC_STRIPE_PRO_MONTHLY_PRICE_ID
             if (!priceId) {
-                toast.error("Price ID is missing in the environment variables.")
+                toast.error(isTR ? "Ödeme ID’si çevre değişkenlerinde eksik." : "Price ID is missing in the environment variables.")
                 return
             }
 
@@ -94,18 +96,18 @@ export default function SettingsPage() {
             if (data.url) {
                 window.location.href = data.url
             } else {
-                toast.error("Failed to create checkout session.")
+                toast.error(isTR ? 'Ödeme oturumu oluşturulamadı.' : 'Failed to create checkout session.')
             }
         } catch (error) {
             console.error(error)
-            toast.error("Something went wrong during checkout.")
+            toast.error(isTR ? 'Ödeme sırasında bir şey ters gitti.' : 'Something went wrong during checkout.')
         } finally {
             setIsCheckoutPending(false)
         }
     }
 
     if (loading) {
-        return <div className="p-4 md:p-8 max-w-4xl mx-auto space-y-6">Loading settings...</div>
+        return <div className="p-4 md:p-8 max-w-4xl mx-auto space-y-6">{isTR ? 'Ayarlar yükleniyor...' : 'Loading settings...'}</div>
     }
 
     const planType = profile?.plan_type === 'free_trial' || profile?.plan_type === 'free' ? 'Free' : profile?.plan_type === 'pro_monthly' ? 'Pro Monthly' : profile?.plan_type === 'pro_annual' ? 'Pro Annual' : 'Free Plan'
@@ -113,15 +115,15 @@ export default function SettingsPage() {
     return (
         <div className="p-4 md:p-8 max-w-4xl mx-auto space-y-6 pb-24">
             <div className="flex flex-col gap-2">
-                <h1 className="text-3xl font-bold tracking-tight">Settings</h1>
-                <p className="text-zinc-500">Manage your account settings, preferences, and subscription.</p>
+                <h1 className="text-3xl font-bold tracking-tight">{isTR ? 'Ayarlar' : 'Settings'}</h1>
+                <p className="text-zinc-500">{isTR ? 'Hesap ayarlarınızı, tercihlerinizi ve aboneliğinizi yönetin.' : 'Manage your account settings, preferences, and subscription.'}</p>
             </div>
 
             <div className="grid gap-6">
                 <Card>
                     <CardHeader>
-                        <CardTitle className="flex items-center gap-2"><User className="w-5 h-5" /> Profile Details</CardTitle>
-                        <CardDescription>Update your personal information</CardDescription>
+                        <CardTitle className="flex items-center gap-2"><User className="w-5 h-5" /> {isTR ? 'Profil Bilgileri' : 'Profile Details'}</CardTitle>
+                        <CardDescription>{isTR ? 'Kişisel bilgilerinizi güncelleyin' : 'Update your personal information'}</CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-4">
                         <div className="space-y-2">
@@ -140,15 +142,15 @@ export default function SettingsPage() {
                     </CardContent>
                     <CardFooter className="border-t pt-6 bg-zinc-50/50 dark:bg-zinc-900/50">
                         <Button onClick={handleSaveProfile} disabled={saving || fullName === profile?.full_name}>
-                            {saving ? 'Saving...' : 'Save Preferences'}
+                            {saving ? (isTR ? 'Kaydediliyor...' : 'Saving...') : (isTR ? 'Tercihleri Kaydet' : 'Save Preferences')}
                         </Button>
                     </CardFooter>
                 </Card>
 
                 <Card>
                     <CardHeader>
-                        <CardTitle className="flex items-center gap-2"><CreditCard className="w-5 h-5" /> Subscription Plan</CardTitle>
-                        <CardDescription>Manage your Infloura billing and plan</CardDescription>
+                        <CardTitle className="flex items-center gap-2"><CreditCard className="w-5 h-5" /> {isTR ? 'Abonelik Planı' : 'Subscription Plan'}</CardTitle>
+                        <CardDescription>{isTR ? 'Infloura faturasınızı ve planınızı yönetin' : 'Manage your Infloura billing and plan'}</CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-4">
                         <div className="p-4 rounded-lg border bg-zinc-50 dark:bg-zinc-900 flex justify-between items-center flex-wrap gap-4">
@@ -159,8 +161,8 @@ export default function SettingsPage() {
                                 </h4>
                                 <p className="text-sm text-zinc-500 mt-1">
                                     {(profile?.plan_type === 'free_trial' || profile?.plan_type === 'free') && profile?.trial_ends_at
-                                        ? `Your trial ends on ${new Date(profile.trial_ends_at).toLocaleDateString()}`
-                                        : 'You are currently on the Free plan limits.'
+                                        ? (isTR ? `Denemeniz ${new Date(profile.trial_ends_at).toLocaleDateString('tr-TR')} tarihinde sona eriyor` : `Your trial ends on ${new Date(profile.trial_ends_at).toLocaleDateString()}`)
+                                        : (isTR ? 'Şu an Ücretsiz plan sınırlarındasın.' : 'You are currently on the Free plan limits.')
                                     }
                                 </p>
                             </div>
@@ -169,26 +171,26 @@ export default function SettingsPage() {
                                 variant="outline"
                                 className="text-purple-600 border-purple-200 hover:bg-purple-50 shrink-0"
                             >
-                                Upgrade Plan
+                                {isTR ? 'Planı Yükselt' : 'Upgrade Plan'}
                             </Button>
                         </div>
 
                         <div className="grid sm:grid-cols-2 gap-4 mt-4 opacity-75">
                             <div className="space-y-2">
                                 <h5 className="font-medium text-sm flex items-center gap-2">
-                                    <CheckCircle2 className="w-4 h-4 text-green-500" /> Revenue Simulation
+                                    <CheckCircle2 className="w-4 h-4 text-green-500" /> {isTR ? 'Gelir Simülasyonu' : 'Revenue Simulation'}
                                 </h5>
                                 <p className="text-xs text-zinc-500">
-                                    {planType.includes('Pro') ? 'Unlimited 12-month projections' : 'Limited to 3-month basic projections'}
+                                    {planType.includes('Pro') ? (isTR ? 'Sınırsız 12 aylık projeksiyon' : 'Unlimited 12-month projections') : (isTR ? '3 aylık temel projeksiyonla sınırlı' : 'Limited to 3-month basic projections')}
                                 </p>
                             </div>
                             <div className="space-y-2">
                                 <h5 className="font-medium text-sm flex items-center gap-2">
                                     {planType.includes('Pro') ? <CheckCircle2 className="w-4 h-4 text-green-500" /> : <XCircle className="w-4 h-4 text-red-400" />}
-                                    AI Strategy Maps
+                                    {isTR ? 'Yapay Zeka Strateji Haritaları' : 'AI Strategy Maps'}
                                 </h5>
                                 <p className="text-xs text-zinc-500">
-                                    {planType.includes('Pro') ? 'Unlimited generated roadmaps' : 'Requires Pro Upgrade'}
+                                    {planType.includes('Pro') ? (isTR ? 'Sınırsız yol haritası oluşturma' : 'Unlimited generated roadmaps') : (isTR ? 'Pro Gerektirir' : 'Requires Pro Upgrade')}
                                 </p>
                             </div>
                         </div>
@@ -197,15 +199,15 @@ export default function SettingsPage() {
 
                 <Card className="border-red-100 dark:border-red-900/30">
                     <CardHeader>
-                        <CardTitle className="text-red-600 flex items-center gap-2"><Settings2 className="w-5 h-5" /> Danger Zone</CardTitle>
+                        <CardTitle className="text-red-600 flex items-center gap-2"><Settings2 className="w-5 h-5" /> {isTR ? 'Tehlikeli Bölge' : 'Danger Zone'}</CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-4">
-                        <p className="text-sm text-zinc-500">Sign out of your account on this device, or permanently delete your account and all its data.</p>
+                        <p className="text-sm text-zinc-500">{isTR ? 'Bu cihazda hesabınızdan çıkın veya hesabınızı ve tüm verilerini kalıcı olarak silin.' : 'Sign out of your account on this device, or permanently delete your account and all its data.'}</p>
                         <div className="flex flex-wrap gap-4">
                             <Button variant="outline" onClick={handleSignOut} className="flex items-center gap-2">
-                                <LogOut className="w-4 h-4" /> Sign Out
+                                <LogOut className="w-4 h-4" /> {isTR ? 'Çıkış Yap' : 'Sign Out'}
                             </Button>
-                            <Button variant="destructive" onClick={handleDeleteAccount}>Delete Account</Button>
+                            <Button variant="destructive" onClick={handleDeleteAccount}>{isTR ? 'Hesabı Sil' : 'Delete Account'}</Button>
                         </div>
                     </CardContent>
                 </Card>
@@ -214,9 +216,9 @@ export default function SettingsPage() {
             <Dialog open={showUpgradeModal} onOpenChange={setShowUpgradeModal}>
                 <DialogContent className="sm:max-w-[500px]">
                     <DialogHeader>
-                        <DialogTitle>Upgrade to Infloura Pro</DialogTitle>
+                        <DialogTitle>{isTR ? 'Infloura Pro\'a Geçin' : 'Upgrade to Infloura Pro'}</DialogTitle>
                         <DialogDescription>
-                            Unlock unlimited AI Roadmaps, advanced tracking modules, and priority support.
+                            {isTR ? 'Sınırsız Yapay Zeka Yol Haritaları, gelişmiş takip modülleri ve öncelikli destek’in kilidini açın.' : 'Unlock unlimited AI Roadmaps, advanced tracking modules, and priority support.'}
                         </DialogDescription>
                     </DialogHeader>
                     <div className="grid gap-4 py-4">
@@ -227,7 +229,7 @@ export default function SettingsPage() {
                                     <h3 className="font-bold">Pro Monthly</h3>
                                     <span className="text-xl font-bold">$9.90<span className="text-sm text-zinc-500 font-normal">/mo</span></span>
                                 </div>
-                                <p className="text-sm text-zinc-600 dark:text-zinc-400">Cancel anytime. Full access to all features.</p>
+                                <p className="text-sm text-zinc-600 dark:text-zinc-400">{isTR ? 'İstediğiniz zaman iptal edin. Tüm özelliklere tam erişim.' : 'Cancel anytime. Full access to all features.'}</p>
                             </Card>
 
                             <Card onClick={() => setSelectedPlan('annual')} className={`p-4 cursor-pointer transition-colors ${selectedPlan === 'annual' ? 'border-2 border-purple-500 bg-purple-50 dark:bg-purple-950/20' : 'hover:border-purple-300'}`}>
@@ -235,14 +237,14 @@ export default function SettingsPage() {
                                     <h3 className="font-bold flex items-center gap-2">Pro Annual <Badge className="bg-green-100 text-green-700 hover:bg-green-100 border-0">Save 15%</Badge></h3>
                                     <span className="text-xl font-bold">$99.90<span className="text-sm text-zinc-500 font-normal">/yr</span></span>
                                 </div>
-                                <p className="text-sm text-zinc-600 dark:text-zinc-400">Billed $99.90 annually.</p>
+                                <p className="text-sm text-zinc-600 dark:text-zinc-400">{isTR ? 'Yıllık $99.90 faturalandırılır.' : 'Billed $99.90 annually.'}</p>
                             </Card>
 
                         </div>
                     </div>
                     <DialogFooter>
                         <Button type="button" className="w-full bg-purple-600" onClick={handleUpgrade} disabled={isCheckoutPending}>
-                            {isCheckoutPending ? "Redirecting to Stripe..." : "Continue to Stripe Checkout"}
+                            {isCheckoutPending ? (isTR ? 'Stripe\'a yönlendiriliyor...' : 'Redirecting to Stripe...') : (isTR ? 'Stripe Ödemesine Devam Et' : 'Continue to Stripe Checkout')}
                         </Button>
                     </DialogFooter>
                 </DialogContent>

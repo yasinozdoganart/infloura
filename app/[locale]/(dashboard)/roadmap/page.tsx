@@ -59,7 +59,7 @@ export default function RoadmapPage() {
             const { error } = await supabase.from('ai_reports').delete().eq('id', id)
             if (error) throw error
             setHistory(prev => prev.filter(item => item.id !== id))
-            toast.success('Strategy deleted')
+            toast.success(locale === 'tr' ? 'Strateji silindi' : 'Strategy deleted')
 
             // if we deleted the currently viewing item from history and it matches what's on screen...
             // actually user handles that, it's fine just to remove from list.
@@ -68,7 +68,7 @@ export default function RoadmapPage() {
                 setData(null)
             }
         } catch (err: any) {
-            toast.error(err.message || 'Error deleting strategy')
+            toast.error(err.message || (locale === 'tr' ? 'Strateji silinirken hata oluştu' : 'Error deleting strategy'))
         }
     }
 
@@ -90,7 +90,7 @@ export default function RoadmapPage() {
             }
 
             if (!simPayload) {
-                toast.error('You need to run a simulation first before generating a roadmap!')
+                toast.error(locale === 'tr' ? 'Yol haritası oluşturmadan önce bir simülasyon çalıştırmanız gerekiyor!' : 'You need to run a simulation first before generating a roadmap!')
                 setLoading(false)
                 return
             }
@@ -119,9 +119,9 @@ export default function RoadmapPage() {
                 if (reports) setHistory(reports)
             }
             setViewingHistory(false)
-            toast.success('Strategy generated and saved!')
+            toast.success(locale === 'tr' ? 'Strateji oluşturuldu ve kaydedildi!' : 'Strategy generated and saved!')
         } catch (err: any) {
-            toast.error(err.message || 'Error fetching roadmap')
+            toast.error(err.message || (locale === 'tr' ? 'Yol haritası alınırken hata oluştu' : 'Error fetching roadmap'))
         } finally {
             setLoading(false)
         }

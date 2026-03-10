@@ -22,29 +22,40 @@ const syncopate = Syncopate({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://infloura.com"),
-  title: "Infloura — Creator Revenue Simulator",
-  description: "Predict how much creators can earn across YouTube, TikTok and Instagram.",
-  openGraph: {
-    title: "Infloura — Creator Revenue Simulator",
-    description: "Predict how much creators can earn across YouTube, TikTok and Instagram.",
-    url: "https://infloura.com",
-    siteName: "Infloura",
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Infloura — Creator Revenue Simulator",
-    description: "Predict how much creators can earn across YouTube, TikTok and Instagram.",
-  },
-};
 
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const isTR = locale === 'tr';
+  return {
+    metadataBase: new URL('https://infloura.com'),
+    title: isTR ? 'Infloura — İçerik Üretici Gelir Simülatörü' : 'Infloura — Creator Revenue Simulator',
+    description: isTR
+      ? 'YouTube, TikTok ve Instagram\'da içerik üreticilerinin ne kadar kazanabileceğini tahmin edin.'
+      : 'Predict how much creators can earn across YouTube, TikTok and Instagram.',
+    openGraph: {
+      title: isTR ? 'Infloura — İçerik Üretici Gelir Simülatörü' : 'Infloura — Creator Revenue Simulator',
+      description: isTR
+        ? 'YouTube, TikTok ve Instagram\'da içerik üreticilerinin ne kadar kazanabileceğini tahmin edin.'
+        : 'Predict how much creators can earn across YouTube, TikTok and Instagram.',
+      url: 'https://infloura.com',
+      siteName: 'Infloura',
+      locale: isTR ? 'tr_TR' : 'en_US',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: isTR ? 'Infloura — İçerik Üretici Gelir Simülatörü' : 'Infloura — Creator Revenue Simulator',
+      description: isTR
+        ? 'YouTube, TikTok ve Instagram\'da içerik üreticilerinin ne kadar kazanabileceğini tahmin edin.'
+        : 'Predict how much creators can earn across YouTube, TikTok and Instagram.',
+    },
+  };
+}
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
