@@ -52,6 +52,19 @@ export default function InfluencerIncomeCalculatorPage() {
                     url: 'https://infloura.com/influencer-income-calculator',
                 }}
             />
+            <JsonLd
+                type="howTo"
+                data={{
+                    name: 'How to use the Influencer Income Calculator',
+                    description: 'Follow these simple steps to estimate your potential earnings across multiple platforms.',
+                    steps: [
+                        { name: 'Select Platform', text: 'Select your primary platform (YouTube, TikTok, or Instagram).' },
+                        { name: 'Enter Metrics', text: 'Enter your estimated monthly views or follower count.' },
+                        { name: 'Adjust Niche & Location', text: 'Select your content niche and audience location for better accuracy.' },
+                        { name: 'Review Comparison', text: 'Compare earnings potential across platforms and various revenue streams.' }
+                    ]
+                }}
+            />
             <JsonLd type="faq" data={{ faqs }} />
 
             {/* Hero */}

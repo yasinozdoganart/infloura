@@ -2,41 +2,42 @@ import { Header } from '@/components/landing/Header'
 import { Footer } from '@/components/landing/Footer'
 import Link from 'next/link'
 import { ArrowRight, BookOpen, TrendingUp, Presentation } from 'lucide-react'
+import { getTranslations } from 'next-intl/server'
 
-const guides = [
+const guidesData = [
     {
-        title: 'How to Get Your First YouTube Sponsor (Even with Under 10k Subs)',
-        description: 'Stop waiting for brands to come to you. Learn the exact cold-email templates and engagement metrics you need to secure your first paid brand deal.',
+        id: 'youtubeSponsor',
         href: '/guides/how-to-get-your-first-youtube-sponsor',
-        category: 'Monetization',
-        readTime: '6 min read',
+        category: 'monetization',
+        readTime: 6,
         icon: Presentation,
         gradient: 'from-red-500/20 to-orange-500/20',
         iconColor: 'text-red-400'
     },
     {
-        title: 'Instagram Engagement Rate: What is a "Good" Score in 2026?',
-        description: 'Likes are down across the board. Decode the new Instagram algorithm, calculate your true engagement rate, and learn how to position it to sponsors.',
+        id: 'instagramEngagement',
         href: '/guides/instagram-engagement-rate-guide',
-        category: 'Analytics',
-        readTime: '5 min read',
+        category: 'analytics',
+        readTime: 5,
         icon: TrendingUp,
         gradient: 'from-pink-500/20 to-purple-500/20',
         iconColor: 'text-pink-400'
     },
     {
-        title: 'The Perfect TikTok Media Kit Template for Creators',
-        description: 'A step-by-step guide to building a one-page media kit that actually converts inbound brand inquiries into high-paying, long-term sponsorships.',
+        id: 'tiktokMediaKit',
         href: '/guides/tiktok-media-kit-template',
-        category: 'Business',
-        readTime: '7 min read',
+        category: 'business',
+        readTime: 7,
         icon: BookOpen,
         gradient: 'from-cyan-500/20 to-blue-500/20',
         iconColor: 'text-cyan-400'
     }
 ]
 
-export default function GuidesIndexPage() {
+export default async function GuidesIndexPage({ params }: { params: Promise<{ locale: string }> }) {
+    const { locale } = await params;
+    const t = await getTranslations({ locale, namespace: 'Guides' });
+
     return (
         <div className="min-h-screen bg-black text-zinc-100 flex flex-col font-sans selection:bg-purple-500/30">
             <Header />
@@ -46,16 +47,16 @@ export default function GuidesIndexPage() {
                     {/* Header */}
                     <div className="text-center max-w-3xl mx-auto mb-20 space-y-6">
                         <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-white mb-6">
-                            Creator <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">Playbooks</span>
+                            {t('title')} <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">{t('titleHighlight')}</span>
                         </h1>
                         <p className="text-xl text-zinc-400 leading-relaxed">
-                            No fluff. Just actionable, data-driven guides to help you monetize your audience, secure brand deals, and treat your content like a startup.
+                            {t('description')}
                         </p>
                     </div>
 
                     {/* Guides Grid */}
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {guides.map((guide, idx) => (
+                        {guidesData.map((guide, idx) => (
                             <Link 
                                 key={idx} 
                                 href={guide.href}
@@ -69,22 +70,22 @@ export default function GuidesIndexPage() {
                                             <guide.icon className="w-8 h-8" />
                                         </div>
                                         <div className="flex items-center space-x-3 text-xs font-medium uppercase tracking-wider text-zinc-500">
-                                            <span>{guide.category}</span>
+                                            <span>{t(`categories.${guide.category}`)}</span>
                                             <span>•</span>
-                                            <span>{guide.readTime}</span>
+                                            <span>{guide.readTime} {t('minRead')}</span>
                                         </div>
                                     </div>
                                     
                                     <h2 className="text-2xl font-bold text-white mb-4 group-hover:text-purple-300 transition-colors leading-snug">
-                                        {guide.title}
+                                        {t(`items.${guide.id}.title`)}
                                     </h2>
                                     
                                     <p className="text-zinc-400 line-clamp-3 mb-8 flex-grow leading-relaxed">
-                                        {guide.description}
+                                        {t(`items.${guide.id}.description`)}
                                     </p>
                                     
                                     <div className="flex items-center text-purple-400 font-medium group-hover:text-purple-300 transition-colors mt-auto">
-                                        Read Ultimate Guide
+                                        {t('readGuide')}
                                         <ArrowRight className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" />
                                     </div>
                                 </div>

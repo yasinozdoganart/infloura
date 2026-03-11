@@ -8,7 +8,7 @@ interface CalculatorLayoutProps {
 
 // ... unchanged ...
 
-export default function CalculatorLayout({ children, currentPage }: CalculatorLayoutProps) {
+export default async function CalculatorLayout({ children, currentPage }: CalculatorLayoutProps) {
     return (
         <div className="min-h-screen bg-[#030303] text-white selection:bg-purple-500/30">
             {/* Header */}

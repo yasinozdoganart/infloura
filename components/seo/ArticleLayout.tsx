@@ -3,6 +3,7 @@ import { Footer } from '@/components/landing/Footer'
 import Link from 'next/link'
 import { ArrowRight, ChevronRight, User, Calendar } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { getTranslations } from 'next-intl/server'
 
 interface ArticleLayoutProps {
     children: React.ReactNode
@@ -14,24 +15,26 @@ interface ArticleLayoutProps {
     breadcrumbs?: { label: string; href: string }[]
 }
 
-export default function ArticleLayout({
+export default async function ArticleLayout({
     children,
     title,
     description,
     date,
-    author = 'Infloura Team',
-    readTime = '5 min read',
-    breadcrumbs = [{ label: 'Guides', href: '/guides' }]
+    author,
+    readTime,
+    breadcrumbs = []
 }: ArticleLayoutProps) {
+    const t = await getTranslations('Common');
+
     return (
         <div className="min-h-screen bg-black text-zinc-100 flex flex-col font-sans selection:bg-purple-500/30">
             {/* Announcement Bar */}
             <div className="bg-gradient-to-r from-purple-600/20 via-pink-600/20 to-purple-600/20 border-b border-purple-500/20 backdrop-blur-md sticky top-0 z-50">
                 <div className="max-w-7xl mx-auto px-4 py-2 sm:px-6 lg:px-8 text-center text-sm font-medium text-purple-100">
-                    <span className="hidden sm:inline">🎉 Infloura 1.0 is live! </span>
-                    Start treating your audience like a business.{' '}
+                    <span className="hidden sm:inline">{t('announcement')} </span>
+                    {t('announcementSub')}{' '}
                     <Link href="/register" className="underline decoration-purple-400 underline-offset-2 hover:text-white transition-colors">
-                        Run a free simulation
+                        {t('runSimulation')}
                     </Link>
                 </div>
             </div>
@@ -42,7 +45,7 @@ export default function ArticleLayout({
                 <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                     {/* Breadcrumbs */}
                     <nav className="flex items-center space-x-2 text-sm text-zinc-400 mb-8 overflow-x-auto whitespace-nowrap pb-2">
-                        <Link href="/" className="hover:text-white transition-colors">Home</Link>
+                        <Link href="/" className="hover:text-white transition-colors">{t('home')}</Link>
                         {breadcrumbs.map((crumb, idx) => (
                             <div key={idx} className="flex items-center space-x-2">
                                 <ChevronRight className="w-4 h-4 text-zinc-600" />
@@ -71,8 +74,8 @@ export default function ArticleLayout({
                                     <User className="w-4 h-4 text-white" />
                                 </div>
                                 <div>
-                                    <p className="text-sm font-medium text-white">{author}</p>
-                                    <p className="text-xs">Expert Contributor</p>
+                                    <p className="text-sm font-medium text-white">{author || 'Infloura Team'}</p>
+                                    <p className="text-xs">{t('expertContributor')}</p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-2 text-sm text-zinc-500">
@@ -95,14 +98,14 @@ export default function ArticleLayout({
                     <div className="mt-16 p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-purple-900/40 to-pink-900/20 border border-purple-500/20 text-center relative overflow-hidden">
                         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(168,85,247,0.1),transparent_50%)]" />
                         <div className="relative z-10 space-y-4">
-                            <h3 className="text-2xl sm:text-3xl font-bold text-white">Stop Guessing Your Value</h3>
+                            <h3 className="text-2xl sm:text-3xl font-bold text-white">{t('stopGuessingTitle')}</h3>
                             <p className="text-zinc-300 max-w-xl mx-auto text-lg">
-                                Join hundreds of professional creators using Infloura to forecast revenue, land bigger brand deals, and scale their audience.
+                                {t('stopGuessingDesc')}
                             </p>
                             <div className="pt-4">
                                 <Button className="bg-white text-black hover:bg-zinc-200 px-8 py-6 text-lg rounded-xl font-semibold w-full sm:w-auto" asChild>
                                     <Link href="/register">
-                                        Calculate Your True Value <ArrowRight className="w-5 h-5 ml-2" />
+                                        {t('calculateTrueValue')} <ArrowRight className="w-5 h-5 ml-2" />
                                     </Link>
                                 </Button>
                             </div>

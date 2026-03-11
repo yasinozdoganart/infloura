@@ -18,6 +18,8 @@ export function AvatarGroup() {
                             src={avatar.src}
                             alt="Creator"
                             fill
+                            sizes="40px"
+                            priority={avatar.id === 1}
                             className="object-cover"
                         />
                     </div>

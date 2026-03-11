@@ -1,4 +1,29 @@
 {
+    "Common": {
+        "home": "Home",
+        "announcement": "🎉 Infloura 1.0 is live!",
+        "announcementSub": "Start treating your audience like a business.",
+        "runSimulation": "Run a free simulation",
+        "expertContributor": "Expert Contributor",
+        "stopGuessingTitle": "Stop Guessing Your Value",
+        "stopGuessingDesc": "Join hundreds of professional creators using Infloura to forecast revenue, land bigger brand deals, and scale their audience.",
+        "calculateTrueValue": "Calculate Your True Value",
+        "relatedTitle": "Related Calculators",
+        "relatedDescription": "Explore more free creator tools to estimate earnings across different platforms and revenue streams.",
+        "calculatorLabels": {
+            "youtube": "YouTube Money Calculator",
+            "tiktok": "TikTok Money Calculator",
+            "multi": "Influencer Income Calculator",
+            "instagram": "Instagram Money Calculator",
+            "youtubeRpm": "YouTube RPM Calculator",
+            "tiktokEarnings": "TikTok Earnings Calculator",
+            "sponsorship": "Sponsorship Rate Calculator",
+            "full": "Creator Income Calculator",
+            "youtubeView": "YouTube Income Per View",
+            "tiktokView": "TikTok Income Per View",
+            "instagramPost": "Instagram Income Per Post"
+        }
+    },
     "Navigation": {
         "tools": "Tools",
         "creatorCalculators": "Creator Calculators",
@@ -53,7 +78,15 @@
         "wallSub": "See what ambitious creators are saying about their Infloura experience.",
         "wallBadge": "Testimonials",
         "faq4Q": "Can I cancel anytime?",
-        "faq4A": "Yes, instantly from your dashboard settings. No questions asked."
+        "faq4A": "Yes, instantly from your dashboard settings. No questions asked.",
+        "socialProofText": "Used by creators exploring their revenue potential",
+        "quickEstimateTitle": "Quick Income Preview",
+        "quickEstimateDesc": "Enter your monthly views to see an instant revenue estimation based on industry averages.",
+        "examplesTitle": "Creator Income Examples",
+        "examplesDesc": "See how different niches impact your earning potential. Your niche is often more important than your subscriber count.",
+        "subscribers": "Subscribers",
+        "monthlyViews": "Monthly Views",
+        "estRevenue": "Estimated Revenue"
     },
     "Dashboard": {
         "dashboard": "Dashboard",
@@ -74,7 +107,15 @@
         "mobileSimulate": "Simulate",
         "mobileRoadmap": "Roadmap",
         "mobileTrack": "Track",
-        "mobileConfig": "Config"
+        "mobileConfig": "Config",
+        "insightEfficiencyTitle": "Revenue Efficiency",
+        "insightEfficiencyLow": "Your estimated RPM is lower than the average creator in your niche.",
+        "insightEfficiencyHigh": "Your revenue efficiency is above average. Keep optimizing your high-paying content.",
+        "insightEfficiencySuggest": "Try targeting higher CPM topics like finance, tech, or business.",
+        "insightGrowthTitle": "Growth Momentum",
+        "insightGrowthHigh": "Excellent growth this month! Your velocity is sustainable.",
+        "insightGrowthLow": "Growth is steady, but there is room to accelerate your distribution.",
+        "insightGrowthSuggest": "Experiment with shorter-form content to drive discovery."
     },
     "Simulator": {
         "title": "Revenue Simulator",
@@ -123,5 +164,230 @@
         "proCta": "Start 7-Day Free Trial",
         "perMonth": "/mo",
         "perYear": "/yr"
+    },
+    "Guides": {
+        "title": "Creator",
+        "titleHighlight": "Playbooks",
+        "description": "No fluff. Just actionable, data-driven guides to help you monetize your audience, secure brand deals, and treat your content like a startup.",
+        "readGuide": "Read Ultimate Guide",
+        "minRead": "min read",
+        "categories": {
+            "monetization": "Monetization",
+            "analytics": "Analytics",
+            "business": "Business"
+        },
+        "items": {
+            "youtubeSponsor": {
+                "title": "How to Get Your First YouTube Sponsor (Even with Under 10k Subs)",
+                "description": "Stop waiting for brands to come to you. Learn the exact cold-email templates and engagement metrics you need to secure your first paid brand deal."
+            },
+            "instagramEngagement": {
+                "title": "Instagram Engagement Rate: What is a \"Good\" Score in 2026?",
+                "description": "Likes are down across the board. Decode the new Instagram algorithm, calculate your true engagement rate, and learn how to position it to sponsors."
+            },
+            "tiktokMediaKit": {
+                "title": "The Perfect TikTok Media Kit Template for Creators",
+                "description": "A step-by-step guide to building a one-page media kit that actually converts inbound brand inquiries into high-paying, long-term sponsorships."
+            }
+        }
+    },
+    "Creators": {
+        "title": "Creator",
+        "titleHighlight": "Database",
+        "description": "We reverse-engineered the creator economy. Discover the estimated ad revenue, sponsorship rates, and true net worth of the top creators on the internet.",
+        "estRevenue": "Est. Revenue",
+        "perMonth": "/mo",
+        "perYear": "/yr",
+        "netWorth": "Net Worth",
+        "monthlyAdRevenue": "Monthly Ad Revenue",
+        "yearlyRunRate": "Yearly Run Rate",
+        "proprietaryAlgorithm": "Estimates are calculated using Infloura's proprietary {niche} algorithm. Real numbers vary by sponsorships and merch.",
+        "totalFollowers": "Total Followers",
+        "avgViewsVideo": "Avg. Views / Video",
+        "wantNumbersTitle": "Want numbers like {name}?",
+        "wantNumbersDesc": "Calculate your own channel's exact value, forecast your growth, and learn how to price your sponsorships professionally.",
+        "funnelText": "Want to see your own name on this list?",
+        "funnelCta": "Calculate your channel's value",
+        "platforms": {
+            "youtube": "YouTube",
+            "tiktok": "TikTok",
+            "instagram": "Instagram",
+            "twitter": "Twitter"
+        },
+        "niches": {
+            "entertainment": "Entertainment",
+            "tech": "Tech",
+            "lifestyle": "Lifestyle"
+        },
+        "profiles": {
+            "mrbeast": {
+                "bio": "Jimmy Donaldson, better known as MrBeast, is the most subscribed individual on YouTube. Known for his high-budget stunts, massive philanthropic giveaways, and pioneering the modern fast-paced editing style. While his RPM (Revenue Per Mille) in the entertainment niche is relatively low (est. $3-$5), his sheer volume of billions of monthly views generates astronomical ad revenue, the vast majority of which is reinvested directly back into future videos.",
+                "calculatorText": "Calculate YouTube Entertainment Earnings"
+            },
+            "marques-brownlee": {
+                "bio": "Marques Brownlee, also known as MKBHD, is the premier tech reviewer on YouTube. With over 15 years in the game, he has built a reputation for high-quality production, deep technical insights, and unbiased reviews. His audience consists of high-intent tech buyers, leading to a premium RPM (est. $12-$18) from tech-focused advertisers.",
+                "calculatorText": "Calculate Tech Content Revenue"
+            },
+            "emma-chamberlain": {
+                "bio": "Emma Chamberlain redefined the 'vlogger' genre with her raw, unfiltered editing style and relatable personality. She has since transitioned into a high-fashion icon and business owner (Chamberlain Coffee). Her lifestyle niche and high prestige brand partnerships command elite sponsorship rates far beyond standard ad revenue.",
+                "calculatorText": "Calculate Lifestyle Vlogger Earnings"
+            }
+        }
+    },
+    "Tools": {
+        "title": "Creator Revenue",
+        "titleHighlight": "Calculators",
+        "description": "A suite of free tools combining predictive financial models and technical utilities to accelerate your creator career.",
+        "financialHeading": "Financial Tools & Calculators",
+        "financialSub": "Calculate ad revenue, predict growth scopes, and price sponsorships.",
+        "technicalHeading": "Free Technical Utilities",
+        "technicalSub": "Fast, free, and vital micro-tools to automate everyday creator tasks.",
+        "openCalculator": "Open Calculator",
+        "launchTool": "Launch Tool",
+        "ctaTitle": "Ready for the full picture?",
+        "ctaDescription": "These calculators provide a quick glance. Run a comprehensive 12-month business simulation to see your full potential.",
+        "ctaButton": "Start Free Trial",
+        "calculatorItems": {
+            "youtube": {
+                "title": "YouTube Money Calculator",
+                "description": "Estimate how much YouTubers earn based on views, niche and dynamic RPM."
+            },
+            "tiktok": {
+                "title": "TikTok Money Calculator",
+                "description": "Calculate potential earnings from the TikTok Creator Rewards Program."
+            },
+            "instagram": {
+                "title": "Instagram Earnings Calculator",
+                "description": "Estimate revenue from Instagram Reels bonuses and brand integrations."
+            },
+            "multi": {
+                "title": "Multi-Platform Income Estimator",
+                "description": "Compare earnings potential across YouTube, TikTok, Instagram, and X."
+            },
+            "full": {
+                "title": "Full Creator Revenue Model",
+                "description": "Combine ad revenue, sponsorships, and products into a single projection."
+            },
+            "sponsorship": {
+                "title": "Sponsorship Rate Calculator",
+                "description": "Calculate how much you should charge brands for dedicated and integrated promos."
+            }
+        },
+        "utilityItems": {
+            "thumbnail": {
+                "title": "YouTube Thumbnail Downloader",
+                "description": "Download any YouTube highest-res cover image instantly, watermark free."
+            },
+            "title": {
+                "title": "YouTube Title Generator",
+                "description": "Generate viral, psychological hook titles trained by AI."
+            },
+            "engagement": {
+                "title": "TikTok Engagement Calculator",
+                "description": "Calculate your true Engagement Rate by Reach (ERR) factor."
+            }
+        }
+    },
+    "CalculatorWidget": {
+        "labels": {
+            "monthlyViews": "Monthly Views",
+            "niche": "Niche",
+            "country": "Country",
+            "calculate": "Calculate Earnings",
+            "estimatedMonthly": "Estimated Monthly Earnings",
+            "basedOn": "Based on {views} monthly views on {platform}",
+            "detailedProjection": "Want a detailed 12-month projection with AI-powered growth strategies?",
+            "runSimulation": "Run Full Creator Simulation",
+            "shareX": "Share on X",
+            "copyLink": "Copy Link",
+            "linkCopied": "Link Copied!",
+            "platform": "Platform"
+        },
+        "niches": {
+            "gaming": "Gaming",
+            "tech": "Tech & Reviews",
+            "finance": "Finance & Business",
+            "beauty": "Beauty & Fashion",
+            "education": "Education",
+            "entertainment": "Entertainment",
+            "lifestyle": "Lifestyle",
+            "health": "Health & Fitness",
+            "food": "Food & Cooking",
+            "travel": "Travel"
+        },
+        "breakdown": {
+            "adRevenue": "Ad Revenue (AdSense)",
+            "sponsorships": "Sponsorships",
+            "affiliate": "Affiliate Income",
+            "creatorFund": "Creator Fund",
+            "brandDeals": "Brand Deals",
+            "contentRevenue": "Content Revenue"
+        },
+        "shareText": "According to @Infloura, my {platform} channel could earn {total}/month! 🚀\n\nCheck your true value here: https://infloura.com/tools"
+    },
+    "Testimonials": {
+        "items": [
+            {
+                "name": "Sarah Jenkins",
+                "handle": "@sarahj_creates",
+                "platform": "YouTube & TikTok",
+                "content": "The math engine completely changed how I look at my business. I stopped guessing and started executing the custom AI roadmap. Hit $10k/mo in 4 months."
+            },
+            {
+                "name": "Marcus Wright",
+                "handle": "@marcus_tech",
+                "platform": "YouTube",
+                "content": "I always struggled with consistency. The 12-month projections showed me exactly what would happen if I just stuck to my upload schedule. Incredible tool."
+            },
+            {
+                "name": "Elena Rodriguez",
+                "handle": "@elena.lifestyle",
+                "platform": "Instagram",
+                "content": "Infloura is like having a CFO and Strategy Lead in your pocket. The Growth Tracking feature instantly tells me if my Reels strategy is actually working."
+            },
+            {
+                "name": "David Chen",
+                "handle": "@chen_codes",
+                "platform": "X (Twitter)",
+                "content": "The simulations are scarily accurate. It predicted my revenue dip in Q3 based on my engagement metrics, letting me pivot my content strategy just in time."
+            },
+            {
+                "name": "Jessica Fox",
+                "handle": "@jessfit",
+                "platform": "TikTok",
+                "content": "Finally, a tool that respects the business side of being a creator. The AI insights alone are worth 10x the monthly subscription."
+            },
+            {
+                "name": "Tom Barker",
+                "handle": "@tom_invests",
+                "platform": "YouTube",
+                "content": "If you are serious about making a living from your content, you need this dashboard. Period. It's the ultimate reality check and action plan combined."
+            }
+        ]
+    },
+    "Footer": {
+        "madeForCreators": "Made for creators, by creators.",
+        "tagline": "Creator revenue intelligence platform.",
+        "productHeader": "Product",
+        "toolsHeader": "Tools",
+        "companyHeader": "Company",
+        "links": {
+            "tools": "Tools",
+            "pricing": "Pricing",
+            "login": "Login",
+            "startFreeTrial": "Start Free Trial",
+            "allCreatorTools": "All Creator Tools",
+            "youtubeMoneyCalculator": "YouTube Money Calculator",
+            "tiktokMoneyCalculator": "TikTok Money Calculator",
+            "instagramMoneyCalculator": "Instagram Money Calculator",
+            "influencerIncomeCalculator": "Influencer Income Calculator",
+            "creatorIncomeCalculator": "Creator Income Calculator",
+            "sponsorshipCalculator": "Sponsorship Calculator",
+            "about": "About Infloura",
+            "contact": "Contact",
+            "privacy": "Privacy Policy",
+            "terms": "Terms of Service"
+        },
+        "rights": "All rights reserved."
     }
 }

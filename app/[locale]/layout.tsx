@@ -77,6 +77,9 @@ export default async function RootLayout({
   return (
     <html lang={locale} className="scroll-smooth">
       <head>
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://www.google-analytics.com" />
+        <link rel="preconnect" href="https://i.pravatar.cc" />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-NQVGSLRGJ9"
           strategy="afterInteractive"

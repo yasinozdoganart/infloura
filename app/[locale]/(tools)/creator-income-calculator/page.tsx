@@ -52,6 +52,19 @@ export default function CreatorIncomeCalculatorPage() {
                     url: 'https://infloura.com/creator-income-calculator',
                 }}
             />
+            <JsonLd
+                type="howTo"
+                data={{
+                    name: 'How to use the Creator Income Calculator',
+                    description: 'Follow these simple steps to calculate your total creator revenue potential.',
+                    steps: [
+                        { name: 'Enter Audience Metrics', text: 'Enter your audience metrics and average content performance.' },
+                        { name: 'Select Niche', text: 'Select your niche to apply relevant industry CPM and RPM rates.' },
+                        { name: 'Choose Location', text: 'Select your target audience country for geographic pay adjustments.' },
+                        { name: 'Review Total Income', text: 'Review your total projected income from ads, sponsorships, and affiliates.' }
+                    ]
+                }}
+            />
             <JsonLd type="faq" data={{ faqs }} />
 
             <div className="text-center mb-12">

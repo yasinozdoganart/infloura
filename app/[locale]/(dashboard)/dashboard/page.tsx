@@ -6,6 +6,7 @@ import { TrendingUp, Activity, DollarSign, BrainCircuit, ArrowRight, LineChart }
 import { createClient } from '@/lib/supabase/server'
 import RoutineChecklist from "@/components/dashboard/RoutineChecklist"
 import SignupTracker from "@/components/analytics/SignupTracker"
+import { InsightCards } from "@/components/dashboard/InsightCards"
 
 export const dynamic = 'force-dynamic'
 
@@ -131,6 +132,8 @@ export default async function DashboardPage({ params }: { params: Promise<{ loca
                     </CardContent>
                 </Card>
             </div>
+
+            <InsightCards efficiencyScore={efficiencyScore} revenueGrowth={revenueGrowth} />
 
             <div className="grid md:grid-cols-2 gap-6 mt-8">
                 <div className="space-y-6">

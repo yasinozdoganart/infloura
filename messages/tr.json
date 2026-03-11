@@ -1,4 +1,29 @@
 {
+    "Common": {
+        "home": "Ana Sayfa",
+        "announcement": "🎉 Infloura 1.0 Yayında!",
+        "announcementSub": "Kitlenizi bir iş gibi yönetmeye başlayın.",
+        "runSimulation": "Ücretsiz simülasyon başlat",
+        "expertContributor": "Uzman Yazar",
+        "stopGuessingTitle": "Değerinizi Tahmin Etmeyi Bırakın",
+        "stopGuessingDesc": "Gelir tahmini yapmak, daha büyük marka anlaşmaları imzalamak ve kitlesini büyütmek için Infloura kullanan yüzlerce profesyonel içerik üreticisine katılın.",
+        "calculateTrueValue": "Gerçek Değerini Hesapla",
+        "relatedTitle": "İlgili Hesaplayıcılar",
+        "relatedDescription": "Farklı platformlar ve gelir akışları için kazanç tahminlerini görmek üzere daha fazla ücretsiz içerik üretici aracını keşfedin.",
+        "calculatorLabels": {
+            "youtube": "YouTube Gelir Hesaplayıcı",
+            "tiktok": "TikTok Para Hesaplayıcı",
+            "multi": "Influencer Gelir Hesaplayıcı",
+            "instagram": "Instagram Gelir Hesaplayıcı",
+            "youtubeRpm": "YouTube RPM Hesaplayıcı",
+            "tiktokEarnings": "TikTok Kazanç Hesaplayıcı",
+            "sponsorship": "Sponsorluk Oranı Hesaplayıcı",
+            "full": "İçerik Üretici Gelir Hesaplayıcı",
+            "youtubeView": "YouTube İzlenme Başına Gelir",
+            "tiktokView": "TikTok İzlenme Başına Gelir",
+            "instagramPost": "Instagram Gönderi Başına Gelir"
+        }
+    },
     "Navigation": {
         "tools": "Araçlar",
         "creatorCalculators": "İçerik Üretici Araçları",
@@ -53,7 +78,15 @@
         "wallSub": "Hırslı içerik üreticilerinin Infloura deneyimleri hakkında neler söylediğine bakın.",
         "wallBadge": "Yorumlar",
         "faq4Q": "İstediğim zaman iptal edebilir miyim?",
-        "faq4A": "Evet, kontrol panelinizden anında. Hiçbir soru sorulmaz."
+        "faq4A": "Evet, kontrol panelinizden anında. Hiçbir soru sorulmaz.",
+        "socialProofText": "Gelir potansiyelini keşfeden yüzlerce üretici tarafından kullanılıyor",
+        "quickEstimateTitle": "Hızlı Gelir Önizlemesi",
+        "quickEstimateDesc": "Sektör ortalamalarına dayalı anlık gelir tahmini görmek için aylık izlenmenizi girin.",
+        "examplesTitle": "İçerik Üretici Gelir Örnekleri",
+        "examplesDesc": "Farklı nişlerin kazanç potansiyelinizi nasıl etkilediğini görün. Nişiniz genellikle takipçi sayınızdan daha önemlidir.",
+        "subscribers": "Abone Sayısı",
+        "monthlyViews": "Aylık İzlenme",
+        "estRevenue": "Tahmini Gelir"
     },
     "Dashboard": {
         "dashboard": "Panel Merkezi",
@@ -74,7 +107,15 @@
         "mobileSimulate": "Simülasyon",
         "mobileRoadmap": "Yol Haritası",
         "mobileTrack": "Takip Et",
-        "mobileConfig": "Ayarlar"
+        "mobileConfig": "Ayarlar",
+        "insightEfficiencyTitle": "Gelir Verimliliği",
+        "insightEfficiencyLow": "Tahmini RPM değeriniz nişinizdeki ortalamadan daha düşük.",
+        "insightEfficiencyHigh": "Gelir verimliliğiniz ortalamanın üzerinde. Yüksek kazançlı içeriklerinizi optimize etmeye devam edin.",
+        "insightEfficiencySuggest": "Finans, teknoloji veya iş gibi daha yüksek CPM'li konuları hedeflemeyi deneyin.",
+        "insightGrowthTitle": "Büyüme İvmesi",
+        "insightGrowthHigh": "Bu ay mükemmel büyüme! Hızınız sürdürülebilir seviyede.",
+        "insightGrowthLow": "Büyüme istikrarlı, ancak keşfedilebilirliğinizi hızlandırmak için alan var.",
+        "insightGrowthSuggest": "Keşfedilmeyi artırmak için kısa formlu içerikler deneyin."
     },
     "Simulator": {
         "title": "Gelir Simülatörü",
@@ -123,5 +164,230 @@
         "proCta": "7 Günlük Ücretsüz Deneme Başlat",
         "perMonth": "/ay",
         "perYear": "/yıl"
+    },
+    "Guides": {
+        "title": "İçerik Üretici",
+        "titleHighlight": "Rehberleri",
+        "description": "Boş laf yok. Kitlenizden gelir elde etmenize, sponsorluk anlaşmaları yapmanıza ve içeriğinize bir girişim gibi davranmanıza yardımcı olacak eyleme dönüştürülebilir, veriye dayalı rehberler.",
+        "readGuide": "Rehberi Oku",
+        "minRead": "dk okuma",
+        "categories": {
+            "monetization": "Gelir Elde Etme",
+            "analytics": "Analiz",
+            "business": "İş Yönetimi"
+        },
+        "items": {
+            "youtubeSponsor": {
+                "title": "İlk YouTube Sponsorunuzu Nasıl Alırsınız (10 bin Abonenin Altında Olsanız Bile)",
+                "description": "Markaların size gelmesini beklemeyi bırakın. İlk ücretli marka anlaşmanızı güvence altına almak için gereken tam soğuk e-posta şablonlarını ve etkileşim metriklerini öğrenin."
+            },
+            "instagramEngagement": {
+                "title": "Instagram Etkileşim Oranı: 2026'da \"İyi\" Skor Nedir?",
+                "description": "Beğeniler her yerde düştü. Yeni Instagram algoritmasını çözün, gerçek etkileşim oranınızı hesaplayın ve bunu sponsorlara nasıl sunacağınızı öğrenin."
+            },
+            "tiktokMediaKit": {
+                "title": "İçerik Üreticileri İçin Mükemmel TikTok Medya Kiti Şablonu",
+                "description": "Gelen marka taleplerini yüksek ücretli, uzun vadeli sponsorluklara dönüştüren tek sayfalık bir medya kiti oluşturmak için adım adım bir rehber."
+            }
+        }
+    },
+    "Creators": {
+        "title": "İçerik Üretici",
+        "titleHighlight": "Veritabanı",
+        "description": "İçerik üretici ekonomisini tersine mühendislikle çözdük. İnternetteki en iyi içerik üreticilerinin tahmini reklam gelirlerini, sponsorluk oranlarını ve gerçek net değerlerini keşfedin.",
+        "estRevenue": "Tahmini Gelir",
+        "perMonth": "/ay",
+        "perYear": "/yıl",
+        "netWorth": "Net Değer",
+        "monthlyAdRevenue": "Aylık Reklam Geliri",
+        "yearlyRunRate": "Yıllık Tahmini Gelir",
+        "proprietaryAlgorithm": "Tahminler Infloura'nın özel {niche} algoritması kullanılarak hesaplanmıştır. Gerçek rakamlar sponsorluklara ve ürün satışlarına göre değişebilir.",
+        "totalFollowers": "Toplam Takipçi",
+        "avgViewsVideo": "Ort. İzlenme / Video",
+        "wantNumbersTitle": "{name} gibi rakamlar ister misiniz?",
+        "wantNumbersDesc": "Kendi kanalınızın tam değerini hesaplayın, büyümenizi tahmin edin ve sponsorluklarınızı profesyonelce nasıl fiyatlandıracağınızı öğrenin.",
+        "funnelText": "Kendi adınızı bu listede görmek ister misiniz?",
+        "funnelCta": "Kanalınızın değerini hesaplayın",
+        "platforms": {
+            "youtube": "YouTube",
+            "tiktok": "TikTok",
+            "instagram": "Instagram",
+            "twitter": "Twitter"
+        },
+        "niches": {
+            "entertainment": "Eğlence",
+            "tech": "Teknoloji",
+            "lifestyle": "Yaşam Tarzı"
+        },
+        "profiles": {
+            "mrbeast": {
+                "bio": "Daha çok MrBeast olarak bilinen Jimmy Donaldson, YouTube'da en çok abonesi olan kişidir. Yüksek bütçeli gösterileri, devasa hayırsever çekilişleri ve modern hızlı kurgu tarzına öncülük etmesiyle tanınır. Eğlence nişindeki RPM'si (Bin Gösterim Başına Gelir) nispeten düşük olsa da (tahmi̇nen $3-$5), milyarlarca aylık izlenme hacmi astronomik reklam geliri oluşturur ve bunun büyük bir kısmı doğrudan gelecekteki videolara geri yatırılır.",
+                "calculatorText": "YouTube Eğlence Kazançlarını Hesapla"
+            },
+            "marques-brownlee": {
+                "bio": "Aynı zamanda MKBHD olarak da bilinen Marques Brownlee, YouTube'daki önde gelen teknoloji incelemecisidir. Sektördeki 15 yılı aşkın süresiyle, yüksek kaliteli prodüksiyon, derin teknik içgörüler ve tarafsız incelemeler konusunda bir itibar oluşturmuştur. Kitlesi yüksek satın alma niyetli teknoloji meraklılarından oluşur ve bu da teknoloji odaklı reklamverenlerden premium bir RPM (tahmi̇nen $12-$18) sağlar.",
+                "calculatorText": "Teknoloji İçeriği Gelirini Hesapla"
+            },
+            "emma-chamberlain": {
+                "bio": "Emma Chamberlain, samimi, filtresiz kurgu tarzı ve cana yakın kişiliğiyle 'vlogger' türünü yeniden tanımladı. O zamandan beri yüksek moda ikonu ve işletme sahibi (Chamberlain Coffee) haline geldi. Yaşam tarzı nişi ve yüksek prestijli marka ortaklıkları, standart reklam gelirinin çok ötesinde elit sponsorluk oranları sağlar.",
+                "calculatorText": "Yaşam Tarzı Vlogger Kazançlarını Hesapla"
+            }
+        }
+    },
+    "Tools": {
+        "title": "İçerik Üretici Gelir",
+        "titleHighlight": "Hesaplayıcıları",
+        "description": "İçerik üretici kariyerinizi hızlandırmak için öngörücü finansal modelleri ve teknik yardımcı programları birleştiren ücretsiz araçlar paketi.",
+        "financialHeading": "Finansal Araçlar ve Hesaplayıcılar",
+        "financialSub": "Reklam gelirini hesaplayın, büyüme kapsamlarını tahmin edin ve sponsorlukları fiyatlandırın.",
+        "technicalHeading": "Ücretsiz Teknik Yardımcı Programlar",
+        "technicalSub": "Günlük içerik üretici görevlerini otomatikleştirmek için hızlı, ücretsiz ve hayati mikro araçlar.",
+        "openCalculator": "Hesaplayıcıyı Aç",
+        "launchTool": "Aracı Başlat",
+        "ctaTitle": "Resmin tamamını görmeye hazır mısınız?",
+        "ctaDescription": "Bu hesaplayıcılar hızlı bir bakış sağlar. Tam potansiyelinizi görmek için kapsamlı bir 12 aylık iş simülasyonu çalıştırın.",
+        "ctaButton": "Ücretsiz Denemeyi Başlat",
+        "calculatorItems": {
+            "youtube": {
+                "title": "YouTube Gelir Hesaplayıcı",
+                "description": "İzlenmelere, nişe ve dinamik RPM'ye göre YouTuber'ların ne kadar kazandığını tahmin edin."
+            },
+            "tiktok": {
+                "title": "TikTok Gelir Hesaplayıcı",
+                "description": "TikTok İçerik Üretici Ödül Programı'ndan elde edilebilecek potansiyel kazançları hesaplayın."
+            },
+            "instagram": {
+                "title": "Instagram Kazanç Hesaplayıcı",
+                "description": "Instagram Reels bonuslarından ve marka entegrasyonlarından elde edilen geliri tahmin edin."
+            },
+            "multi": {
+                "title": "Çoklu Platform Gelir Tahmincisi",
+                "description": "YouTube, TikTok, Instagram ve X genelinde kazanç potansiyelini karşılaştırın."
+            },
+            "full": {
+                "title": "Tam İçerik Üretici Gelir Modeli",
+                "description": "Reklam gelirini, sponsorlukları ve ürünleri tek bir projeksiyonda birleştirin."
+            },
+            "sponsorship": {
+                "title": "Sponsorluk Oranı Hesaplayıcı",
+                "description": "Özel ve entegre tanıtımlar için markalardan ne kadar ücret almanız gerektiğini hesaplayın."
+            }
+        },
+        "utilityItems": {
+            "thumbnail": {
+                "title": "YouTube Küçük Resim İndirici",
+                "description": "Herhangi bir YouTube en yüksek çözünürlüklü kapak resmini anında, filigransız indirin."
+            },
+            "title": {
+                "title": "YouTube Başlık Oluşturucu",
+                "description": "Yapay zeka tarafından eğitilmiş viral, psikolojik kancalı başlıklar oluşturun."
+            },
+            "engagement": {
+                "title": "TikTok Etkileşim Hesaplayıcı",
+                "description": "Erişim Başına Etkileşim Oranı (ERR) faktörünüzü hesaplayın."
+            }
+        }
+    },
+    "CalculatorWidget": {
+        "labels": {
+            "monthlyViews": "Aylık İzlenme",
+            "niche": "Niş / Kategori",
+            "country": "Ülke",
+            "calculate": "Kazancı Hesapla",
+            "estimatedMonthly": "Tahmini Aylık Kazanç",
+            "basedOn": "{platform} üzerinde {views} aylık izlenmeye göre",
+            "detailedProjection": "AI destekli büyüme stratejileriyle 12 aylık detaylı bir projeksiyon ister misiniz?",
+            "runSimulation": "Tam İçerik Üretici Simülasyonunu Çalıştır",
+            "shareX": "X'te Paylaş",
+            "copyLink": "Bağlantıyı Kopyala",
+            "linkCopied": "Bağlantı Kopyalandı!",
+            "platform": "Platform"
+        },
+        "niches": {
+            "gaming": "Oyun",
+            "tech": "Teknoloji ve İnceleme",
+            "finance": "Finans ve İş",
+            "beauty": "Güzellik ve Moda",
+            "education": "Eğitim",
+            "entertainment": "Eğlence",
+            "lifestyle": "Yaşam Tarzı",
+            "health": "Sağlık ve Fitness",
+            "food": "Yemek ve Yemek Pişirme",
+            "travel": "Seyahat"
+        },
+        "breakdown": {
+            "adRevenue": "Reklam Geliri (AdSense)",
+            "sponsorships": "Sponsorluklar",
+            "affiliate": "Satış Ortaklığı Geliri",
+            "creatorFund": "İçerik Üretici Fonu",
+            "brandDeals": "Marka Anlaşmaları",
+            "contentRevenue": "İçerik Geliri"
+        },
+        "shareText": "@Infloura'ya göre, {platform} kanalım ayda {total} kazanabilir! 🚀\n\nGerçek değerinizi buradan kontrol edin: https://infloura.com/tools"
+    },
+    "Testimonials": {
+        "items": [
+            {
+                "name": "Sarah Jenkins",
+                "handle": "@sarahj_creates",
+                "platform": "YouTube & TikTok",
+                "content": "Matematik motoru işime bakış açımı tamamen değiştirdi. Tahmin etmeyi bıraktım ve özel AI yol haritasını uygulamaya başladım. 4 ayda ayda 10 bin dolara ulaştım."
+            },
+            {
+                "name": "Marcus Wright",
+                "handle": "@marcus_tech",
+                "platform": "YouTube",
+                "content": "Her zaman istikrar konusunda zorlanıyordum. 12 aylık projeksiyonlar, yükleme programıma sadık kalırsam ne olacağını tam olarak gösterdi. İnanılmaz bir araç."
+            },
+            {
+                "name": "Elena Rodriguez",
+                "handle": "@elena.lifestyle",
+                "platform": "Instagram",
+                "content": "Infloura cebinizde bir CFO ve Strateji Lideri olması gibi. Büyüme Takibi özelliği, Reels stratejimin gerçekten işe yarayıp yaramadığını anında söylüyor."
+            },
+            {
+                "name": "David Chen",
+                "handle": "@chen_codes",
+                "platform": "X (Twitter)",
+                "content": "Simülasyonlar korkutucu derecede doğru. Etkileşim metriklerime dayanarak 3. çeyrekteki gelir düşüşümü öngördü ve içerik stratejimi tam zamanında değiştirmemi sağladı."
+            },
+            {
+                "name": "Jessica Fox",
+                "handle": "@jessfit",
+                "platform": "TikTok",
+                "content": "Nihayet bir içerik üreticisi olmanın iş tarafına saygı duyan bir araç. Yalnızca yapay zeka içgörüleri bile aylık aboneliğin 10 katı değerinde."
+            },
+            {
+                "name": "Tom Barker",
+                "handle": "@tom_invests",
+                "platform": "YouTube",
+                "content": "İçeriğinizden geçiminizi sağlama konusunda ciddiyseniz, bu panele ihtiyacınız var. Nokta. Nihai gerçeklik kontrolü ve eylem planının birleşimi."
+            }
+        ]
+    },
+    "Footer": {
+        "madeForCreators": "İçerik üreticileri için, içerik üreticileri tarafından yapıldı.",
+        "tagline": "İçerik üretici gelir istihbarat platformu.",
+        "productHeader": "Ürün",
+        "toolsHeader": "Araçlar",
+        "companyHeader": "Şirket",
+        "links": {
+            "tools": "Araçlar",
+            "pricing": "Fiyatlandırma",
+            "login": "Giriş Yap",
+            "startFreeTrial": "Ücretsiz Başla",
+            "allCreatorTools": "Tüm Üretici Araçları",
+            "youtubeMoneyCalculator": "YouTube Gelir Hesaplayıcı",
+            "tiktokMoneyCalculator": "TikTok Gelir Hesaplayıcı",
+            "instagramMoneyCalculator": "Instagram Gelir Hesaplayıcı",
+            "influencerIncomeCalculator": "Influencer Gelir Hesaplayıcı",
+            "creatorIncomeCalculator": "İçerik Üretici Gelir Hesaplayıcı",
+            "sponsorshipCalculator": "Sponsorluk Hesaplayıcı",
+            "about": "Infloura Hakkında",
+            "contact": "İletişim",
+            "privacy": "Gizlilik Politikası",
+            "terms": "Kullanım Şartları"
+        },
+        "rights": "Tüm hakları saklıdır."
     }
 }

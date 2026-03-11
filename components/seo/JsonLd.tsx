@@ -1,10 +1,12 @@
 interface JsonLdProps {
-    type: 'calculator' | 'faq'
+    type: 'calculator' | 'faq' | 'howTo'
     data: {
         name?: string
         description?: string
         url?: string
         faqs?: { question: string; answer: string }[]
+        steps?: { name: string; text: string }[]
+        image?: string
     }
 }
 
@@ -12,7 +14,7 @@ export default function JsonLd({ type, data }: JsonLdProps) {
     if (type === 'calculator') {
         const schema = {
             '@context': 'https://schema.org',
-            '@type': 'WebApplication',
+            '@type': 'SoftwareApplication',
             name: data.name,
             description: data.description,
             url: data.url,
@@ -28,6 +30,8 @@ export default function JsonLd({ type, data }: JsonLdProps) {
                 name: 'Infloura',
                 url: 'https://infloura.com',
             },
+            featureList: 'Real-time revenue estimation, Niche-based multipliers, Geographic earnings impact calculation',
+            screenshot: data.image || 'https://infloura.com/og-image.png',
         }
 
         return (
@@ -50,6 +54,32 @@ export default function JsonLd({ type, data }: JsonLdProps) {
                     text: faq.answer,
                 },
             })),
+        }
+
+        return (
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+            />
+        )
+    }
+
+    if (type === 'howTo' && data.steps) {
+        const schema = {
+            '@context': 'https://schema.org',
+            '@type': 'HowTo',
+            name: data.name,
+            description: data.description,
+            step: data.steps.map((step, index) => ({
+                '@type': 'HowToStep',
+                position: index + 1,
+                name: step.name,
+                itemListElement: [{
+                    '@type': 'HowToDirection',
+                    text: step.text
+                }]
+            })),
+            totalTime: 'PT1M',
         }
 
         return (

@@ -4,64 +4,9 @@ import { motion } from "framer-motion"
 import React from 'react'
 import { useTranslations } from 'next-intl'
 
-const testimonials = [
-    {
-        id: 1,
-        name: "Sarah Jenkins",
-        handle: "@sarahj_creates",
-        platform: "YouTube & TikTok",
-        content: "The math engine completely changed how I look at my business. I stopped guessing and started executing the custom AI roadmap. Hit $10k/mo in 4 months.",
-        avatar: "https://i.pravatar.cc/100?img=5"
-    },
-    {
-        id: 2,
-        name: "Marcus Wright",
-        handle: "@marcus_tech",
-        platform: "YouTube",
-        content: "I always struggled with consistency. The 12-month projections showed me exactly what would happen if I just stuck to my upload schedule. Incredible tool.",
-        avatar: "https://i.pravatar.cc/100?img=11"
-    },
-    {
-        id: 3,
-        name: "Elena Rodriguez",
-        handle: "@elena.lifestyle",
-        platform: "Instagram",
-        content: "Infloura is like having a CFO and Strategy Lead in your pocket. The Growth Tracking feature instantly tells me if my Reels strategy is actually working.",
-        avatar: "https://i.pravatar.cc/100?img=34"
-    },
-    {
-        id: 4,
-        name: "David Chen",
-        handle: "@chen_codes",
-        platform: "X (Twitter)",
-        content: "The simulations are scarily accurate. It predicted my revenue dip in Q3 based on my engagement metrics, letting me pivot my content strategy just in time.",
-        avatar: "https://i.pravatar.cc/100?img=60"
-    },
-    {
-        id: 5,
-        name: "Jessica Fox",
-        handle: "@jessfit",
-        platform: "TikTok",
-        content: "Finally, a tool that respects the business side of being a creator. The AI insights alone are worth 10x the monthly subscription.",
-        avatar: "https://i.pravatar.cc/100?img=47"
-    },
-    {
-        id: 6,
-        name: "Tom Barker",
-        handle: "@tom_invests",
-        platform: "YouTube",
-        content: "If you are serious about making a living from your content, you need this dashboard. Period. It's the ultimate reality check and action plan combined.",
-        avatar: "https://i.pravatar.cc/100?img=33"
-    }
-]
-
-const firstColumn = testimonials.slice(0, 2)
-const secondColumn = testimonials.slice(2, 4)
-const thirdColumn = testimonials.slice(4, 6)
-
 const TestimonialsColumn = (props: {
     className?: string;
-    testimonials: typeof testimonials;
+    testimonials: any[];
     duration?: number;
 }) => {
     return (
@@ -127,6 +72,23 @@ const TestimonialsColumn = (props: {
 
 export function WallOfLove() {
     const t = useTranslations('Landing')
+    const tTestimonials = useTranslations('Testimonials')
+    
+    // Get all testimonial items from translation file
+    const testimonialIds = [0, 1, 2, 3, 4, 5];
+    const items = testimonialIds.map(id => ({
+        id,
+        name: tTestimonials(`items.${id}.name`),
+        handle: tTestimonials(`items.${id}.handle`),
+        platform: tTestimonials(`items.${id}.platform`),
+        content: tTestimonials(`items.${id}.content`),
+        avatar: `https://i.pravatar.cc/100?img=${[5, 11, 34, 60, 47, 33][id]}`
+    }));
+
+    const firstColumn = items.slice(0, 2)
+    const secondColumn = items.slice(2, 4)
+    const thirdColumn = items.slice(4, 6)
+
     return (
         <section className="py-24 bg-[#030303] relative border-t border-white/5 overflow-hidden">
             <div className="max-w-7xl mx-auto px-6 z-10 relative">

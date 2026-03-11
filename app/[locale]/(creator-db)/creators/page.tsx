@@ -2,14 +2,15 @@ import { Header } from '@/components/landing/Header'
 import { Footer } from '@/components/landing/Footer'
 import Link from 'next/link'
 import { ArrowRight, Youtube, Users, Twitter } from 'lucide-react'
+import { getTranslations } from 'next-intl/server'
 
 // Dummy representation. In a real app with a DB, this would be fetched server-side from Supabase.
 const CREATORS_LIST = [
     {
         name: 'MrBeast',
         handle: 'MrBeast',
-        platform: 'YouTube',
-        niche: 'Entertainment',
+        platform: 'youtube',
+        niche: 'entertainment',
         estMonthlyEarnings: '32.4M',
         slug: 'mrbeast',
         gradient: 'from-cyan-500/20 to-blue-500/20',
@@ -18,8 +19,8 @@ const CREATORS_LIST = [
     {
         name: 'Marques Brownlee',
         handle: 'MKBHD',
-        platform: 'YouTube',
-        niche: 'Tech',
+        platform: 'youtube',
+        niche: 'tech',
         estMonthlyEarnings: '1.5M',
         slug: 'marques-brownlee',
         gradient: 'from-red-500/20 to-orange-500/20',
@@ -28,8 +29,8 @@ const CREATORS_LIST = [
     {
         name: 'Emma Chamberlain',
         handle: 'emmachamberlain',
-        platform: 'YouTube',
-        niche: 'Lifestyle',
+        platform: 'youtube',
+        niche: 'lifestyle',
         estMonthlyEarnings: '1.1M',
         slug: 'emma-chamberlain',
         gradient: 'from-pink-500/20 to-rose-500/20',
@@ -37,7 +38,10 @@ const CREATORS_LIST = [
     }
 ]
 
-export default function CreatorDatabaseIndex() {
+export default async function CreatorDatabaseIndex({ params }: { params: Promise<{ locale: string }> }) {
+    const { locale } = await params;
+    const t = await getTranslations({ locale, namespace: 'Creators' });
+
     return (
         <div className="min-h-screen bg-black text-zinc-100 flex flex-col font-sans selection:bg-cyan-500/30">
             <Header />
@@ -47,17 +51,17 @@ export default function CreatorDatabaseIndex() {
                     {/* Header */}
                     <div className="text-center max-w-3xl mx-auto mb-20 space-y-6">
                         <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-white mb-6">
-                            Creator <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Database</span>
+                            {t('title')} <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">{t('titleHighlight')}</span>
                         </h1>
                         <p className="text-xl text-zinc-400 leading-relaxed">
-                            We reverse-engineered the creator economy. Discover the estimated ad revenue, sponsorship rates, and true net worth of the top creators on the internet.
+                            {t('description')}
                         </p>
                     </div>
 
                     {/* Grid */}
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {CREATORS_LIST.map((creator) => {
-                            const PlatformIcon = creator.platform === 'YouTube' ? Youtube : creator.platform === 'TikTok' ? Users : Twitter
+                            const PlatformIcon = creator.platform === 'youtube' ? Youtube : creator.platform === 'tiktok' ? Users : Twitter
                             
                             return (
                                 <Link 
@@ -85,17 +89,17 @@ export default function CreatorDatabaseIndex() {
                                         <div className="flex items-center space-x-3 mb-8">
                                             <span className="flex items-center text-xs font-medium text-zinc-400 bg-white/5 px-2.5 py-1 rounded-md">
                                                 <PlatformIcon className="w-3 h-3 mr-1.5" />
-                                                {creator.platform}
+                                                {t(`platforms.${creator.platform}`)}
                                             </span>
                                             <span className="flex items-center text-xs font-medium text-zinc-400 bg-white/5 px-2.5 py-1 rounded-md">
-                                                {creator.niche}
+                                                {t(`niches.${creator.niche}`)}
                                             </span>
                                         </div>
 
                                         <div className="mt-auto pt-6 border-t border-white/5 flex items-center justify-between">
                                             <div>
-                                                <p className="text-xs text-zinc-500 uppercase tracking-wider font-medium mb-1">Est. Revenue</p>
-                                                <p className="text-lg font-bold text-white">${creator.estMonthlyEarnings}<span className="text-sm font-normal text-zinc-500">/mo</span></p>
+                                                <p className="text-xs text-zinc-500 uppercase tracking-wider font-medium mb-1">{t('estRevenue')}</p>
+                                                <p className="text-lg font-bold text-white">${creator.estMonthlyEarnings}<span className="text-sm font-normal text-zinc-500">{t('perMonth')}</span></p>
                                             </div>
                                             <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-cyan-500/20 group-hover:text-cyan-400 transition-colors">
                                                 <ArrowRight className="w-5 h-5 text-zinc-400 group-hover:text-cyan-400" />
@@ -109,9 +113,9 @@ export default function CreatorDatabaseIndex() {
 
                     {/* Funnel Callout */}
                     <div className="mt-20 text-center">
-                        <p className="text-zinc-400 mb-4">Want to see your own name on this list?</p>
+                        <p className="text-zinc-400 mb-4">{t('funnelText')}</p>
                         <Link href="/register" className="inline-flex items-center text-cyan-400 font-medium hover:text-cyan-300 transition-colors">
-                            Calculate your channel's value <ArrowRight className="w-4 h-4 ml-1" />
+                            {t('funnelCta')} <ArrowRight className="w-4 h-4 ml-1" />
                         </Link>
                     </div>
 

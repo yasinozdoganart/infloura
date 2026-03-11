@@ -36,7 +36,11 @@ export function Header() {
             <header className="w-full bg-[#030303]/80 backdrop-blur-xl border-b border-white/5">
                 <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
                     <div className="flex items-center gap-6 md:gap-8">
-                        <Link href="/" className={`hover:opacity-80 transition-opacity flex items-center text-white font-['Syncopate'] tracking-widest text-xl`}>
+                        <Link 
+                            href="/" 
+                            aria-label="Infloura Home"
+                            className={`hover:opacity-80 transition-opacity flex items-center text-white font-['Syncopate'] tracking-widest text-xl`}
+                        >
                             infloura
                         </Link>
 
@@ -44,7 +48,11 @@ export function Header() {
                         <nav className="hidden md:flex items-center gap-6">
                             {/* Tools Dropdown */}
                             <div className="relative group">
-                                <button className="flex items-center gap-1.5 text-sm font-medium text-zinc-300 hover:text-white transition-colors py-2">
+                                <button 
+                                    aria-label="Open creator calculators menu"
+                                    aria-haspopup="true"
+                                    className="flex items-center gap-1.5 text-sm font-medium text-zinc-300 hover:text-white transition-colors py-2"
+                                >
                                     {t('tools')} <ChevronDown className="w-4 h-4 opacity-50 group-hover:rotate-180 transition-transform duration-200" />
                                 </button>
                                 <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-1 group-hover:translate-y-0">
@@ -92,7 +100,11 @@ export function Header() {
                         <LanguageSwitcher />
 
                         <div className="md:hidden relative group">
-                            <button className="flex items-center text-sm font-medium text-zinc-300 hover:text-white transition-colors py-2">
+                            <button 
+                                aria-label="Open mobile menu"
+                                aria-haspopup="true"
+                                className="flex items-center text-sm font-medium text-zinc-300 hover:text-white transition-colors py-2"
+                            >
                                 {t('menu')} <ChevronDown className="w-4 h-4 ml-1 opacity-50 group-hover:rotate-180 transition-transform duration-200" />
                             </button>
                             <div className="absolute top-full right-0 pt-2 opacity-0 invisible focus-within:opacity-100 focus-within:visible group-hover:opacity-100 group-hover:visible transition-all duration-200">

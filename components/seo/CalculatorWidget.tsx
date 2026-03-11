@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import Link from 'next/link'
 import { ArrowRight, DollarSign, TrendingUp, Users, Sparkles, Twitter, Link2, Check } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 type Platform = 'youtube' | 'tiktok' | 'instagram' | 'multi'
 
@@ -12,20 +13,20 @@ interface CalculatorWidgetProps {
     platform: Platform
 }
 
-const niches = [
-    { value: 'gaming', label: 'Gaming', rpmMultiplier: 0.8 },
-    { value: 'tech', label: 'Tech & Reviews', rpmMultiplier: 1.3 },
-    { value: 'finance', label: 'Finance & Business', rpmMultiplier: 2.0 },
-    { value: 'beauty', label: 'Beauty & Fashion', rpmMultiplier: 1.1 },
-    { value: 'education', label: 'Education', rpmMultiplier: 1.5 },
-    { value: 'entertainment', label: 'Entertainment', rpmMultiplier: 0.7 },
-    { value: 'lifestyle', label: 'Lifestyle', rpmMultiplier: 0.9 },
-    { value: 'health', label: 'Health & Fitness', rpmMultiplier: 1.2 },
-    { value: 'food', label: 'Food & Cooking', rpmMultiplier: 0.85 },
-    { value: 'travel', label: 'Travel', rpmMultiplier: 1.0 },
+const nichesList = [
+    { value: 'gaming', rpmMultiplier: 0.8 },
+    { value: 'tech', rpmMultiplier: 1.3 },
+    { value: 'finance', rpmMultiplier: 2.0 },
+    { value: 'beauty', rpmMultiplier: 1.1 },
+    { value: 'education', rpmMultiplier: 1.5 },
+    { value: 'entertainment', rpmMultiplier: 0.7 },
+    { value: 'lifestyle', rpmMultiplier: 0.9 },
+    { value: 'health', rpmMultiplier: 1.2 },
+    { value: 'food', rpmMultiplier: 0.85 },
+    { value: 'travel', rpmMultiplier: 1.0 },
 ]
 
-const countries = [
+const countriesList = [
     { value: 'US', label: 'United States', rpmMultiplier: 1.0 },
     { value: 'UK', label: 'United Kingdom', rpmMultiplier: 0.85 },
     { value: 'CA', label: 'Canada', rpmMultiplier: 0.80 },
@@ -44,18 +45,12 @@ const platformBaseRPM: Record<Platform, number> = {
     multi: 3.0,
 }
 
-const platformLabels: Record<Platform, string> = {
-    youtube: 'YouTube',
-    tiktok: 'TikTok',
-    instagram: 'Instagram',
-    multi: 'Multi-Platform',
-}
-
 function calculateEstimate(
     platform: Platform,
     monthlyViews: number,
     nicheMultiplier: number,
-    countryMultiplier: number
+    countryMultiplier: number,
+    t: any
 ) {
     const baseRPM = platformBaseRPM[platform]
     const effectiveRPM = baseRPM * nicheMultiplier * countryMultiplier
@@ -67,9 +62,9 @@ function calculateEstimate(
         return {
             total: adRevenue + sponsorship + affiliate,
             breakdown: [
-                { label: 'Ad Revenue (AdSense)', value: adRevenue, icon: DollarSign },
-                { label: 'Sponsorships', value: sponsorship, icon: Users },
-                { label: 'Affiliate Income', value: affiliate, icon: TrendingUp },
+                { label: t('breakdown.adRevenue'), value: adRevenue, icon: DollarSign },
+                { label: t('breakdown.sponsorships'), value: sponsorship, icon: Users },
+                { label: t('breakdown.affiliate'), value: affiliate, icon: TrendingUp },
             ]
         }
     }
@@ -81,9 +76,9 @@ function calculateEstimate(
         return {
             total: creatorFund + brandDeals + affiliate,
             breakdown: [
-                { label: 'Creator Fund', value: creatorFund, icon: DollarSign },
-                { label: 'Brand Deals', value: brandDeals, icon: Users },
-                { label: 'Affiliate Income', value: affiliate, icon: TrendingUp },
+                { label: t('breakdown.creatorFund'), value: creatorFund, icon: DollarSign },
+                { label: t('breakdown.brandDeals'), value: brandDeals, icon: Users },
+                { label: t('breakdown.affiliate'), value: affiliate, icon: TrendingUp },
             ]
         }
     }
@@ -95,14 +90,17 @@ function calculateEstimate(
     return {
         total: mainRevenue + sponsorship + affiliate,
         breakdown: [
-            { label: 'Content Revenue', value: mainRevenue, icon: DollarSign },
-            { label: 'Sponsorships', value: sponsorship, icon: Users },
-            { label: 'Affiliate Income', value: affiliate, icon: TrendingUp },
+            { label: t('breakdown.contentRevenue'), value: mainRevenue, icon: DollarSign },
+            { label: t('breakdown.sponsorships'), value: sponsorship, icon: Users },
+            { label: t('breakdown.affiliate'), value: affiliate, icon: TrendingUp },
         ]
     }
 }
 
 export default function CalculatorWidget({ platform: defaultPlatform }: CalculatorWidgetProps) {
+    const t = useTranslations('CalculatorWidget')
+    const tNav = useTranslations('Navigation')
+    
     const [platform, setPlatform] = useState<Platform>(defaultPlatform)
     const [views, setViews] = useState('')
     const [niche, setNiche] = useState('tech')
@@ -111,18 +109,26 @@ export default function CalculatorWidget({ platform: defaultPlatform }: Calculat
     const [showResult, setShowResult] = useState(false)
     const [copied, setCopied] = useState(false)
 
+    const platformLabels: Record<Platform, string> = {
+        youtube: 'YouTube',
+        tiktok: 'TikTok',
+        instagram: 'Instagram',
+        multi: t('labels.platform'),
+    }
+
     const handleCalculate = () => {
         const monthlyViews = parseInt(views.replace(/,/g, '')) || 0
         if (monthlyViews <= 0) return
 
-        const nicheData = niches.find(n => n.value === niche)
-        const countryData = countries.find(c => c.value === country)
+        const nicheData = nichesList.find(n => n.value === niche)
+        const countryData = countriesList.find(c => c.value === country)
 
         const estimate = calculateEstimate(
             platform,
             monthlyViews,
             nicheData?.rpmMultiplier || 1,
-            countryData?.rpmMultiplier || 1
+            countryData?.rpmMultiplier || 1,
+            t
         )
 
         setResult(estimate)
@@ -137,7 +143,10 @@ export default function CalculatorWidget({ platform: defaultPlatform }: Calculat
     const handleShareTwitter = () => {
         if (!result) return
         const formattedTotal = formatNumber(result.total)
-        const text = `According to @Infloura, my ${platformLabels[platform]} channel could earn ${formattedTotal}/month! 🚀\n\nCheck your true value here: https://infloura.com/tools`
+        const text = t('shareText', {
+            platform: platformLabels[platform],
+            total: formattedTotal
+        })
         const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`
         window.open(url, '_blank')
     }
@@ -156,8 +165,10 @@ export default function CalculatorWidget({ platform: defaultPlatform }: Calculat
                     {/* Platform selector for multi */}
                     {defaultPlatform === 'multi' && (
                         <div>
-                            <label className="block text-sm font-medium text-zinc-400 mb-2">Platform</label>
+                            <label htmlFor="platform-select" className="block text-sm font-medium text-zinc-400 mb-2">{t('labels.platform')}</label>
                             <select
+                                id="platform-select"
+                                aria-label="Target Platform"
                                 value={platform}
                                 onChange={(e) => { setPlatform(e.target.value as Platform); setShowResult(false) }}
                                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500/50 transition-all appearance-none cursor-pointer"
@@ -172,10 +183,12 @@ export default function CalculatorWidget({ platform: defaultPlatform }: Calculat
                     <div className="grid md:grid-cols-3 gap-4">
                         {/* Monthly Views */}
                         <div>
-                            <label className="block text-sm font-medium text-zinc-400 mb-2">Monthly Views</label>
+                            <label htmlFor="views-input" className="block text-sm font-medium text-zinc-400 mb-2">{t('labels.monthlyViews')}</label>
                             <input
+                                id="views-input"
                                 type="text"
                                 inputMode="numeric"
+                                aria-label="Monthly Views"
                                 placeholder="e.g. 500,000"
                                 value={views}
                                 onChange={(e) => { setViews(e.target.value); setShowResult(false) }}
@@ -185,27 +198,31 @@ export default function CalculatorWidget({ platform: defaultPlatform }: Calculat
 
                         {/* Niche */}
                         <div>
-                            <label className="block text-sm font-medium text-zinc-400 mb-2">Niche</label>
+                            <label htmlFor="niche-select" className="block text-sm font-medium text-zinc-400 mb-2">{t('labels.niche')}</label>
                             <select
+                                id="niche-select"
+                                aria-label="Content Niche"
                                 value={niche}
                                 onChange={(e) => { setNiche(e.target.value); setShowResult(false) }}
                                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500/50 transition-all appearance-none cursor-pointer"
                             >
-                                {niches.map(n => (
-                                    <option key={n.value} value={n.value} className="bg-zinc-900">{n.label}</option>
+                                {nichesList.map(n => (
+                                    <option key={n.value} value={n.value} className="bg-zinc-900">{t(`niches.${n.value}`)}</option>
                                 ))}
                             </select>
                         </div>
 
                         {/* Country */}
                         <div>
-                            <label className="block text-sm font-medium text-zinc-400 mb-2">Country</label>
+                            <label htmlFor="country-select" className="block text-sm font-medium text-zinc-400 mb-2">{t('labels.country')}</label>
                             <select
+                                id="country-select"
+                                aria-label="Target Audience Country"
                                 value={country}
                                 onChange={(e) => { setCountry(e.target.value); setShowResult(false) }}
                                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500/50 transition-all appearance-none cursor-pointer"
                             >
-                                {countries.map(c => (
+                                {countriesList.map(c => (
                                     <option key={c.value} value={c.value} className="bg-zinc-900">{c.label}</option>
                                 ))}
                             </select>
@@ -217,7 +234,7 @@ export default function CalculatorWidget({ platform: defaultPlatform }: Calculat
                         className="w-full py-6 text-base font-semibold bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 rounded-xl shadow-lg shadow-purple-500/25 transition-all hover:shadow-purple-500/40 hover:scale-[1.01]"
                     >
                         <Sparkles className="w-5 h-5 mr-2" />
-                        Calculate Earnings
+                        {t('labels.calculate')}
                     </Button>
                 </CardContent>
             </Card>
@@ -228,12 +245,15 @@ export default function CalculatorWidget({ platform: defaultPlatform }: Calculat
                     {/* Total Estimate */}
                     <Card className="bg-gradient-to-br from-purple-500/10 to-pink-500/10 border-purple-500/20 shadow-2xl shadow-purple-500/10">
                         <CardContent className="p-6 md:p-8 text-center">
-                            <p className="text-sm text-zinc-400 mb-2 uppercase tracking-wider">Estimated Monthly Earnings</p>
+                            <p className="text-sm text-zinc-400 mb-2 uppercase tracking-wider">{t('labels.estimatedMonthly')}</p>
                             <p className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
                                 {formatNumber(result.total)}
                             </p>
                             <p className="text-sm text-zinc-500 mt-3">
-                                Based on {parseInt(views.replace(/,/g, '')).toLocaleString()} monthly views on {platformLabels[platform]}
+                                {t('labels.basedOn', {
+                                    views: parseInt(views.replace(/,/g, '')).toLocaleString(),
+                                    platform: platformLabels[platform]
+                                })}
                             </p>
                         </CardContent>
                     </Card>
@@ -260,7 +280,7 @@ export default function CalculatorWidget({ platform: defaultPlatform }: Calculat
                         <CardContent className="p-6 text-center flex flex-col items-center justify-center space-y-4">
                             <div className="space-y-2">
                                 <p className="text-zinc-400 text-sm">
-                                    Want a <span className="text-white font-medium">detailed 12-month projection</span> with AI-powered growth strategies?
+                                    {t('labels.detailedProjection')}
                                 </p>
                             </div>
                             <Button
@@ -268,7 +288,7 @@ export default function CalculatorWidget({ platform: defaultPlatform }: Calculat
                                 asChild
                             >
                                 <Link href="/register">
-                                    Run Full Creator Simulation
+                                    {t('labels.runSimulation')}
                                     <ArrowRight className="w-4 h-4 ml-2" />
                                 </Link>
                             </Button>
@@ -280,18 +300,20 @@ export default function CalculatorWidget({ platform: defaultPlatform }: Calculat
                         <Button 
                             onClick={handleShareTwitter}
                             variant="outline" 
+                            aria-label="Share results on X"
                             className="bg-[#1DA1F2]/10 text-[#1DA1F2] border-[#1DA1F2]/20 hover:bg-[#1DA1F2]/20 hover:text-[#1DA1F2] transition-colors py-6 rounded-xl"
                         >
                             <Twitter className="w-4 h-4 mr-2" />
-                            Share on 𝕏
+                            {t('labels.shareX')}
                         </Button>
                         <Button 
                             onClick={handleCopyLink}
                             variant="outline" 
+                            aria-label="Copy tool link to clipboard"
                             className="bg-zinc-800/50 text-zinc-300 border-white/10 hover:bg-zinc-800 hover:text-white transition-colors py-6 rounded-xl"
                         >
                             {copied ? <Check className="w-4 h-4 mr-2 text-green-400" /> : <Link2 className="w-4 h-4 mr-2" />}
-                            {copied ? 'Link Copied!' : 'Copy Link'}
+                            {copied ? t('labels.linkCopied') : t('labels.copyLink')}
                         </Button>
                     </div>
                 </div>
