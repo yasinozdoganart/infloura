@@ -61,6 +61,8 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
+import MetaPixel from "@/components/analytics/MetaPixel";
+
 export default async function RootLayout({
   children,
   params,
@@ -97,6 +99,7 @@ export default async function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${syncopate.variable} antialiased`}
       >
         <NextIntlClientProvider messages={messages}>
+          <MetaPixel />
           {children}
           <Analytics />
           <SpeedInsights />
