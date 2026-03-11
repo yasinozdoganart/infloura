@@ -32,6 +32,8 @@ export default function RegisterPage() {
         if (result?.error) {
             toast.error(result.error)
             setLoading(false)
+        } else {
+            localStorage.setItem('infloura_signup', 'true')
         }
     }
 
