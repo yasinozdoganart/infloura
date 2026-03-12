@@ -166,7 +166,7 @@ export function Header() {
                         <Button variant="ghost" className="hidden sm:flex text-zinc-300 hover:text-black hover:bg-white transition-colors" asChild>
                             <Link href="/login">{t('logIn')}</Link>
                         </Button>
-                        <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-medium border-0 transition-all duration-300 shadow-[0_0_15px_rgba(168,85,247,0.3)] hover:shadow-[0_0_25px_rgba(168,85,247,0.5)]" asChild>
+                        <Button className="hidden sm:flex bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-medium border-0 transition-all duration-300 shadow-[0_0_15px_rgba(168,85,247,0.3)] hover:shadow-[0_0_25px_rgba(168,85,247,0.5)]" asChild>
                             <Link href="/register">{t('tryForFree')}</Link>
                         </Button>
                     </div>

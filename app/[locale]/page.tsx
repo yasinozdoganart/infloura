@@ -35,12 +35,16 @@ export default function LandingPage() {
           title2={t('heroTitle2')}
           description={t('heroDesc')}
         >
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-12">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-12 w-full max-w-sm mx-auto sm:max-w-none">
             <LiquidButton href="/register" className="text-white hover:text-white h-12 px-8 text-lg w-full sm:w-auto z-10 transition-transform active:scale-95">
               {t('btnRunSimulation')}
             </LiquidButton>
             <Button className="bg-white/5 hover:bg-white/10 text-white border border-white/10 h-12 px-8 text-lg rounded-2xl transition-all z-10 w-full sm:w-auto active:scale-95 text-nowrap" asChild>
               <Link href="/creator-income-calculator">{t('btnEstimateIncome')} &rarr;</Link>
+            </Button>
+            {/* Mobile-only primary CTA */}
+            <Button className="sm:hidden w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-medium border-0 h-12 px-8 text-lg rounded-2xl transition-all z-10 active:scale-95 shadow-[0_0_15px_rgba(168,85,247,0.3)]" asChild>
+                <Link href="/register">{t('btnTryForFreeShort') || 'Try for Free ✨'}</Link>
             </Button>
           </div>
           
