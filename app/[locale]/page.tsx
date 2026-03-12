@@ -34,19 +34,18 @@ export default function LandingPage() {
           title1={t('heroTitle1')}
           title2={t('heroTitle2')}
           description={t('heroDesc')}
-        />
-        <div className="absolute bottom-8 md:bottom-12 left-0 right-0 z-20 flex flex-col items-center px-6">
+        >
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-12">
-            <LiquidButton href="/register" className="text-white hover:text-white h-12 px-8 text-lg w-auto z-10">
+            <LiquidButton href="/register" className="text-white hover:text-white h-12 px-8 text-lg w-full sm:w-auto z-10 transition-transform active:scale-95">
               {t('btnRunSimulation')}
             </LiquidButton>
-            <Button className="bg-white/5 hover:bg-white/10 text-white border border-white/10 h-12 px-8 text-lg rounded-2xl transition-all z-10" asChild>
+            <Button className="bg-white/5 hover:bg-white/10 text-white border border-white/10 h-12 px-8 text-lg rounded-2xl transition-all z-10 w-full sm:w-auto active:scale-95 text-nowrap" asChild>
               <Link href="/creator-income-calculator">{t('btnEstimateIncome')} &rarr;</Link>
             </Button>
           </div>
           
           <SocialProof />
-        </div>
+        </HeroGeometric>
       </div>
 
       {/* Quick Estimator Section */}
@@ -62,7 +61,7 @@ export default function LandingPage() {
               viewport={{ once: true }}
               className="text-3xl md:text-5xl font-bold tracking-tight mb-4"
             >
-              Everything you need to <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Scale</span>
+              Everything you need to <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">{t('featuresHighlight')}</span>
             </motion.h2>
             <p className="text-zinc-400 text-lg">{t('featuresSub')}</p>
           </div>
@@ -86,7 +85,7 @@ export default function LandingPage() {
                   <BrainCircuit className="w-6 h-6 text-purple-400" />
                 </div>
                 <CardTitle className="text-xl">
-                    AI <span className="text-purple-400">Strategy</span> Engine
+                    {t('aiStrategyEngine')}
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -117,7 +116,7 @@ export default function LandingPage() {
       <section className="py-24 bg-zinc-950 relative z-10 border-t border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-16">
-            How it <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Works</span>
+            {t('howWorks')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">{t('howWorksHighlight')}</span>
           </h2>
           <div className="grid md:grid-cols-3 gap-12 relative">
             <div className="hidden md:block absolute top-1/2 left-1/6 right-1/6 h-[1px] bg-gradient-to-r from-transparent via-purple-500/50 to-transparent -translate-y-1/2 z-0"></div>

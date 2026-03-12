@@ -86,7 +86,242 @@
         "examplesDesc": "See how different niches impact your earning potential. Your niche is often more important than your subscriber count.",
         "subscribers": "Subscribers",
         "monthlyViews": "Monthly Views",
-        "estRevenue": "Estimated Revenue"
+        "estRevenue": "Estimated Revenue",
+        "featuresHighlight": "Scale",
+        "howWorks": "How it",
+        "howWorksHighlight": "Works",
+        "aiStrategyEngine": "AI Strategy Engine"
+    },
+    "ToolDownloader": {
+        "titlePrefix": "YouTube",
+        "titleHighlight": "Thumbnail",
+        "titleSuffix": "Downloader",
+        "subtitle": "Instantly grab the high-resolution (`maxresdefault`) cover image from any YouTube video. Free forever, no watermark.",
+        "label": "Paste YouTube Video URL",
+        "placeholder": "https://www.youtube.com/watch?v=...",
+        "button": "Get Thumbnail",
+        "resultsTitle": "Thumbnail Results",
+        "downloadFullHD": "Download Full HD (1080p)",
+        "hdLabel": "HD (1280x720)",
+        "sdLabel": "SD (640x480)",
+        "normalLabel": "Normal (480x360)",
+        "errorEmpty": "Please enter a YouTube URL",
+        "errorInvalid": "Invalid YouTube URL. Please make sure the link is correct.",
+        "metadata": {
+            "title": "YouTube Thumbnail Downloader (HD Quality) | Infloura",
+            "description": "Free tool to download any YouTube video thumbnail in full HD (1080p) quality. Save maxresdefault covers instantly without any restrictions."
+        },
+        "seo": {
+            "howToTitle": "How to Download YouTube Thumbnails",
+            "howToDesc": "Downloading a YouTube thumbnail is incredibly easy with Infloura. Simply follow these three steps:",
+            "steps": [
+                "Copy the YouTube video URL from your browser or app (e.g., `https://youtube.com/watch?v=...`).",
+                "Paste the link into the input box above and click \"Get Thumbnail\".",
+                "Select your preferred quality size (Full HD, SD, or Normal) and click Download."
+            ],
+            "blurryTitle": "Why is my HD thumbnail blurry?",
+            "blurryDesc": "If the Full HD (1080p) thumbnail appears blurry or fails to load, it means the creator did not upload a custom high-resolution thumbnail, or the video itself is older and lower quality. In these cases, use the \"HQ\" (Normal) button instead.",
+            "creatorsTitle": "Why Creators Need a Thumbnail Downloader",
+            "creatorsDesc": "Whether you are a creator building a media kit, a designer collecting inspiration, or a marketer analyzing the competition's Click-Through Rate (CTR) tactics, extracting a high-quality thumbnail is a daily necessity. Our tool bypasses the need to inspect element or dig through YouTube API documentation.",
+            "creatorsAction": "Once you have analyzed the visual hooks that work in your niche, use our {link} to craft the perfect headline.",
+            "aiTitleLink": "AI Title Generator",
+            "worthTitle": "How Much is Your Channel Worth?",
+            "worthDesc": "A great thumbnail gets you views, but views don't always equal revenue. If you want to know exactly how much your YouTube channel could be earning via AdSense or Brand Sponsorships, stop guessing and use our professional financial models:",
+            "youtubeIncomeSim": "YouTube Income Simulator",
+            "sponsorshipCalc": "Sponsorship Rate Calculator"
+        }
+    },
+    "ToolTitleGenerator": {
+        "badge": "Powered by Infloura AI",
+        "titlePrefix": "YouTube",
+        "titleHighlight": "Title",
+        "titleSuffix": "Generator",
+        "subtitle": "The algorithm only promotes what people click. Turn your boring video ideas into psychological click-magnets in seconds.",
+        "label": "What is your video about?",
+        "placeholder": "e.g. I spent 50 hours trying to learn React from scratch without watching any tutorials...",
+        "button": "Generate 5 Hook Variants",
+        "buttonLoading": "Generating Viral Hooks...",
+        "resultsTitle": "AI Generated Hooks",
+        "copyTooltip": "Copy Title",
+        "errorEmpty": "Please enter a topic",
+        "errorFailed": "Failed to generate titles",
+        "metadata": {
+            "title": "YouTube Title Generator (AI Powered) | Infloura",
+            "description": "Generate viral YouTube titles using AI. Our generator uses psychology-based kooks to increase your CTR and views."
+        },
+        "seo": {
+            "howItWorksTitle": "How Does the YouTube AI Title Generator Work?",
+            "howItWorksDesc1": "Most AI writers produce generic, robotic-sounding titles that viewers instantly ignore. Infloura's AI is specifically trained on the **psychology of the click**—understanding concepts like the \"Information Gap,\" emotional triggers, and high stakes.",
+            "howItWorksDesc2": "When you describe your video concept, our generator does not just summarize it. It actively looks for the most compelling angle and returns 5 distinct variations, along with a detailed reasoning of *why* the psychological hook works, giving you deeper insight into YouTube strategy.",
+            "pillarsTitle": "The 3 Pillars of a Viral YouTube Title",
+            "pillars": [
+                {
+                    "title": "Curiosity (The Information Gap):",
+                    "text": "Giving the viewer just enough information to make them ask a question, but withholding the answer so they have to click. (e.g., *\"I Tried The $10,000 Diet So You Don't Have To\"*)"
+                },
+                {
+                    "title": "Stakes & Negativity:",
+                    "text": "Humans are biologically wired to avoid danger. Highlighting mistakes, failures, or urgent warnings dramatically increases Click-Through Rate (CTR)."
+                },
+                {
+                    "title": "Brevity:",
+                    "text": "Over 70% of YouTube viewing happens on mobile devices. If your title is longer than 50-60 characters, the platform will truncate it (add an ellipsis \"...\"), killing your hook."
+                }
+            ],
+            "thumbnailPairTitle": "Pairing Titles with Thumbnails",
+            "thumbnailPairDesc": "A title cannot succeed in a vacuum. It must work synergistically with your thumbnail. The title provides context, and the thumbnail provides emotion. If you want to analyze how your competitors are designing their covers, use our {link} to inspect their strategies.",
+            "thumbnailLink": "Free High-Res Thumbnail Downloader",
+            "viralTitle": "What Happens When You Go Viral?",
+            "viralDesc": "Writing a great title guarantees clicks. But how much money does a viral video actually make? That depends heavily on your specific Niche RPM (Revenue Per Mille) and audience geography.",
+            "adRevenueSim": "YouTube Ad Revenue Simulator",
+            "valueMillionViews": "Value of 1 Million Views"
+        }
+    },
+    "ToolEngagement": {
+        "titlePrefix": "TikTok",
+        "titleHighlight": "Engagement",
+        "titleSuffix": "Calculator",
+        "subtitle": "Followers don't matter on TikTok—reach does. Calculate your true Engagement Rate by Reach (ERR) to secure better brand deals.",
+        "labelViews": "Total Views (Reach)",
+        "labelLikes": "Total Likes",
+        "labelComments": "Total Comments",
+        "labelShares": "Total Shares",
+        "placeholderViews": "e.g. 50000",
+        "placeholderLikes": "e.g. 3500",
+        "placeholderComments": "e.g. 120",
+        "placeholderShares": "e.g. 450",
+        "button": "Calculate Engagement Rate",
+        "errorInvalid": "Please enter valid numbers for all fields. Views cannot be zero.",
+        "errorExceed": "Total engagements (Likes + Comments + Shares) cannot exceed total views.",
+        "resultsHeading": "Your True Engagement Rate",
+        "ratingLabel": "Industry Rating:",
+        "ratings": {
+            "poor": "Poor",
+            "average": "Average",
+            "good": "Good",
+            "excellent": "Excellent"
+        },
+        "metadata": {
+            "title": "TikTok Engagement Rate Calculator | Infloura",
+            "description": "Calculate your true TikTok engagement rate by reach (ERR). Essential for creators and brands to measure real performance."
+        },
+        "seo": {
+            "whyTitle": "Why Calculate Engagement Based on Views (ERR)?",
+            "whyDesc1": "The old formula for engagement was `(Likes + Comments) ÷ Followers`. This formula is entirely broken for modern algorithmic platforms like TikTok.",
+            "whyDesc2": "Because the TikTok \"For You Page\" (FYP) serves content primarily to non-followers, a video might get 1 Million views even if you only have 5,000 followers. Measuring the engagement of that video based on your follower count would result in an mathematically impossible engagement rate of 2,000%.",
+            "whyDesc3": "Our calculator uses the industry standard **Engagement Rate by Reach (ERR)**. This measures how many people *interacted* with the content out of the people who *actually saw it*.",
+            "goodRatingTitle": "What is a \"Good\" TikTok Engagement Rate in 2026?",
+            "goodRatings": [
+                "**Under 3%:** Poor. The algorithm likely stopped pushing the video.",
+                "**3% - 6%:** Average. Standard performance for most creators.",
+                "**6% - 9%:** Good. Strong indicator of community trust.",
+                "**9%+ :** Excellent. Highly viral potential and maximum value to sponsors."
+            ],
+            "pitchTitle": "How to Use This Data in Pitch Emails",
+            "pitchDesc": "When reaching out to brands, do not just send a link to your TikTok profile. Brands buy engagement. Take a screenshot of our calculator results showing a 9%+ engagement rate and attach it to your Media Kit.",
+            "pitchAction": "Need help creating a Media Kit? Read our {link}.",
+            "mediaKitLink": "Ultimate TikTok Media Kit Template Guide",
+            "cashTitle": "Turn Engagement Into Cash",
+            "cashDesc": "A high engagement rate is the ultimate leverage when negotiating sponsorships. See exactly how much that engagement is worth in dollars:",
+            "earningsSim": "TikTok Earnings Simulator",
+            "sponsorshipCalc": "Sponsorship Rate Calculator"
+        }
+    },
+    "ToolCreatorIncome": {
+        "badge": "Free Creator Revenue Tool",
+        "titlePrefix": "Creator Income",
+        "titleHighlight": "Calculator",
+        "subtitle": "Calculate your total creator income across YouTube, TikTok, and Instagram. Get a comprehensive breakdown of ads, sponsorships, and affiliate revenue for any platform.",
+        "metadata": {
+            "title": "Creator Income Calculator | YouTube, TikTok, Instagram | Infloura",
+            "description": "Estimate your total income as an online creator. Comprehensive tool for YouTube AdSense, brand deals, and affiliate revenue."
+        },
+        "seo": {
+            "guideTitle": "The Complete Guide to Creator Income",
+            "guideDesc": "The creator economy has grown into a $250 billion industry. Whether you're just starting out or looking to scale, understanding monetization is essential.",
+            "pillarsTitle": "The Five Pillars of Creator Income",
+            "pillarsDesc": "Professional creators typically build income from five key sources. **Ad revenue** provides a baseline through YouTube AdSense, TikTok's Creativity Program, and similar platform programs. **Brand sponsorships** become the largest income source as audiences grow (typically 40-60% of total income for established creators). **Affiliate marketing** generates passive income through product recommendations. **Digital products** (courses, templates, ebooks) offer the highest margins. **Community memberships** provide predictable recurring revenue.",
+            "tiersTitle": "Income by Creator Tier",
+            "tiersDesc": "Creator income roughly correlates with audience size, though engagement and niche matter as much as raw numbers. **Nano creators** (1K-10K followers) typically earn $100-$1,000/month. **Micro creators** (10K-100K) earn $1,000-$5,000/month. **Mid-tier creators** (100K-500K) earn $5,000-$20,000/month. **Macro creators** (500K-1M) earn $20,000-$50,000/month. **Mega creators** (1M+) can earn $50,000-$500,000+ monthly.",
+            "comparisonTitle": "Platform Revenue Comparison",
+            "comparisonDesc": "Each platform offers different monetization strengths. YouTube leads in ad revenue with average RPMs of $3-$25+, plus long-tail value where older videos continue earning for years. TikTok excels at rapid audience growth and e-commerce through TikTok Shop. Instagram dominates brand deal revenue with premium sponsorship rates. Smart creators choose platforms based on their content style and target audience.",
+            "ruleTitle": "The 80/20 Rule of Creator Revenue",
+            "ruleDesc": "Most successful creators follow an 80/20 pattern: 80% of their revenue comes from 20% of their efforts. The key is identifying your highest-ROI activities early.",
+            "taxTitle": "Tax and Business Considerations",
+            "taxDesc": "Smart creators set aside 25-35% of earnings for taxes, form business entities (LLC or similar) for liability protection, and track all expenses for deductions.",
+            "sustainableTitle": "Building a Sustainable Creator Business",
+            "sustainableDesc": "This calculator gives you a quick revenue estimate based on views and platform. For a complete creator business analysis — including 12-month revenue projections, AI-powered growth strategies, risk assessment, and actionable roadmaps — Infloura's full simulation platform provides everything you need to turn your creator passion into a structured, scalable business.",
+            "ctaTitle": "Ready for a Complete Revenue Analysis?",
+            "ctaDesc": "Get 12-month projections, AI strategy reports, and growth tracking — all in one platform.",
+            "ctaButton": "Start Free Trial",
+            "faqTitle": "Frequently Asked Questions",
+            "faqs": [
+                {
+                    "question": "How much do content creators make on average?",
+                    "answer": "Creator income varies enormously. A 2025 study found that full-time creators earn a median of $50,000-$70,000 annually, but the range is vast — from under $1,000 to over $1 million per year. The top 10% of full-time creators earn above $200,000, while beginners often earn under $10,000 in their first year."
+                },
+                {
+                    "question": "What is the best platform for making money as a creator?",
+                    "answer": "YouTube offers the highest ad revenue per view and long-tail content value. Instagram provides the best brand deal rates relative to following size. TikTok offers the fastest audience growth. Most successful creators use 2-3 platforms, repurposing content to maximize reach and diversify income."
+                },
+                {
+                    "question": "How long does it take to make money as a creator?",
+                    "answer": "Most creators start earning small amounts within 3-6 months of consistent posting. Reaching $1,000/month typically takes 6-18 months with regular content production. Full-time income ($3,000-$5,000+/month) usually requires 1-3 years of dedicated work."
+                },
+                {
+                    "question": "What skills do successful creators need?",
+                    "answer": "Beyond content creation skills, successful creators need: basic business and financial literacy, understanding of platform algorithms, email marketing, community building, and negotiation skills."
+                }
+            ]
+        }
+    },
+    "ToolInfluencerIncome": {
+        "badge": "Free Multi-Platform Tool",
+        "titlePrefix": "Influencer Income",
+        "titleHighlight": "Calculator",
+        "subtitle": "Estimate your potential earnings across YouTube, TikTok, and Instagram. Compare platforms and find where your content earns the most.",
+        "metadata": {
+            "title": "Influencer Income Calculator | Multi-Platform Earnings | Infloura",
+            "description": "How much do influencers make? Calculate potential earnings across YouTube, Instagram, and TikTok with our multi-platform predictor."
+        },
+        "seo": {
+            "howTitle": "How Influencer Income Is Calculated",
+            "howDesc": "The influencer economy has grown into a multi-billion dollar industry where creators across all platforms can build sustainable businesses. Understanding how creator income works across different platforms is essential for maximizing your earning potential.",
+            "advantageTitle": "The Multi-Platform Advantage",
+            "advantageDesc": "Today's most successful influencers don't rely on a single platform. They repurpose content across YouTube, TikTok, Instagram, and X (Twitter) to maximize reach and revenue. Studies show that multi-platform creators earn 3-5× more than single-platform creators with similar audience sizes.",
+            "breakdownTitle": "Revenue Streams Breakdown",
+            "breakdownDesc": "Professional influencers typically earn from five key revenue streams: **Ad Revenue** (platform-specific programs), **Brand Sponsorships** (often the largest income source, 40-60%), **Affiliate Marketing** (10-20%), **Digital Products**, and **Memberships & Subscriptions**.",
+            "comparisonTitle": "Platform Comparison",
+            "comparisonDesc": "Each platform has its strengths. YouTube excels at ad revenue. TikTok offers explosive growth potential. Instagram remains the king of brand partnerships. The key is understanding where your content resonates most.",
+            "nicheTitle": "Niche Selection Matters",
+            "nicheDesc": "Finance, technology, and business niches command premium brand deal rates. Beauty and fashion creators benefit from strong affiliate opportunities. Entertainment creators often have larger audiences but lower per-view monetization.",
+            "benchmarksTitle": "Industry Benchmarks",
+            "benchmarksDesc": "According to industry data, creators with 10,000 followers typically earn $200-$2,000 per brand deal. At 100,000 followers, rates jump to $2,000-$15,000 per deal. Creators crossing 500,000 followers often earn $10,000-$50,000 per sponsorship.",
+            "planTitle": "Plan Your Creator Business",
+            "planDesc": "This calculator gives you a quick estimate, but building a sustainable creator business requires deeper analysis. Infloura's full simulation platform provides 12-month revenue projections and AI-powered growth strategies.",
+            "ctaTitle": "Ready for a Complete Revenue Analysis?",
+            "ctaDesc": "Get 12-month projections, AI strategy reports, and growth tracking — all in one platform.",
+            "ctaButton": "Start Free Trial",
+            "faqTitle": "Frequently Asked Questions",
+            "faqs": [
+                {
+                    "question": "How much do influencers make per month?",
+                    "answer": "Influencer income varies enormously. Nano-influencers (1K-10K followers) may earn $100-$500/month, while micro-influencers (10K-100K) earn $500-$5,000. Mid-tier influencers (100K-500K) typically make $5,000-$20,000, and top-tier creators (1M+) can earn $50,000-$500,000+ monthly."
+                },
+                {
+                    "question": "Which platform pays influencers the most?",
+                    "answer": "YouTube generally pays the most per view through its ad revenue system, with RPMs ranging from $3-$25+. However, Instagram and TikTok creators often earn more through brand deals relative to their following size."
+                },
+                {
+                    "question": "How do influencers calculate their rates?",
+                    "answer": "Most influencers use a combination of follower count, engagement rate, and niche value. A common formula is charging $100 per 10,000 followers for a single post, adjusted for engagement rate and platform."
+                },
+                {
+                    "question": "Can you make a full-time income as an influencer?",
+                    "answer": "Yes, thousands of creators earn full-time income as influencers. The key is diversifying revenue across ad revenue, brand deals, affiliate marketing, digital products, and memberships."
+                }
+            ]
+        }
     },
     "Dashboard": {
         "dashboard": "Dashboard",

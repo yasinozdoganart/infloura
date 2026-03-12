@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Sparkles, Loader2, Copy, CheckCircle2, ChevronRight, AlertCircle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { useTranslations } from 'next-intl'
 
 interface GeneratedTitle {
     title: string;
@@ -10,6 +11,7 @@ interface GeneratedTitle {
 }
 
 export function YoutubeTitleGenerator() {
+    const t = useTranslations('ToolTitleGenerator')
     const [topic, setTopic] = useState('')
     const [isLoading, setIsLoading] = useState(false)
     const [results, setResults] = useState<GeneratedTitle[]>([])
@@ -34,13 +36,13 @@ export function YoutubeTitleGenerator() {
             const data = await res.json()
 
             if (!res.ok) {
-                throw new Error(data.error || 'Failed to generate titles')
+                throw new Error(data.error || t('errorFailed'))
             }
 
             if (data.titles && Array.isArray(data.titles)) {
                 setResults(data.titles)
             } else {
-                throw new Error('Invalid response format from AI')
+                throw new Error(t('errorFailed'))
             }
         } catch (err: any) {
             setError(err.message)
@@ -63,14 +65,14 @@ export function YoutubeTitleGenerator() {
                 <form onSubmit={handleGenerate} className="relative z-10 space-y-6">
                     <div>
                         <label htmlFor="topic" className="block text-sm font-medium text-zinc-400 mb-2 flex items-center">
-                            <Sparkles className="w-4 h-4 mr-2 text-red-500" /> What is your video about?
+                            <Sparkles className="w-4 h-4 mr-2 text-red-500" /> {t('label')}
                         </label>
                         <textarea
                             id="topic"
                             rows={3}
                             value={topic}
                             onChange={(e) => setTopic(e.target.value)}
-                            placeholder="e.g. I spent 50 hours trying to learn React from scratch without watching any tutorials..."
+                            placeholder={t('placeholder')}
                             className="block w-full p-4 bg-black/50 border border-white/10 rounded-2xl text-white placeholder-zinc-600 focus:ring-2 focus:ring-red-500/50 focus:border-red-500 transition-all outline-none resize-none"
                             required
                         />
@@ -84,12 +86,12 @@ export function YoutubeTitleGenerator() {
                         {isLoading ? (
                             <>
                                 <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                                Generating Viral Hooks...
+                                {t('buttonLoading')}
                             </>
                         ) : (
                             <>
                                 <Sparkles className="w-5 h-5 mr-2" />
-                                Generate 5 Hook Variants
+                                {t('button')}
                             </>
                         )}
                     </Button>
@@ -105,7 +107,7 @@ export function YoutubeTitleGenerator() {
 
             {results.length > 0 && (
                 <div className="space-y-4 animate-in slide-in-from-bottom-4 duration-500">
-                    <h3 className="text-xl font-bold text-white mb-6 px-2">AI Generated Hooks</h3>
+                    <h3 className="text-xl font-bold text-white mb-6 px-2">{t('resultsTitle')}</h3>
                     <div className="grid gap-4">
                         {results.map((item, idx) => (
                             <div key={idx} className="bg-[#111] border border-white/10 hover:border-red-500/30 transition-colors rounded-2xl p-6 group">
@@ -122,7 +124,7 @@ export function YoutubeTitleGenerator() {
                                     <button
                                         onClick={() => copyToClipboard(item.title, idx)}
                                         className="p-3 rounded-xl bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white transition-colors shrink-0"
-                                        title="Copy Title"
+                                        title={t('copyTooltip')}
                                     >
                                         {copiedIndex === idx ? (
                                             <CheckCircle2 className="w-5 h-5 text-green-500" />

@@ -3,8 +3,10 @@
 import { useState } from 'react'
 import { Download, Link2, AlertCircle, Image as ImageIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { useTranslations } from 'next-intl'
 
 export function YoutubeThumbnailDownloader() {
+    const t = useTranslations('ToolDownloader')
     const [url, setUrl] = useState('')
     const [videoId, setVideoId] = useState<string | null>(null)
     const [error, setError] = useState<string | null>(null)
@@ -22,13 +24,13 @@ export function YoutubeThumbnailDownloader() {
         setVideoId(null)
 
         if (!url.trim()) {
-            setError('Please enter a YouTube URL')
+            setError(t('errorEmpty'))
             return
         }
 
         const id = extractVideoId(url)
         if (!id) {
-            setError('Invalid YouTube URL. Please make sure the link is correct.')
+            setError(t('errorInvalid'))
             return
         }
 
@@ -62,7 +64,7 @@ export function YoutubeThumbnailDownloader() {
                 
                 <form onSubmit={handleFetch} className="relative z-10">
                     <label htmlFor="url" className="block text-sm font-medium text-zinc-400 mb-2">
-                        Paste YouTube Video URL
+                        {t('label')}
                     </label>
                     <div className="flex flex-col sm:flex-row gap-4">
                         <div className="relative flex-grow">
@@ -74,7 +76,7 @@ export function YoutubeThumbnailDownloader() {
                                 type="text"
                                 value={url}
                                 onChange={(e) => setUrl(e.target.value)}
-                                placeholder="https://www.youtube.com/watch?v=..."
+                                placeholder={t('placeholder')}
                                 className="block w-full pl-11 pr-4 py-4 bg-black/50 border border-white/10 rounded-2xl text-white placeholder-zinc-600 focus:ring-2 focus:ring-red-500/50 focus:border-red-500 transition-all outline-none"
                             />
                         </div>
@@ -82,7 +84,7 @@ export function YoutubeThumbnailDownloader() {
                             type="submit"
                             className="bg-red-600 hover:bg-red-500 text-white py-4 px-8 rounded-2xl h-auto font-semibold shadow-lg shadow-red-900/20"
                         >
-                            Get Thumbnail
+                            {t('button')}
                         </Button>
                     </div>
                     {error && (
@@ -98,7 +100,7 @@ export function YoutubeThumbnailDownloader() {
                 <div className="space-y-6 animate-in slide-in-from-bottom-4 duration-500">
                     <h2 className="text-2xl font-bold text-white flex items-center">
                         <ImageIcon className="w-6 h-6 mr-3 text-red-500" />
-                        Thumbnail Results
+                        {t('resultsTitle')}
                     </h2>
                     
                     <div className="bg-[#111] border border-white/10 rounded-3xl p-6 shadow-2xl overflow-hidden">
@@ -113,7 +115,7 @@ export function YoutubeThumbnailDownloader() {
                                     onClick={() => downloadImage(`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`, 'HD')}
                                     className="bg-white text-black hover:bg-zinc-200"
                                 >
-                                    <Download className="w-4 h-4 mr-2" /> Download Full HD (1080p)
+                                    <Download className="w-4 h-4 mr-2" /> {t('downloadFullHD')}
                                 </Button>
                             </div>
                         </div>
@@ -124,21 +126,21 @@ export function YoutubeThumbnailDownloader() {
                                 className="w-full justify-start text-zinc-300 border-white/10 hover:bg-white/5 hover:text-white"
                                 onClick={() => downloadImage(`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`, 'HD')}
                             >
-                                <Download className="w-4 h-4 mr-2" /> HD (1280x720)
+                                <Download className="w-4 h-4 mr-2" /> {t('hdLabel')}
                             </Button>
                             <Button 
                                 variant="outline" 
                                 className="w-full justify-start text-zinc-300 border-white/10 hover:bg-white/5 hover:text-white"
                                 onClick={() => downloadImage(`https://img.youtube.com/vi/${videoId}/sddefault.jpg`, 'SD')}
                             >
-                                <Download className="w-4 h-4 mr-2" /> SD (640x480)
+                                <Download className="w-4 h-4 mr-2" /> {t('sdLabel')}
                             </Button>
                             <Button 
                                 variant="outline" 
                                 className="w-full justify-start text-zinc-300 border-white/10 hover:bg-white/5 hover:text-white"
                                 onClick={() => downloadImage(`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`, 'Normal')}
                             >
-                                <Download className="w-4 h-4 mr-2" /> Normal (480x360)
+                                <Download className="w-4 h-4 mr-2" /> {t('normalLabel')}
                             </Button>
                         </div>
                     </div>

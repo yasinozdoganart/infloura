@@ -3,8 +3,10 @@
 import { useState } from 'react'
 import { Calculator, TrendingUp, Users, Heart, MessageCircle, Share2, AlertCircle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { useTranslations } from 'next-intl'
 
 export function TikTokEngagementCalculator() {
+    const t = useTranslations('ToolEngagement')
     const [views, setViews] = useState('')
     const [likes, setLikes] = useState('')
     const [comments, setComments] = useState('')
@@ -29,12 +31,12 @@ export function TikTokEngagementCalculator() {
         const s = parseInt(shares.replace(/,/g, ''))
 
         if (isNaN(v) || isNaN(l) || isNaN(c) || isNaN(s) || v === 0) {
-            setError('Please enter valid numbers for all fields. Views cannot be zero.')
+            setError(t('errorInvalid'))
             return
         }
 
         if (l + c + s > v) {
-            setError('Total engagements (Likes + Comments + Shares) cannot exceed total views.')
+            setError(t('errorExceed'))
             return
         }
 
@@ -72,14 +74,14 @@ export function TikTokEngagementCalculator() {
                         {/* Views */}
                         <div>
                             <label className="block text-sm font-medium text-zinc-400 mb-2 flex items-center">
-                                <Users className="w-4 h-4 mr-2 text-cyan-500" /> Total Views (Reach)
+                                <Users className="w-4 h-4 mr-2 text-cyan-500" /> {t('labelViews')}
                             </label>
                             <input
                                 type="number"
                                 min="1"
                                 value={views}
                                 onChange={(e) => setViews(e.target.value)}
-                                placeholder="e.g. 50000"
+                                placeholder={t('placeholderViews')}
                                 className="block w-full px-4 py-4 bg-black/50 border border-white/10 rounded-xl text-white placeholder-zinc-600 focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500 transition-all outline-none"
                                 required
                             />
@@ -88,14 +90,14 @@ export function TikTokEngagementCalculator() {
                         {/* Likes */}
                         <div>
                             <label className="block text-sm font-medium text-zinc-400 mb-2 flex items-center">
-                                <Heart className="w-4 h-4 mr-2 text-pink-500" /> Total Likes
+                                <Heart className="w-4 h-4 mr-2 text-pink-500" /> {t('labelLikes')}
                             </label>
                             <input
                                 type="number"
                                 min="0"
                                 value={likes}
                                 onChange={(e) => setLikes(e.target.value)}
-                                placeholder="e.g. 3500"
+                                placeholder={t('placeholderLikes')}
                                 className="block w-full px-4 py-4 bg-black/50 border border-white/10 rounded-xl text-white placeholder-zinc-600 focus:ring-2 focus:ring-pink-500/50 focus:border-pink-500 transition-all outline-none"
                                 required
                             />
@@ -104,14 +106,14 @@ export function TikTokEngagementCalculator() {
                         {/* Comments */}
                         <div>
                             <label className="block text-sm font-medium text-zinc-400 mb-2 flex items-center">
-                                <MessageCircle className="w-4 h-4 mr-2 text-blue-500" /> Total Comments
+                                <MessageCircle className="w-4 h-4 mr-2 text-blue-500" /> {t('labelComments')}
                             </label>
                             <input
                                 type="number"
                                 min="0"
                                 value={comments}
                                 onChange={(e) => setComments(e.target.value)}
-                                placeholder="e.g. 120"
+                                placeholder={t('placeholderComments')}
                                 className="block w-full px-4 py-4 bg-black/50 border border-white/10 rounded-xl text-white placeholder-zinc-600 focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all outline-none"
                                 required
                             />
@@ -120,14 +122,14 @@ export function TikTokEngagementCalculator() {
                         {/* Shares */}
                         <div>
                             <label className="block text-sm font-medium text-zinc-400 mb-2 flex items-center">
-                                <Share2 className="w-4 h-4 mr-2 text-green-500" /> Total Shares
+                                <Share2 className="w-4 h-4 mr-2 text-green-500" /> {t('labelShares')}
                             </label>
                             <input
                                 type="number"
                                 min="0"
                                 value={shares}
                                 onChange={(e) => setShares(e.target.value)}
-                                placeholder="e.g. 450"
+                                placeholder={t('placeholderShares')}
                                 className="block w-full px-4 py-4 bg-black/50 border border-white/10 rounded-xl text-white placeholder-zinc-600 focus:ring-2 focus:ring-green-500/50 focus:border-green-500 transition-all outline-none"
                                 required
                             />
@@ -139,7 +141,7 @@ export function TikTokEngagementCalculator() {
                         className="w-full bg-cyan-600 hover:bg-cyan-500 text-white py-6 rounded-xl text-lg font-semibold shadow-lg shadow-cyan-900/20"
                     >
                         <Calculator className="w-5 h-5 mr-2" />
-                        Calculate Engagement Rate
+                        {t('button')}
                     </Button>
 
                     {error && (
@@ -154,7 +156,7 @@ export function TikTokEngagementCalculator() {
             {/* Results Display */}
             {result && (
                 <div className="bg-gradient-to-br from-cyan-900/20 to-black border border-cyan-500/20 rounded-3xl p-8 sm:p-12 text-center animate-in zoom-in-95 duration-500 shadow-2xl">
-                    <h3 className="text-zinc-400 font-medium uppercase tracking-widest text-sm mb-4">Your True Engagement Rate</h3>
+                    <h3 className="text-zinc-400 font-medium uppercase tracking-widest text-sm mb-4">{t('resultsHeading')}</h3>
                     <div className="flex items-center justify-center space-x-4 mb-6">
                         <span className="text-6xl sm:text-7xl font-bold text-white tracking-tight">
                             {result.rate.toFixed(2)}<span className="text-4xl text-cyan-400">%</span>
@@ -162,10 +164,10 @@ export function TikTokEngagementCalculator() {
                     </div>
                     
                     <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/5 border border-white/10">
-                        <span className="text-zinc-400 mr-2 text-sm">Industry Rating:</span>
+                        <span className="text-zinc-400 mr-2 text-sm">{t('ratingLabel')}</span>
                         <span className={`font-bold uppercase tracking-wider ${result.color} flex items-center`}>
                             {result.rating === 'Excellent' && <TrendingUp className="w-4 h-4 mr-2" />}
-                            {result.rating}
+                            {t(`ratings.${result.rating.toLowerCase()}`)}
                         </span>
                     </div>
                 </div>

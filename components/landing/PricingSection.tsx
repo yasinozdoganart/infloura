@@ -12,8 +12,8 @@ export function PricingSection() {
     const t = useTranslations('Pricing')
     const [isAnnual, setIsAnnual] = useState(false)
 
-    const monthlyPrice = 9.90
-    const annualPrice = 99.90
+    const monthlyPrice = 1.99
+    const annualPrice = 9.99
 
     return (
         <section id="pricing" className="py-24 bg-black relative z-10 w-full scroll-mt-16">
@@ -38,7 +38,7 @@ export function PricingSection() {
                             onClick={() => setIsAnnual(true)}
                             className={`relative w-1/2 py-2 text-sm font-semibold transition-colors duration-300 flex items-center justify-center gap-1.5 ${isAnnual ? 'text-black' : 'text-zinc-400 hover:text-white'}`}
                         >
-                            {t('annual')} <Badge className="bg-green-500/20 text-green-400 hover:bg-green-500/30 border-0 px-1 py-0 h-4 text-[10px] shadow-none">-17%</Badge>
+                            {t('annual')} <Badge className="bg-green-500/20 text-green-400 hover:bg-green-500/30 border-0 px-1 py-0 h-4 text-[10px] shadow-none">-58%</Badge>
                         </button>
                     </div>
                 </div>

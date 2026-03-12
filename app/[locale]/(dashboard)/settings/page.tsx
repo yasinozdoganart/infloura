@@ -227,17 +227,17 @@ export default function SettingsPage() {
                             <Card onClick={() => setSelectedPlan('monthly')} className={`p-4 cursor-pointer transition-colors ${selectedPlan === 'monthly' ? 'border-2 border-purple-500 bg-purple-50 dark:bg-purple-950/20' : 'hover:border-purple-300'}`}>
                                 <div className="flex justify-between items-center mb-2">
                                     <h3 className="font-bold">Pro Monthly</h3>
-                                    <span className="text-xl font-bold">$9.90<span className="text-sm text-zinc-500 font-normal">/mo</span></span>
+                                    <span className="text-xl font-bold">$1.99<span className="text-sm text-zinc-500 font-normal">/mo</span></span>
                                 </div>
                                 <p className="text-sm text-zinc-600 dark:text-zinc-400">{isTR ? 'İstediğiniz zaman iptal edin. Tüm özelliklere tam erişim.' : 'Cancel anytime. Full access to all features.'}</p>
                             </Card>
 
                             <Card onClick={() => setSelectedPlan('annual')} className={`p-4 cursor-pointer transition-colors ${selectedPlan === 'annual' ? 'border-2 border-purple-500 bg-purple-50 dark:bg-purple-950/20' : 'hover:border-purple-300'}`}>
                                 <div className="flex justify-between items-center mb-2">
-                                    <h3 className="font-bold flex items-center gap-2">Pro Annual <Badge className="bg-green-100 text-green-700 hover:bg-green-100 border-0">Save 15%</Badge></h3>
-                                    <span className="text-xl font-bold">$99.90<span className="text-sm text-zinc-500 font-normal">/yr</span></span>
+                                    <h3 className="font-bold flex items-center gap-2">Pro Annual <Badge className="bg-green-100 text-green-700 hover:bg-green-100 border-0">Save 58%</Badge></h3>
+                                    <span className="text-xl font-bold">$9.99<span className="text-sm text-zinc-500 font-normal">/yr</span></span>
                                 </div>
-                                <p className="text-sm text-zinc-600 dark:text-zinc-400">{isTR ? 'Yıllık $99.90 faturalandırılır.' : 'Billed $99.90 annually.'}</p>
+                                <p className="text-sm text-zinc-600 dark:text-zinc-400">{isTR ? 'Yıllık $9.99 faturalandırılır.' : 'Billed $9.99 annually.'}</p>
                             </Card>
 
                         </div>

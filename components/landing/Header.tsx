@@ -2,13 +2,15 @@
 
 import { Link } from '@/i18n/routing'
 import { Button } from '@/components/ui/button'
-import { ChevronDown } from 'lucide-react'
+import { useState } from 'react'
+import { ChevronDown, Menu, X } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { LanguageSwitcher } from './LanguageSwitcher'
 
 export function Header() {
     const t = useTranslations('Navigation')
     const tAnnounce = useTranslations('Announcement')
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
 
     const tools = [
         { name: t('youtubeMoneyCalculator'), href: '/youtube-money-calculator' },
@@ -33,8 +35,8 @@ export function Header() {
                 </p>
             </div>
 
-            <header className="w-full bg-[#030303]/80 backdrop-blur-xl border-b border-white/5">
-                <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <header className="w-full bg-[#030303]/80 backdrop-blur-xl border-b border-white/5 relative">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
                     <div className="flex items-center gap-6 md:gap-8">
                         <Link 
                             href="/" 
@@ -99,31 +101,66 @@ export function Header() {
                     <div className="flex gap-3 md:gap-4 items-center">
                         <LanguageSwitcher />
 
-                        <div className="md:hidden relative group">
+                        <div className="md:hidden flex items-center">
                             <button 
-                                aria-label="Open mobile menu"
-                                aria-haspopup="true"
-                                className="flex items-center text-sm font-medium text-zinc-300 hover:text-white transition-colors py-2"
+                                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                                aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+                                className="p-2 text-zinc-300 hover:text-white transition-colors"
                             >
-                                {t('menu')} <ChevronDown className="w-4 h-4 ml-1 opacity-50 group-hover:rotate-180 transition-transform duration-200" />
+                                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                             </button>
-                            <div className="absolute top-full right-0 pt-2 opacity-0 invisible focus-within:opacity-100 focus-within:visible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                                <div className="w-56 bg-zinc-950 border border-white/10 rounded-xl shadow-2xl overflow-hidden p-2 flex flex-col gap-1">
-                                    <Link href="/tools" className="px-3 py-2.5 text-sm font-medium text-white hover:bg-white/5 rounded-lg transition-colors">
-                                        {t('allTools')}
-                                    </Link>
-                                    <Link href="/#pricing" className="px-3 py-2.5 text-sm font-medium text-white hover:bg-white/5 rounded-lg transition-colors">
-                                        {t('pricing')}
-                                    </Link>
-                                    <Link href="/about" className="px-3 py-2.5 text-sm font-medium text-white hover:bg-white/5 rounded-lg transition-colors">
-                                        {t('about')}
-                                    </Link>
-                                    <div className="h-px bg-white/5 my-1" />
-                                    <Link href="/login" className="px-3 py-2.5 text-sm font-medium text-white hover:bg-white/5 rounded-lg transition-colors">
-                                        {t('logIn')}
-                                    </Link>
-                                </div>
-                            </div>
+                            
+                            {/* Mobile Menu Dropdown */}
+                            {isMenuOpen && (
+                                <>
+                                    <div 
+                                        className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[-1]" 
+                                        onClick={() => setIsMenuOpen(false)}
+                                    />
+                                    <div className="absolute top-full right-0 mt-2 w-64 bg-zinc-950 border border-white/10 rounded-2xl shadow-2xl overflow-hidden p-2 flex flex-col gap-1 ring-1 ring-white/10">
+                                        <div className="px-3 py-2 border-b border-white/5 mb-1">
+                                            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-500">Navigation</p>
+                                        </div>
+                                        <Link 
+                                            href="/tools" 
+                                            onClick={() => setIsMenuOpen(false)}
+                                            className="px-4 py-3 text-sm font-medium text-zinc-300 hover:text-white hover:bg-white/5 rounded-xl transition-colors flex items-center justify-between group"
+                                        >
+                                            {t('allTools')}
+                                            <span className="opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+                                        </Link>
+                                        <Link 
+                                            href="/#pricing" 
+                                            onClick={() => setIsMenuOpen(false)}
+                                            className="px-4 py-3 text-sm font-medium text-zinc-300 hover:text-white hover:bg-white/5 rounded-xl transition-colors"
+                                        >
+                                            {t('pricing')}
+                                        </Link>
+                                        <Link 
+                                            href="/creators" 
+                                            onClick={() => setIsMenuOpen(false)}
+                                            className="px-4 py-3 text-sm font-medium text-zinc-300 hover:text-white hover:bg-white/5 rounded-xl transition-colors"
+                                        >
+                                            {t('creators')}
+                                        </Link>
+                                        <Link 
+                                            href="/about" 
+                                            onClick={() => setIsMenuOpen(false)}
+                                            className="px-4 py-3 text-sm font-medium text-zinc-300 hover:text-white hover:bg-white/5 rounded-xl transition-colors"
+                                        >
+                                            {t('about')}
+                                        </Link>
+                                        <div className="h-px bg-white/5 my-1" />
+                                        <Link 
+                                            href="/login" 
+                                            onClick={() => setIsMenuOpen(false)}
+                                            className="px-4 py-3 text-sm font-medium text-zinc-300 hover:text-white hover:bg-white/5 rounded-xl transition-colors"
+                                        >
+                                            {t('logIn')}
+                                        </Link>
+                                    </div>
+                                </>
+                            )}
                         </div>
 
                         <Button variant="ghost" className="hidden sm:flex text-zinc-300 hover:text-black hover:bg-white transition-colors" asChild>

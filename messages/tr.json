@@ -86,7 +86,204 @@
         "examplesDesc": "Farklı nişlerin kazanç potansiyelinizi nasıl etkilediğini görün. Nişiniz genellikle takipçi sayınızdan daha önemlidir.",
         "subscribers": "Abone Sayısı",
         "monthlyViews": "Aylık İzlenme",
-        "estRevenue": "Tahmini Gelir"
+        "estRevenue": "Tahmini Gelir",
+        "featuresHighlight": "Büyütün",
+        "howWorks": "Nasıl",
+        "howWorksHighlight": "Çalışır",
+        "aiStrategyEngine": "Yapay Zeka Strateji Motoru"
+    },
+    "ToolDownloader": {
+        "titlePrefix": "YouTube",
+        "titleHighlight": "Küçük Resim",
+        "titleSuffix": "İndirici",
+        "subtitle": "Herhangi bir YouTube videosunun yüksek çözünürlüklü (`maxresdefault`) kapak resmini anında indirin. Tamamen ücretsiz, filigransız.",
+        "label": "YouTube Video Bağlantısını Yapıştırın",
+        "placeholder": "https://www.youtube.com/watch?v=...",
+        "button": "Küçük Resmi Al",
+        "resultsTitle": "Küçük Resim Sonuçları",
+        "downloadFullHD": "Full HD (1080p) İndir",
+        "hdLabel": "HD (1280x720)",
+        "sdLabel": "SD (640x480)",
+        "normalLabel": "Normal (480x360)",
+        "errorEmpty": "Lütfen bir YouTube bağlantısı girin",
+        "errorInvalid": "Geçersiz YouTube bağlantısı. Lütfen linkin doğru olduğundan emin olun.",
+        "metadata": {
+            "title": "YouTube Küçük Resim İndirici (HD Kalite) | Infloura",
+            "description": "Herhangi bir YouTube video küçük resmini full HD (1080p) kalitesinde indirmek için ücretsiz araç. maxresdefault kapaklarını anında kaydedin."
+        },
+        "seo": {
+            "howToTitle": "YouTube Küçük Resimleri Nasıl İndirilir",
+            "howToDesc": "Infloura ile YouTube küçük resmi indirmek çok kolaydır. Sadece şu üç adımı izleyin:",
+            "steps": [
+                "Tarayıcınızdan veya uygulamanızdan YouTube video bağlantısını kopyalayın (örn. `https://youtube.com/watch?v=...`).",
+                "Bağlantıyı yukarıdaki giriş kutusuna yapıştırın ve \"Küçük Resmi Al\" butonuna tıklayın.",
+                "Tercih ettiğiniz kalite boyutunu (Full HD, SD veya Normal) seçin ve İndir'e tıklayın."
+            ],
+            "blurryTitle": "HD küçük resmim neden bulanık?",
+            "blurryDesc": "Full HD (1080p) küçük resim bulanık görünüyorsa veya yüklenemiyorsa, bu, içerik üreticisinin özel bir yüksek çözünürlüklü küçük resim yüklemediği veya videonun eski ve düşük kaliteli olduğu anlamına gelir. Bu durumlarda, bunun yerine \"HQ\" (Normal) butonunu kullanın.",
+            "creatorsTitle": "İçerik Üreticileri Neden Bir Küçük Resim İndiriciye İhtiyaç Duyar?",
+            "creatorsDesc": "İster bir medya kiti oluşturan bir üretici, ister ilham toplayan bir tasarımcı, ister rakiplerinin Tıklama Oranı (CTR) taktiklerini analiz eden bir pazarlamacı olun, yüksek kaliteli bir küçük resmi dışa aktarmak günlük bir ihtiyaçtır. Aracımız, öğeyi inceleme veya YouTube API dokümantasyonunu kazma ihtiyacını ortadan kaldırır.",
+            "creatorsAction": "Nişinizde işe yarayan görsel kancaları analiz ettikten sonra, mükemmel başlığı oluşturmak için {link} aracımızı kullanın.",
+            "aiTitleLink": "Yapay Zeka Başlık Oluşturucu",
+            "worthTitle": "Kanalınızın Değeri Ne Kadar?",
+            "worthDesc": "Harika bir küçük resim size izlenme kazandırır, ancak izlenmeler her zaman gelire eşit değildir. YouTube kanalınızın AdSense veya Marka Sponsorlukları aracılığıyla tam olarak ne kadar kazanabileceğini bilmek istiyorsanız, tahmin etmeyi bırakın ve profesyonel finansal modellerimizi kullanın:",
+            "youtubeIncomeSim": "YouTube Gelir Simülatörü",
+            "sponsorshipCalc": "Sponsorluk Oranı Hesaplayıcı"
+        }
+    },
+    "ToolTitleGenerator": {
+        "badge": "Infloura AI Tarafından Güçlendirilmiş",
+        "titlePrefix": "YouTube",
+        "titleHighlight": "Başlık",
+        "titleSuffix": "Oluşturucu",
+        "subtitle": "Algoritma sadece insanların tıkladığı içerikleri öne çıkarır. Sıkıcı video fikirlerinizi saniyeler içinde psikolojik tıklama mıknatıslarına dönüştürün.",
+        "label": "Videonuz ne hakkında?",
+        "placeholder": "Örneğin: Sıfırdan React öğrenmek için 50 saat harcadım ve hiç ders videosu izlemedim...",
+        "button": "5 Kanca Varyasyonu Oluştur",
+        "buttonLoading": "Viral Kancalar Oluşturuluyor...",
+        "resultsTitle": "Yapay Zeka Tarafından Oluşturulan Kancalar",
+        "copyTooltip": "Başlığı Kopyala",
+        "errorEmpty": "Lütfen bir konu girin",
+        "errorFailed": "Başlıklar oluşturulamadı",
+        "metadata": {
+            "title": "YouTube Başlık Oluşturucu (Yapay Zeka Destekli) | Infloura",
+            "description": "Yapay zeka kullanarak viral YouTube başlıkları oluşturun. Oluşturucumuz, CTR'nizi ve izlenmelerinizi artırmak için psikoloji tabanlı kancalar kullanır."
+        },
+        "seo": {
+            "howItWorksTitle": "YouTube Yapay Zeka Başlık Oluşturucu Nasıl Çalışır?",
+            "howItWorksDesc1": "Çoğu yapay zeka yazarı, izleyicilerin anında göz ardı ettiği genel, robotik sesli başlıklar üretir. Infloura'nın yapay zekası, \"Bilgi Boşluğu\", duygusal tetikleyiciler ve yüksek bahisler gibi kavramları anlayarak özellikle **tıklama psikolojisi** üzerine eğitilmiştir.",
+            "howItWorksDesc2": "Video konseptinizi açıkladığınızda, oluşturucumuz onu sadece özetlemekle kalmaz. Aktif olarak en ilgi çekici açıyı arar ve psikolojik kancanın *neden* işe yaradığına dair ayrıntılı bir gerekçeyle birlikte 5 farklı varyasyon sunarak size YouTube stratejisi hakkında daha derin bir anlayış kazandırır.",
+            "pillarsTitle": "Viral Bir YouTube Başlığının 3 Temel Taşı",
+            "pillars": [
+                {
+                    "title": "Merak (Bilgi Boşluğu):",
+                    "text": "İzleyiciye bir soru sormasını sağlayacak kadar bilgi verip, cevabı saklayarak tıklamasını sağlamak. (Örn: *\"Sizin Yerine 10.000 Dolarlık Diyeti Denemeye Çalıştım\"*)"
+                },
+                {
+                    "title": "Riskler ve Olumsuzluklar:",
+                    "text": "İnsanlar biyolojik olarak tehlikeden kaçınmaya programlıdır. Hataları, başarısızlıkları veya acil uyarıları vurgulamak Tıklama Oranını (CTR) önemli ölçüde artırır."
+                },
+                {
+                    "title": "Kısalık:",
+                    "text": "YouTube izlenmelerinin %70'inden fazlası mobil cihazlarda gerçekleşir. Başlığınız 50-60 karakterden uzunsa, platform onu kesecektir (üç nokta \"...\" ekleyerek), bu da kancanızı öldürür."
+                }
+            ],
+            "thumbnailPairTitle": "Başlıkları Küçük Resimlerle Eşleştirme",
+            "thumbnailPairDesc": "Bir başlık tek başına başarılı olamaz. Küçük resminizle sinerji içinde çalışmalıdır. Başlık bağlam sağlar, küçük resim ise duygu. Rakiplerinizin kapaklarını nasıl tasarladığını analiz etmek isterseniz, stratejilerini incelemek için {link} aracımızı kullanın.",
+            "thumbnailLink": "Ücretsiz Yüksek Çözünürlüklü Küçük Resim İndirici",
+            "viralTitle": "Viral Olduğunuzda Ne Olur?",
+            "viralDesc": "Harika bir başlık yazmak tıklamayı garanti eder. Ancak viral bir video gerçekte ne kadar para kazandırır? Bu, büyük ölçüde özel Niş RPM'nize (Bin Gösterim Başına Gelir) ve izleyici coğrafyanıza bağlıdır.",
+            "adRevenueSim": "YouTube Reklam Geliri Simülatörü",
+            "valueMillionViews": "1 Milyon İzlenmenin Değeri"
+        }
+    },
+    "ToolEngagement": {
+        "titlePrefix": "TikTok",
+        "titleHighlight": "Etkileşim",
+        "titleSuffix": "Hesaplayıcı",
+        "subtitle": "TikTok'ta takipçiler önemli değil, erişim önemlidir. Daha iyi marka anlaşmaları yapmak için gerçek Erişim Başına Etkileşim Oranınızı (ERR) hesaplayın.",
+        "labelViews": "Toplam İzlenme (Erişim)",
+        "labelLikes": "Toplam Beğeni",
+        "labelComments": "Toplam Yorum",
+        "labelShares": "Toplam Paylaşım",
+        "placeholderViews": "Örneğin: 50000",
+        "placeholderLikes": "Örneğin: 3500",
+        "placeholderComments": "Örneğin: 120",
+        "placeholderShares": "Örneğin: 450",
+        "button": "Etkileşim Oranını Hesapla",
+        "errorInvalid": "Lütfen tüm alanlar için geçerli sayılar girin. İzlenme sıfır olamaz.",
+        "errorExceed": "Toplam etkileşimler (Beğeniler + Yorumlar + Paylaşım) toplam izlenmeyi geçemez.",
+        "resultsHeading": "Gerçek Etkileşim Oranınız",
+        "ratingLabel": "Sektör Derecesi:",
+        "ratings": {
+            "poor": "Zayıf",
+            "average": "Ortalama",
+            "good": "İyi",
+            "excellent": "Mükemmel"
+        },
+        "metadata": {
+            "title": "TikTok Etkileşim Oranı Hesaplayıcı | Infloura",
+            "description": "Gerçek TikTok etkileşim oranınızı erişime göre (ERR) hesaplayın. Üreticiler ve markalar için gerçek performansı ölçmek için gereklidir."
+        },
+        "seo": {
+            "whyTitle": "Neden İzlenmeye Dayalı Etkileşimi (ERR) Hesaplamalıyız?",
+            "whyDesc1": "Eski etkileşim formülü `(Beğeniler + Yorumlar) ÷ Takipçiler` şeklindeydi. Bu formül, TikTok gibi modern algoritmik platformlar için tamamen bozulmuştur.",
+            "whyDesc2": "TikTok \"Sizin İçin Sayfası\" (FYP) içeriği öncelikle takipçi olmayanlara sunduğu için, sadece 5.000 takipçiniz olsa bile bir video 1 Milyon izlenebilir. Bu videonun etkileşimini takipçi sayınıza göre ölçmek, matematiksel olarak imkansız olan %2.000'lik bir etkileşim oranıyla sonuçlanacaktır.",
+            "whyDesc3": "Hesaplayıcımız sektör standardı olan **Erişim Başına Etkileşim Oranını (ERR)** kullanır. Bu, içeriği *gerçekten gören* kişiler arasından kaç kişinin içerikle *etkileşime girdiğini* ölçer.",
+            "goodRatingTitle": "2026'da \"İyi\" Bir TikTok Etkileşim Oranı Nedir?",
+            "goodRatings": [
+                "**%3'ün Altı:** Zayıf. Algoritma muhtemelen videoyu öne çıkarmayı bıraktı.",
+                "**%3 - %6:** Ortalama. Çoğu içerik üreticisi için standart performans.",
+                "**%6 - %9:** İyi. Topluluk güveninin güçlü bir göstergesi.",
+                "**%9+ :** Mükemmel. Yüksek viral potansiyel ve sponsorlar için maksimum değer."
+            ],
+            "pitchTitle": "Bu Veriler Tanıtım E-postalarında Nasıl Kullanılır?",
+            "pitchDesc": "Markalara ulaşırken sadece TikTok profilinizin bağlantısını göndermeyin. Markalar etkileşim satın alır. %9+ etkileşim oranını gösteren hesaplayıcı sonuçlarımızın ekran görüntüsünü alın ve Medya Kitinize ekleyin.",
+            "pitchAction": "Bir Medya Kiti oluşturmak için yardıma mı ihtiyacınız var? {link} okuyun.",
+            "mediaKitLink": "Mükemmel TikTok Medya Kiti Şablonu",
+            "cashTitle": "Etkileşimi Nakte Dönüştürün",
+            "cashDesc": "Yüksek bir etkileşim oranı, sponsorluklar için pazarlık yaparken en büyük kozunuzdur. Bu etkileşimin dolar bazında tam olarak ne kadar ettiğini görün:",
+            "earningsSim": "TikTok Kazanç Simülatörü",
+            "sponsorshipCalc": "Sponsorluk Oranı Hesaplayıcı"
+        }
+    },
+    "ToolCreatorIncome": {
+        "badge": "Ücretsiz Üretici Gelir Aracı",
+        "titlePrefix": "İçerik Üretici",
+        "titleHighlight": "Gelir Hesaplayıcı",
+        "subtitle": "YouTube, TikTok ve Instagram genelindeki toplam üretici gelirinizi hesaplayın. Herhangi bir platform için reklamlar, sponsorluklar ve satış ortaklığı gelirlerinin kapsamlı bir dökümünü alın.",
+        "metadata": {
+            "title": "İçerik Üretici Gelir Hesaplayıcı | YouTube, TikTok, Instagram | Infloura",
+            "description": "Çevrimiçi bir üretici olarak toplam gelirinizi tahmin edin. YouTube AdSense, marka anlaşmaları ve satış ortaklığı geliri için kapsamlı bir araç."
+        },
+        "seo": {
+            "guideTitle": "İçerik Üretici Geliri İçin Tam Rehber",
+            "guideDesc": "Üretici ekonomisi 250 milyar dolarlık bir sektöre dönüştü. İster yeni başlıyor olun, ister ölçeklendirmek isteyin, gelir elde etmeyi anlamak çok önemlidir.",
+            "pillarsTitle": "Üretici Gelirinin Beş Temel Taşı",
+            "pillarsDesc": "Profesyonel üreticiler genellikle beş ana kaynaktan gelir elde eder: Reklam geliri, Marka sponsorlukları (toplam gelirin %40-60'ı), Satış ortaklığı, Dijital ürünler ve Topluluk üyelikleri.",
+            "tiersTitle": "Üretici Seviyesine Göre Gelir",
+            "tiersDesc": "Nano (1B-10B): 100$-1.000$/ay. Mikro (10B-100B): 1.000$-5.000$/ay. Orta seviye (100B-500B): 5.000$-20.000$/ay. Makro (500B-1M): 20.000$-50.000$/ay. Mega (1M+): Aylık 50.000$-500.000$+.",
+            "comparisonTitle": "Platform Gelir Karşılaştırması",
+            "comparisonDesc": "YouTube reklam gelirinde liderdir ($3-$25+ RPM). TikTok büyüme ve e-ticarette uzmanlaşmıştır. Instagram yaşam tarzı sponsorluklarını domine eder.",
+            "ruleTitle": "Üretici Gelirinin 80/20 Kuralı",
+            "ruleDesc": "Gelirin %80'i çabanın %20'sinden gelir. Uzun formlu içeriğe, e-posta listelerine ve sürekli marka ortaklıklarına odaklanın.",
+            "taxTitle": "Vergi ve İşletme Hususları",
+            "taxDesc": "Üretici geliri serbest meslek geliridir. Vergiler için %25-35 ayırın ve giderlerinizi takip edin.",
+            "sustainableTitle": "Sürdürülebilir Bir Üretici İşi Kurmak",
+            "sustainableDesc": "Bu hesaplayıcı hızlı bir tahmin sunar. 12 aylık projeksiyonlar ve yapay zeka stratejisi için Infloura'nın tam simülasyon platformunu kullanın.",
+            "ctaTitle": "Tam Bir Gelir Analizine Hazır mısınız?",
+            "ctaDesc": "12 aylık projeksiyonlar, yapay zeka strateji raporları ve büyüme takibi — hepsi tek bir platformda.",
+            "ctaButton": "Ücretsiz Denemeyi Başlat"
+        }
+    },
+    "ToolInfluencerIncome": {
+        "badge": "Ücretsiz Çoklu Platform Aracı",
+        "titlePrefix": "Influencer",
+        "titleHighlight": "Gelir Hesaplayıcı",
+        "subtitle": "YouTube, TikTok ve Instagram genelindeki potansiyel kazancınızı tahmin edin. Platformları karşılaştırın ve içeriğinizin en çok nerede kazandırdığını bulun.",
+        "metadata": {
+            "title": "Influencer Gelir Hesaplayıcı | Çoklu Platform Kazançları | Infloura",
+            "description": "Influencer'lar ne kadar kazanıyor? Çoklu platform tahmincimizle YouTube, Instagram ve TikTok genelindeki potansiyel kazançları hesaplayın."
+        },
+        "seo": {
+            "howTitle": "Influencer Geliri Nasıl Hesaplanır?",
+            "howDesc": "Üretici gelirinin farklı platformlarda nasıl çalıştığını anlamak, potansiyelinizi maksimize etmek için çok önemlidir.",
+            "advantageTitle": "Çoklu Platform Avantajı",
+            "advantageDesc": "Başarılı influencer'lar içeriği platformlar arasında dönüştürür. Çalışmalar, çoklu platform üreticilerinin 3-5 kat daha fazla kazandığını gösteriyor.",
+            "breakdownTitle": "Gelir Kaynakları Dökümü",
+            "breakdownDesc": "Reklam Geliri (%15-30), Marka Sponsorlukları (%40-60), Satış Ortaklığı (%10-20), Dijital Ürünler ve Üyelikler.",
+            "comparisonTitle": "Platform Karşılaştırması",
+            "comparisonDesc": "Reklamlar için YouTube, büyüme/e-ticaret için TikTok, yaşam tarzı sponsorlukları için Instagram.",
+            "nicheTitle": "Niş Seçimi Önemlidir",
+            "nicheDesc": "Finans, teknoloji ve iş dünyası premium oranlar sunar. Güzellik ve modanın güçlü satış ortaklığı fırsatları vardır.",
+            "benchmarksTitle": "Sektör Kriterleri",
+            "benchmarksDesc": "10B takipçi: Anlaşma başına 200$-2.000$. 100B: 2.000$-15.000$. 500B: Sponsorluk başına 10.000$-50.000$.",
+            "planTitle": "Üretici İşinizi Planlayın",
+            "planDesc": "12 aylık gelir projeksiyonları ve yapay zeka destekli büyüme stratejileri için Infloura'yı kullanın.",
+            "ctaTitle": "Tam Bir Gelir Analizine Hazır mısınız?",
+            "ctaDesc": "12 aylık projeksiyonlar, yapay zeka strateji raporları ve büyüme takibi — hepsi tek bir platformda.",
+            "ctaButton": "Ücretsiz Denemeyi Başlat"
+        }
     },
     "Dashboard": {
         "dashboard": "Panel Merkezi",
